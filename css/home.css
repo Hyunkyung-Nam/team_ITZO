@@ -1,0 +1,185 @@
+@media screen and (min-width: 768px) and (max-width: 1500px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        margin: 0px;
+        padding: 0px;
+        background-color: #001d49;
+    }
+
+    .tag {
+        position: relative;
+        width: 100%;
+        height: 90px;
+        background-color: lightslategrey;
+        display: flex;
+        list-style: none;
+        justify-content: right;
+        margin: 0px;
+        align-items: center;
+        padding: 0px;
+    }
+    .menu {
+        padding-right: 100px;
+    }
+
+    .logo {
+        color: white;
+        margin-right: auto;
+        font-size: 36px;
+        font-weight: bold;
+        padding-left: 120px;
+    }
+    .tag a {
+        text-decoration: none;
+        color: white;
+        font-size: 19px;
+        margin: 0 30px;
+    }
+    .maintitle {
+        top: -400px;
+    }
+    .maintext {
+        position: relative;
+        text-align: left;
+        color: white;
+        bottom: auto;
+        top: -400px;
+        padding-left: 50px;
+        font-size: 32px;
+    }
+    .maintext p b {
+        text-decoration: underline;
+        text-decoration-color: white;
+    }
+
+    .slider {
+        position: relative;
+        overflow: hidden;
+
+        width: 782px;
+        height: 631px;
+        right: -500px;
+        top: 50px;
+        border: 1px solid gold;
+        border-radius: 1%;
+    }
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+
+        animation: slider 7.5s infinite linear;
+    }
+    .slide:nth-child(1) {
+        background-image: url(/img/경복궁.jpg);
+        animation-delay: 0;
+    }
+    .slide:nth-child(2) {
+        background-image: url(/img/서울시립미술관.jpg);
+        animation-delay: -2.5s;
+    }
+    .slide:nth-child(3) {
+        background-image: url(/img/);
+        animation-delay: -5s;
+    }
+    @keyframes slider {
+        0% {
+            transform: translateX(0);
+        }
+
+        26% {
+            transform: translateX(0);
+        }
+        33% {
+            transform: translateX(-100%);
+            animation-timing-function: step-end;
+        }
+        93% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+    h2 {
+        color: white;
+    }
+    #themecard {
+        background: #f4f6f8;
+        width: 100vw;
+        height: 400px;
+        margin-left: calc(-50vw + 50%);
+        margin-bottom: 40px;
+        padding: 37px 0 50px;
+    }
+    .container {
+        width: 100vw;
+        height: 300px;
+        background-color: f4f6f8;
+        margin: 100 100px;
+    }
+    .ctbox {
+        position: relative;
+        width: 100vw;
+        height: 280px;
+        background-color: f4f6f8;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around; /* Add this line */
+        align-items: center; /* Add this line */
+        gap: 40px;
+    }
+    .ctcard1 {
+        background: #001d49;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        margin: 0 auto;
+        /* padding: 37px 0 50px; */
+    }
+    .ctcard2 {
+        background: #001d49;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+    .ctcard3 {
+        background: #001d49;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+    .ctcard4 {
+        background: #001d49;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+    .ctcard1 img,
+    .ctcard2 img,
+    .ctcard3 img,
+    .ctcard4 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+    }
+    .cardtext {
+        text-align: center;
+        font-size: 16px;
+        color: black;
+        margin-top: 10px;
+    }
+}
