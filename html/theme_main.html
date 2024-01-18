@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>theme</title>
+        <link rel="stylesheet" href="../css/theme_main.css" />
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <div class="logo_name">궁석궁석</div>
+            </div>
+            <div class="nav">
+                <div class="home"><a href="">홈</a></div>
+                <div class="theme"><a href="">테마</a></div>
+                <div class="area"><a href="">지역별 추천</a></div>
+                <div class="random"><a href="">랜덤 추천</a></div>
+            </div>
+        </header>
+        <!-- <header id="gnbCommon" class="service_gnb">
+            <div class="gnb">
+                <h1 class="logo">
+                    로고삽입
+                </h1>
+                <div class="menu">
+                    <div class="depth_1">
+                        <div class="swiper-container">
+                            <ul class="swiper-wrapper">
+                                배너
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header> -->
+        <!-- 메인 로고 누르면 메인페이지 새로고침 -->
+
+        <!-- 현경님꺼 참고!!! -->
+        <!-- <header id="header" class="header">
+            <div class="gnbCommon">
+                <div clsss="gnb">
+                    <h1 class="logo">
+                        <a href="">궁석궁석</a>
+                    </h1>
+                </div>
+                <div class="menu_list">
+                    <div class="menu_block">
+                        <ul class="tag" id="tag">
+                            <li class="menu"><a href="">홈</a></li>
+                            <li class="menu"><a href="">테마</a></li>
+                            <li class="menu"><a href="">지역별추천</a></li>
+                            <li class="menu"><a href="">랜덤추천</a></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </header> -->
+        <!-- <header id="header" class="header">
+            <ul class="tag" id="tag">
+                <li class="logo">궁석궁석</li>
+                <li class="menu"><a href="">홈</a></li>
+                <li class="menu"><a href="">테마</a></li>
+                <li class="menu"><a href="">지역별추천</a></li>
+                <li class="menu"><a href="">랜덤추천</a></li>
+            </ul>
+        </header> -->
+        <div class="theme_showcase" id="main_tab" style="background-color: #001d49">
+            <!-- 사진까지만 자를거면 아래에서 style back color 주기-->
+            <div class="main_tab_bgcolor">
+                <div class="tit">
+                    <h3>
+                        테마를 선택하세요!
+                        <!-- 나중엔 이미지를 넣어서 타이틀로 -->
+                    </h3>
+                </div>
+                <div class="theme_choose">
+                    <div class="wrap_theme">
+                        <div class="theme_temple_palace">
+                            <a href="https://www.naver.com/" title="고궁과 절 바로가기" class="wrap">
+                                <span class="image">
+                                    <!-- 이미지는 로컬에 저장되면 안되니까 방법바꿔야함 -->
+                                    <img src="../img/gyeongbokgung-palace.jpg" alt="고궁이미지" class="swiper-lazy" />
+                                </span>
+                                <div class="text">
+                                    <strong>고궁과 절</strong>
+                                    <p>우리의 자랑스런 문화유산을 확인해보세요!</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="theme_park">
+                            <a href="https://www.naver.com/" title="공원바로가기" class="wrap">
+                                <span class="image">
+                                    <img src="../img/park.jpeg" alt="공원이미지" class="swiper-lazy" />
+                                </span>
+                                <div class="text">
+                                    <strong>공원</strong>
+                                    <p>반려동물과 함께 산책하기 좋은 공원을 확인해보세요!</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- 일단 박물관 사진만 나중엔 편집해서 세로로 나타내야할듯 -->
+                        <div class="theme_inside">
+                            <a href="https://www.naver.com/" title="실내공간 바로가기" class="wrap">
+                                <span class="image">
+                                    <img src="../img/museum.jpg" alt="박물관이미지" class="swiper-lazy" />
+                                </span>
+                                <div class="text">
+                                    <strong>박물관<br />미술관<br />천문대</strong>
+                                    <p>추운 날 더운 날 실내공간은 어떠신가요?</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="theme_historical_landmark">
+                            <a href="https://www.naver.com/" title="역사적 명소 바로가기" class="wrap">
+                                <span class="image">
+                                    <img
+                                        src="../img/historical landmark.jpg"
+                                        alt="역사적 명소 이미지"
+                                        class="swiper-lazy"
+                                    />
+                                </span>
+                                <div class="text">
+                                    <strong>역사적 명소</strong>
+                                    <p>남다른 콘텐츠를 가진 명소를 찾아가봅시다</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="sel_area">
+                <div class="sel_member">
+                    <select name="관광정보 선택" id="relation2">
+                        <option value class="default">관광정보</option>
+                        <option value="https://api.visitkorea.or.kr/#/" title="새창">TourAPI4.0</option>
+                        <option
+                            value="https://datalab.visitkorea.or.kr/datalab/portal/main/getMainForm.do"
+                            title="새창"
+                        >
+                            한국 관광 데이터랩
+                        </option>
+                    </select>
+                    <!-- 이동 누르면 해당사이트로 새창 열림 -->
+                    <button class="link_view" title="선택관광정보로 새창 열림" onclick="goRelation2()">이동</button>
+                </div>
+                <div class="sel_member">
+                    <select name="유관기관 선택" id="relation">
+                        <option value class="default">유관기관</option>
+                        <option value="http://www.mmca.go.kr" title="새창">국립현대미술관</option>
+                        <option value="http://www.seoulwelcome.com" title="새창">서울관광재단</option>
+                    </select>
+                    <button class="link_view" title="유관기관으로 새창 열림" onclick="goRelation()">이동</button>
+                </div>
+            </div>
+        </div>
+        <!-- 사업자 정보 쓰는 맨 마지막 부분 -->
+        <div class="bottom2"></div>
+        <script src="../js/theme_main.js"></script>
+    </body>
+</html>
