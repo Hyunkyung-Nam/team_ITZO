@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>궁석궁석</title>
+        <!-- 사이트 이름이 정해지면 title모두 바꾸기 -->
+        <link rel="stylesheet" href="../css/mapRecommand.css" />
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <div>궁석궁석</div>
+            </div>
+            <div class="nav">
+                <div>홈</div>
+                <div>테마</div>
+                <div>지역별 추천</div>
+                <div>랜덤추천</div>
+            </div>
+        </header>
+        <main>
+            <div class="left-section">
+                <div><button type="button" class="reset-map" onclick="resetMap()">전체보기</button></div>
+                <div class="map-wrap">
+                    <div class="map-top">
+                        <div class="map-1" onclick="map1Click()">
+                            <img src="./img/map1.jpeg" alt="지도사진1" />
+                        </div>
+                        <div class="map-2" onclick="map2Click()">
+                            <img src="./img/map2.jpeg" alt="지도사진2" />
+                        </div>
+                    </div>
+                    <div class="map-bottom">
+                        <div class="map-3" onclick="map3Click()">
+                            <img src="./img/map3.jpeg" alt="지도사진3" />
+                        </div>
+                        <div class="map-4" onclick="map4Click()">
+                            <img src="./img/map4.jpeg" alt="지도사진4" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="content-wrap">
+                    <div class="content-container map1">
+                        <div class="content-img-section">
+                            <img src="./img/temp.JPG" alt="임시사진" />
+                        </div>
+                        <div class="content-preview-section">
+                            <div class="content-preview-header">지도1구간</div>
+                            <div class="content-preview-address">서울 종로구 사직로 161 경복궁</div>
+                            <div class="content-preview-tag">#산챋 #명소 #야경</div>
+                        </div>
+                    </div>
+                    <div class="content-container map2">
+                        <div class="content-img-section">
+                            <img src="./img/temp.JPG" alt="임시사진" />
+                        </div>
+                        <div class="content-preview-section">
+                            <div class="content-preview-header">지도2구간</div>
+                            <div class="content-preview-address">서울 종로구 사직로 161 경복궁</div>
+                            <div class="content-preview-tag">#산챋 #명소 #야경</div>
+                        </div>
+                    </div>
+                    <div class="content-container map3">
+                        <div class="content-img-section">
+                            <img src="./img/temp.JPG" alt="임시사진" />
+                        </div>
+                        <div class="content-preview-section">
+                            <div class="content-preview-header">지도3구간</div>
+                            <div class="content-preview-address">서울 종로구 사직로 161 경복궁</div>
+                            <div class="content-preview-tag">#산챋 #명소 #야경</div>
+                        </div>
+                    </div>
+                    <div class="content-container map4">
+                        <div class="content-img-section">
+                            <img src="./img/temp.JPG" alt="임시사진" />
+                        </div>
+                        <div class="content-preview-section">
+                            <div class="content-preview-header">지도4구간</div>
+                            <div class="content-preview-address">서울 종로구 사직로 161 경복궁</div>
+                            <div class="content-preview-tag">#산챋 #명소 #야경</div>
+                        </div>
+                    </div>
+                    <div class="content-container map1">
+                        <div class="content-img-section">
+                            <img src="./img/temp.JPG" alt="임시사진" />
+                        </div>
+                        <div class="content-preview-section">
+                            <div class="content-preview-header">지도1구간2</div>
+                            <div class="content-preview-address">서울 종로구 사직로 161 경복궁</div>
+                            <div class="content-preview-tag">#산챋 #명소 #야경</div>
+                        </div>
+                    </div>
+                    <div class="content-container map2">
+                        <div class="content-img-section">
+                            <img src="./img/temp.JPG" alt="임시사진" />
+                        </div>
+                        <div class="content-preview-section">
+                            <div class="content-preview-header">지도2구간2</div>
+                            <div class="content-preview-address">서울 종로구 사직로 161 경복궁</div>
+                            <div class="content-preview-tag">#산챋 #명소 #야경</div>
+                        </div>
+                    </div>
+                    <div class="content-container map3">
+                        <div class="content-img-section">
+                            <img src="./img/temp.JPG" alt="임시사진" />
+                        </div>
+                        <div class="content-preview-section">
+                            <div class="content-preview-header">지도3구간2</div>
+                            <div class="content-preview-address">서울 종로구 사직로 161 경복궁</div>
+                            <div class="content-preview-tag">#산챋 #명소 #야경</div>
+                        </div>
+                    </div>
+                    <div class="content-container map4">
+                        <div class="content-img-section">
+                            <img src="./img/temp.JPG" alt="임시사진" />
+                        </div>
+                        <div class="content-preview-section">
+                            <div class="content-preview-header">지도4구간2</div>
+                            <div class="content-preview-address">서울 종로구 사직로 161 경복궁</div>
+                            <div class="content-preview-tag">#산챋 #명소 #야경</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer></footer>
+        <script src="../js/mapRecommand.js"></script>
+    </body>
+</html>
