@@ -7,6 +7,30 @@
         <!-- 사이트 이름이 정해지면 title모두 바꾸기 -->
         <link rel="stylesheet" href="../css/mapRecommand.css" />
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            .area {
+                position: absolute;
+                background: #fff;
+                border: 1px solid #888;
+                border-radius: 3px;
+                font-size: 12px;
+                top: -5px;
+                left: 15px;
+                padding: 2px;
+            }
+
+            .info {
+                font-size: 12px;
+                padding: 5px;
+            }
+            .info .title {
+                font-weight: bold;
+            }
+        </style>
+        <script
+            type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=722724134c7bd33a3711a12ebd2afb06"
+        ></script>
     </head>
     <body>
         <header>
@@ -24,29 +48,14 @@
             <div class="left-section">
                 <div><button type="button" class="reset-map" onclick="resetMap()">전체보기</button></div>
                 <div class="map-wrap">
-                    <div class="map-top">
-                        <div class="map-1" onclick="map1Click()">
-                            <img src="./img/map1.jpeg" alt="지도사진1" />
-                        </div>
-                        <div class="map-2" onclick="map2Click()">
-                            <img src="./img/map2.jpeg" alt="지도사진2" />
-                        </div>
-                    </div>
-                    <div class="map-bottom">
-                        <div class="map-3" onclick="map3Click()">
-                            <img src="./img/map3.jpeg" alt="지도사진3" />
-                        </div>
-                        <div class="map-4" onclick="map4Click()">
-                            <img src="./img/map4.jpeg" alt="지도사진4" />
-                        </div>
-                    </div>
+                    <div id="map"></div>
                 </div>
             </div>
             <div class="right-section">
                 <div class="content-wrap">
                     <div class="content-container map1">
                         <div class="content-img-section">
-                            <img src="./img/temp.JPG" alt="임시사진" />
+                            <img src="" alt="임시사진" />
                         </div>
                         <div class="content-preview-section">
                             <div class="content-preview-header">지도1구간</div>
@@ -56,7 +65,7 @@
                     </div>
                     <div class="content-container map2">
                         <div class="content-img-section">
-                            <img src="./img/temp.JPG" alt="임시사진" />
+                            <img src="" alt="임시사진" />
                         </div>
                         <div class="content-preview-section">
                             <div class="content-preview-header">지도2구간</div>
@@ -66,7 +75,7 @@
                     </div>
                     <div class="content-container map3">
                         <div class="content-img-section">
-                            <img src="./img/temp.JPG" alt="임시사진" />
+                            <img src="" alt="임시사진" />
                         </div>
                         <div class="content-preview-section">
                             <div class="content-preview-header">지도3구간</div>
@@ -76,7 +85,7 @@
                     </div>
                     <div class="content-container map4">
                         <div class="content-img-section">
-                            <img src="./img/temp.JPG" alt="임시사진" />
+                            <img src="" alt="임시사진" />
                         </div>
                         <div class="content-preview-section">
                             <div class="content-preview-header">지도4구간</div>
@@ -86,7 +95,7 @@
                     </div>
                     <div class="content-container map1">
                         <div class="content-img-section">
-                            <img src="./img/temp.JPG" alt="임시사진" />
+                            <img src="" alt="임시사진" />
                         </div>
                         <div class="content-preview-section">
                             <div class="content-preview-header">지도1구간2</div>
@@ -96,7 +105,7 @@
                     </div>
                     <div class="content-container map2">
                         <div class="content-img-section">
-                            <img src="./img/temp.JPG" alt="임시사진" />
+                            <img src="" alt="임시사진" />
                         </div>
                         <div class="content-preview-section">
                             <div class="content-preview-header">지도2구간2</div>
@@ -106,7 +115,7 @@
                     </div>
                     <div class="content-container map3">
                         <div class="content-img-section">
-                            <img src="./img/temp.JPG" alt="임시사진" />
+                            <img src="" alt="임시사진" />
                         </div>
                         <div class="content-preview-section">
                             <div class="content-preview-header">지도3구간2</div>
@@ -116,7 +125,7 @@
                     </div>
                     <div class="content-container map4">
                         <div class="content-img-section">
-                            <img src="./img/temp.JPG" alt="임시사진" />
+                            <img src="" alt="임시사진" />
                         </div>
                         <div class="content-preview-section">
                             <div class="content-preview-header">지도4구간2</div>
@@ -128,6 +137,8 @@
             </div>
         </main>
         <footer></footer>
+
+        <script></script>
         <script src="../js/mapRecommand.js"></script>
     </body>
 </html>
