@@ -1,0 +1,337 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(227, 222, 222);
+    height: 100px;
+    /* text-align: center; */
+    text-align: left;
+    padding-left: 40px;
+    transition: all 0.3s;
+
+    /* font-family: 'GmarketSansMedium'; */
+}
+.logo {
+    font-size: 30px;
+}
+header > * {
+    width: 50%;
+}
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav > * {
+    width: 100px;
+}
+
+.header > * {
+    padding: 10px;
+}
+.header > *:first-child {
+    font-weight: bold;
+    font-size: 60px;
+}
+.header > *:nth-child(2) {
+    font-size: 20px;
+    color: rgb(109, 108, 108);
+}
+.header > *:nth-child(3) {
+    font-size: 30px;
+}
+
+header .nav .random {
+    margin-left: 44px;
+}
+header .nav a {
+    text-decoration: none;
+    color: black;
+}
+.themes_section {
+    /* border: 1px solid red; */
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.themes_section .themes_choose {
+    /* border: 1px solid rgb(0, 255, 234); */
+    display: flex;
+    position: absolute;
+    /* flex-wrap: wrap; */
+    /* min-width이거나 미디어쿼리로...둘다도 해보기 
+themes 박스 너비를 정해주면 어느일정부분 안줄얻름*/
+}
+ㅇ .themes_choose ul {
+    list-style: none;
+    /* min-width: 300px; */
+}
+
+.themes_choose ul li {
+}
+
+.themes_choose ul li p {
+    text-align: center;
+    line-height: 20px;
+    font-size: 20px;
+    color: gold;
+}
+.themes_section .themes_choose ul a {
+    text-decoration: none;
+}
+.themes_choose ul li img {
+    width: calc(100vw / 4);
+    height: 610px;
+
+    border-radius: 10px;
+}
+.themes_choose ul li .text {
+    color: orange;
+}
+
+.bottom {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    box-sizing: border-box;
+    height: auto;
+    padding: 0;
+    height: 65px;
+    border-top: 42px solid #f0f0f0;
+    background: #f0f0f0;
+    overflow: hidden;
+    padding-bottom: 102px;
+    bottom: 0;
+}
+.bottom .sel_area {
+    position: static;
+    overflow: hidden;
+    padding: 0 15px 6px;
+}
+.bottom .sel_area .sel_member {
+    position: relative;
+    background: none;
+    border: 0;
+}
+.bottom .sel_area .sel_member select {
+    background: #fff url(https://korean.visitkorea.or.kr/resources/images/main/ico_select5.png) 100% 50%/30px 8px
+        no-repeat;
+    padding: 0 0 0 15px;
+    height: 35px;
+    width: calc(100% - 65px);
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 18px;
+    border: 1px solid #bbb;
+    color: #666;
+    vertical-align: top;
+}
+/* 화살표 사라지기 */
+select {
+    -webkit-appearance: none; /* Chrome, Safari, Edge */
+    -moz-appearance: none; /* Firefox */
+    appearance: none; /* 일반적인 스타일링을 위한 appearance 속성 */
+    background-image: none; /* 배경 이미지 제거 */
+    padding-right: 1em; /* 오른쪽 여백을 추가하여 텍스트와 겹치지 않게 함 */
+    background-color: transparent; /* 배경색을 투명하게 설정 */
+}
+.bottom .sel_area .sel_member #relation2 {
+    margin-bottom: 10px;
+}
+.sel_area .sel_member button {
+    width: 50px;
+    font-size: 14px;
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    background: #777676;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 13px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+a:link {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    div {
+        box-sizing: border-box;
+    }
+    header {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(123, 176, 240);
+        height: 100px;
+        min-width: 400px;
+
+        /* padding-left: 40px; */
+        /* transition: all 0.3s; */
+        /* font-family: 'GmarketSansMedium'; */
+    }
+    .logo {
+        margin-bottom: 20px;
+        font-size: 30px;
+    }
+    .logo .logo_name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        /* margin값을 임의로 주는건 x */
+        margin-left: -33px;
+    }
+    header > * {
+        width: 50%;
+    }
+    .nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .nav > * {
+        width: 100px;
+    }
+
+    .header > * {
+        padding: 10px;
+    }
+    .header > *:first-child {
+        font-weight: bold;
+        font-size: 60px;
+    }
+    .header > *:nth-child(2) {
+        font-size: 20px;
+        color: rgb(109, 108, 108);
+    }
+    .header > *:nth-child(3) {
+        font-size: 30px;
+    }
+
+    header .nav .random {
+        /* margin값을 임의로 주는건 x */
+        margin-left: 44px;
+    }
+    header .nav a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .themes_section {
+        border: 1px solid red;
+        position: relative;
+    }
+
+    .themes_section .themes_choose {
+        border: 1px solid rgb(0, 255, 234);
+        display: flex;
+        position: absolute;
+        flex-wrap: wrap;
+
+        /* min-width이거나 미디어쿼리로...둘다도 해보기 
+      themes 박스 너비를 정해주면 어느일정부분 안줄얻름*/
+    }
+
+    .themes_choose ul {
+        list-style: none;
+    }
+
+    .themes_choose ul li {
+    }
+
+    .themes_choose ul li p {
+        text-align: center;
+        line-height: 15px;
+        font-size: 20px;
+    }
+    .themes_choose ul li .text {
+        line-height: 15px;
+    }
+
+    .themes_choose ul li img {
+        width: 300px;
+        height: 300px;
+
+        border-radius: 10px;
+    }
+    .bottom {
+        width: 100%;
+        position: relative;
+        margin: auto;
+        box-sizing: border-box;
+        height: auto;
+        padding: 0;
+        height: 65px;
+        border-top: 42px solid #f0f0f0;
+        background: #f0f0f0;
+        overflow: hidden;
+        padding-bottom: 102px;
+        bottom: 0;
+    }
+    .bottom .sel_area {
+        position: static;
+        overflow: hidden;
+        padding: 0 15px 6px;
+    }
+    .bottom .sel_area .sel_member {
+        position: relative;
+        background: none;
+        border: 0;
+    }
+    .bottom .sel_area .sel_member select {
+        background: #fff url(https://korean.visitkorea.or.kr/resources/images/main/ico_select5.png) 100% 50%/30px 8px
+            no-repeat;
+        padding: 0 0 0 15px;
+        height: 35px;
+        width: calc(100% - 65px);
+        border-radius: 5px;
+        font-size: 13px;
+    }
+    select {
+        line-height: 18px;
+        border: 1px solid #bbb;
+        color: #666;
+        vertical-align: top;
+    }
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-image: none;
+        padding-right: 1em;
+        background-color: transparent;
+    }
+    .bottom .sel_area .sel_member #relation2 {
+        margin-bottom: 10px;
+    }
+    .sel_area .sel_member button {
+        width: 50px;
+        font-size: 14px;
+        display: inline-block;
+        height: 35px;
+        line-height: 35px;
+        color: #fff;
+        background: #777676;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 13px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    a:link {
+        text-decoration: none;
+    }
+}
