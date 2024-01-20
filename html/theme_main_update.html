@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/theme_main_update.css" />
+        <title>theme_first</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <div><a href="../html/home.html">궁석궁석</a></div>
+            </div>
+            <div class="nav">
+                <div><a href="../html/home.html">홈</a></div>
+                <div><a href="../html/theme_main.html">테마</a></div>
+                <div><a href="../html/map_recommand.html">지역별 추천</a></div>
+                <div><a href="">랜덤추천</a></div>
+            </div>
+        </header>
+        <div class="themes_section">
+            <div class="tit">
+                테마를 입력해주세요
+                <!-- 테마를 입력해주세요! 와 관련된 이미지삽입 -->
+            </div>
+            <div class="themes_choose">
+                <div class="theme_choose_part1">
+                    <div class="photo">
+                        <a href="https://www.naver.com/">
+                            <img src="../img_theme/gyeongbokgung-palace.jpg" alt="고궁과 절 이미지" />
+                            <div class="text">고궁과 절</div>
+                        </a>
+                    </div>
+
+                    <div class="photo">
+                        <a href="">
+                            <img src="../img_theme/museum_theme.jpg" alt="실내공간 이미지" />
+                            <!-- <div class="text"> -->
+                            <div class="text text1">박물관</div>
+                            <div class="text text2">미술관</div>
+                            <div class="text text3">기념관</div>
+                            <!-- </div> -->
+                        </a>
+                    </div>
+                </div>
+                <div class="theme_choose_part2">
+                    <div class="photo">
+                        <a href="">
+                            <img src="../img_theme/park_theme.jpg" alt="공원 이미지" />
+                            <div class="text">공원</div>
+                        </a>
+                    </div>
+
+                    <div class="photo">
+                        <a href="">
+                            <img src="../img_theme/historical_landmark.jpg" alt="역사적 명소 이미지" />
+                            <div class="text">역사적 명소</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="sel_area">
+                <div class="sel_member">
+                    <select name="관광정보 선택" id="relation2">
+                        <option value class="default">관광정보</option>
+                        <option value="https://api.visitkorea.or.kr/#/" title="새창">TourAPI4.0</option>
+                        <option
+                            value="https://datalab.visitkorea.or.kr/datalab/portal/main/getMainForm.do"
+                            title="새창"
+                        >
+                            한국 관광 데이터랩
+                        </option>
+                    </select>
+
+                    <button class="link_view" title="선택관광정보로 새창 열림" onclick="goRelation2()">이동</button>
+                </div>
+                <div class="sel_member">
+                    <select name="유관기관 선택" id="relation">
+                        <option value class="default">유관기관</option>
+                        <option value="http://www.mmca.go.kr" title="새창">국립현대미술관</option>
+                        <option value="http://www.seoulwelcome.com" title="새창">서울관광재단</option>
+                    </select>
+                    <button class="link_view" title="유관기관으로 새창 열림" onclick="goRelation()">이동</button>
+                </div>
+            </div>
+        </div>
+        <script src="../js/theme_main_update.js"></script>
+    </body>
+</html>

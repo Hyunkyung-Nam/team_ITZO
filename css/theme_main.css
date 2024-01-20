@@ -231,6 +231,9 @@ div {
 }
 /* flex는 전체 적용하고 싶으면 그 div의 바로 위에다가 적용하자 */
 .wrap_theme {
+    height: 1000px;
+    border: 1px solid red;
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -474,76 +477,6 @@ div {
         src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
         font-weight: normal;
         font-style: normal;
-    }
-
-    .bottom {
-        width: 100%;
-        position: relative;
-        margin: auto;
-        box-sizing: border-box;
-        height: auto;
-        padding: 0;
-        height: 65px;
-        border-top: 42px solid #f0f0f0;
-        background: #f0f0f0;
-        overflow: hidden;
-        padding-bottom: 102px;
-        bottom: 0;
-    }
-    .bottom .sel_area {
-        position: static;
-        overflow: hidden;
-        padding: 0 15px 6px;
-    }
-    .bottom .sel_area .sel_member {
-        position: relative;
-        background: none;
-        border: 0;
-    }
-    .bottom .sel_area .sel_member select {
-        background: #fff url(https://korean.visitkorea.or.kr/resources/images/main/ico_select5.png) 100% 50%/30px 8px
-            no-repeat;
-        padding: 0 0 0 15px;
-        height: 35px;
-        width: calc(100% - 65px);
-        border-radius: 5px;
-        font-size: 13px;
-    }
-    select {
-        line-height: 18px;
-        border: 1px solid #bbb;
-        color: #666;
-        vertical-align: top;
-    }
-
-    select {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        background-image: none;
-        padding-right: 1em;
-        background-color: transparent;
-    }
-    .bottom .sel_area .sel_member #relation2 {
-        margin-bottom: 10px;
-    }
-    .sel_area .sel_member button {
-        width: 50px;
-        font-size: 14px;
-        display: inline-block;
-        height: 35px;
-        line-height: 35px;
-        color: #fff;
-        background: #777676;
-        border-radius: 5px;
-        text-align: center;
-        font-size: 13px;
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-    a:link {
-        text-decoration: none;
     }
 
     .wrap_theme .theme_temple_palace {
