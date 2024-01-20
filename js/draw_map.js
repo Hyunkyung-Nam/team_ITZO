@@ -1,6 +1,7 @@
 import { places } from './content_object.js';
-let part = 0;
-let partContentNum = 0;
+
+export let part = 0;
+
 export function drawMap() {
     // 지도에 폴리곤으로 표시할 영역데이터 배열입니다
     let areas = [];
@@ -78,6 +79,10 @@ function displayArea(area, map, customOverlay) {
         fillColor: '#fff',
         fillOpacity: 0.7,
     });
+    const contentCotainer = $('.content-container');
+    contentCotainer.removeClass('hide');
+    $('.page-numbering').empty();
+    initSetting();
 
     // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다
     // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
@@ -113,19 +118,35 @@ function displayArea(area, map, customOverlay) {
 function clickEvent(area) {
     if (area.name === 'part1') {
         part = 1;
-        setContentContainer(area);
     } else if (area.name === 'part2') {
         part = 2;
-        setContentContainer(area);
     } else if (area.name === 'part3') {
         part = 3;
-        setContentContainer(area);
     } else if (area.name === 'part4') {
         part = 4;
-        setContentContainer(area);
     }
+
+    setContentContainer(area);
 }
-//content container를 채우는 기능 다섯개만 만든다.
+export function initSetting() {
+    let contentCount = 0;
+    part = 0;
+    for (let key in places) {
+        if (contentCount < 6) {
+            setContent(key, contentCount);
+        }
+        contentCount++;
+    }
+    const pageNumber = Math.ceil(contentCount / 6);
+    for (let i = 1; i <= pageNumber; i++) {
+        $('.page-numbering').append(`<button type='button' class = 'page-numbering-btn'>[${i}]  </button>`);
+        $('.page-numbering')
+            .children()
+            .css({ color: 'white', 'background-color': 'unset', border: '0', cursor: 'pointer' });
+    }
+    createButtonEvent();
+}
+
 function setContentContainer(area) {
     let contentCount = 0;
 
@@ -137,7 +158,6 @@ function setContentContainer(area) {
             contentCount++;
         }
     }
-    partContentNum = contentCount;
     if (contentCount < 6) {
         for (let i = contentCount; i < 6; i++) {
             hideContent(i);
@@ -145,7 +165,7 @@ function setContentContainer(area) {
     }
     const pageNumber = Math.ceil(contentCount / 6);
     for (let i = 1; i <= pageNumber; i++) {
-        $('.page-numbering').append(`<button type='button'>[${i}]  </button>`);
+        $('.page-numbering').append(`<button type='button' class = 'page-numbering-btn'>[${i}]  </button>`);
         $('.page-numbering')
             .children()
             .css({ color: 'white', 'background-color': 'unset', border: '0', cursor: 'pointer' });
@@ -159,6 +179,12 @@ function resetContent(pageNum) {
 
     for (let key in places) {
         if (places[key].part === part) {
+            if (totalContentCount >= itemNum && showItemCount < 6) {
+                setContent(key, showItemCount);
+                showItemCount++;
+            }
+            totalContentCount++;
+        } else if (part === 0) {
             if (totalContentCount >= itemNum && showItemCount < 6) {
                 setContent(key, showItemCount);
                 showItemCount++;
@@ -195,7 +221,7 @@ function setTag(tags) {
     return tagString;
 }
 function createButtonEvent() {
-    $('button').on('click', function () {
+    $('.page-numbering-btn').on('click', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' }); //최상단으로 스크롤 옮기기
         $('.content-container').removeClass('hide');
         let number = $(this).text().replace('[', '');

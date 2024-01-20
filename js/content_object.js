@@ -25,6 +25,7 @@ export const places = {
         isPetPossible: false,
         part: 1,
         tag: ['궁', '자연', '힐링', '데이트', '역사'],
+        img: '../img/palace/gyeongbokgung.jpg',
     },
     changdeokgung: {
         name: '창덕궁',
@@ -57,6 +58,7 @@ export const places = {
         isPetPossible: false,
         part: 1,
         tag: ['궁', '자연', '힐링', '데이트', '역사'],
+        img: '../img/palace/changdeokgung.jpg',
     },
     changgyeonggung: {
         name: '창경궁',
@@ -75,8 +77,9 @@ export const places = {
         isPetPossible: false,
         part: 1,
         tag: ['궁', '자연', '힐링', '데이트', '역사'],
+        img: '../img/palace/changgyeonggung.jpg',
     },
-    Deoksugung: {
+    deoksugung: {
         name: '덕수궁',
         address: `서울특별시 중구 세종대로 99 `,
         homepage: `http://www.deoksugung.go.kr/`,
@@ -94,6 +97,7 @@ export const places = {
         isPetPossible: false,
         part: 1,
         tag: ['궁', '자연', '힐링', '데이트', '역사'],
+        img: '../img/palace/deoksugung.jpg',
     },
     kyungheegung: {
         name: '경희궁',
@@ -109,6 +113,7 @@ export const places = {
         isPetPossible: false,
         part: 1,
         tag: ['궁', '자연', '힐링', '데이트', '역사'],
+        img: '../img/palace/kyungheegung.jpg',
     },
     unhyeongung: {
         name: '운현궁',
@@ -124,8 +129,9 @@ export const places = {
         isPetPossible: false,
         part: 1,
         tag: ['궁', '자연', '힐링', '데이트', '역사'],
+        img: '../img/palace/unhyeongung.jpg',
     },
-    jogyesa: {
+    jogye_temple: {
         name: '조계사',
         address: `서울특별시 중로구 우정국로55 `,
         homepage: `https://www.jogyesa.kr/`,
@@ -138,8 +144,9 @@ export const places = {
         isPetPossible: false,
         part: 1,
         tag: ['절', '자연', '힐링', '역사'],
+        img: '../img/temple/jogye_temple.jpg',
     },
-    jinkwansa: {
+    jinkwan_temple: {
         name: '진관사',
         address: `서울특별시 은평구 진관길 73 `,
         homepage: `http://www.jinkwansa.org/`,
@@ -152,8 +159,9 @@ export const places = {
         isPetPossible: false,
         part: 1,
         tag: ['절', '자연', '힐링', '역사'],
+        img: '../img/temple/jinkwan_temple.jpg',
     },
-    geumsunsa: {
+    geumsun_temple: {
         name: '금선사',
         address: `서울특별시 종로구 비봉길 137`,
         homepage: `http://www.geumsunsa.org`,
@@ -166,8 +174,9 @@ export const places = {
         isPetPossible: false,
         part: 1,
         tag: ['절', '자연', '힐링', '역사'],
+        img: '../img/temple/geumsun_temple.jpg',
     },
-    doseonsa: {
+    doseon_temple: {
         name: '도선사',
         address: `서울특별시 강북구 삼양로173길 504 (우이동)`,
         homepage: `http://www.doseonsa.org`,
@@ -180,8 +189,9 @@ export const places = {
         isPetPossible: false,
         part: 2,
         tag: ['절', '자연', '힐링', '역사'],
+        img: '../img/temple/doseon_temple.jpg',
     },
-    cheonchuksa: {
+    cheonchuk_temple: {
         name: '천축사',
         address: `서울특별시 도봉구 도봉산길 92-2 (도봉동)`,
         homepage: `http://cheonchuksa.kr`,
@@ -194,8 +204,9 @@ export const places = {
         isPetPossible: false,
         part: 2,
         tag: ['절', '자연', '힐링', '역사'],
+        img: '../img/temple/cheonchuk_temple.jpg',
     },
-    hwagyesa: {
+    hwage_temple: {
         name: '화계사',
         address: `서울특별시 강북구 화계사길 117 (수유동)`,
         homepage: `http://www.hwagyesa.org/`,
@@ -208,8 +219,9 @@ export const places = {
         isPetPossible: false,
         part: 2,
         tag: ['절', '자연', '힐링', '역사'],
+        img: '../img/temple/hwage_temple.jpg',
     },
-    gaeunsa: {
+    gaegaeun_templeunsa: {
         name: '개운사',
         address: `서울특별시 성북구 개운사길 73`,
         homepage: `http://www.gaeunsa.org/`,
@@ -222,8 +234,9 @@ export const places = {
         isPetPossible: false,
         part: 2,
         tag: ['절', '자연', '힐링', '역사'],
+        img: '../img/temple/gaeun_temple.jpg',
     },
-    dalmasa: {
+    dalma_temple: {
         name: '달마사',
         address: `서울특별시 동작구 서달로 50-26`,
         homepage: `http://www.dalmasa.org/`,
@@ -236,8 +249,9 @@ export const places = {
         isPetPossible: false,
         part: 3,
         tag: ['절', '자연', '힐링', '역사'],
+        img: '../img/temple/dalma_temple.jpg',
     },
-    bongeunsa: {
+    bongeun_temple: {
         name: '봉은사',
         address: `서울특별시 강남구 봉은사로 531`,
         homepage: `http://www.bongeunsa.org/`,
@@ -250,8 +264,9 @@ export const places = {
         isPetPossible: false,
         part: 4,
         tag: ['절', '자연', '힐링', '역사'],
+        img: '../img/temple/bongeun_temple.jpg',
     },
-    daeseongsa: {
+    doseon_temple: {
         name: '대성사',
         address: `서울특별시 서초구 남부순환로328길 49`,
         homepage: `http://www.daeseongsa.org/`,
@@ -264,8 +279,9 @@ export const places = {
         isPetPossible: false,
         part: 4,
         tag: ['절', '자연', '힐링', '역사'],
+        img: '../img/temple/doseon_temple.jpg',
     },
-    NationalMuseumofKorea: {
+    national_museum: {
         name: '국립중앙박물관',
         address: `서울특별시 용산구 서빙고로 137`,
         homepage: `http://www.museum.go.kr/`,
@@ -282,27 +298,29 @@ export const places = {
         detail: '국립중앙박물관은 42만 점의 소장 유물을 소장하고 있으며, 고고, 역사, 미술, 기증, 아시아 관련 문화재를 전시하는 상설 전시실과 다양한 전시가 가능하도록 가변성 있게 구성된 기획 전시실, 체험과 참여 학습을 통해 전시를 이해하도록 설계된 어린이 박물관, 박물관 야외정원을 이용하여 석탑 등 다양한 석조유물을 전시한 야외전시실로 이뤄진다. 국립중앙박물관은 국내·외 전시활동 외에도 유물의 수집과 보존, 조사연구, 사회교육 활동, 학술자료 발간, 국제문화교류활동, 각종 공연 등의 기회를 제공하는 복합문화공간으로서 교육적 측면뿐 아니라 친환경 녹색공간과 휴게시설 및 양질의 문화 프로그램도 함께 마련되어 있어 남녀노소를 불문하고 언제든 찾아가고 싶은 새로운 도심 속 명소의 역할을 하고 있다. 국립중앙박물관은 정원의 폭포와 아름다운 전경으로도 유명하며, 산책을 즐기기에도 그만이다. 전시관 내에 카페테리아와 휴게공간, 아트숍, 식당가, 편의점 등도 편리하게 이용할 수 있다.',
         isPetPossible: false,
         part: 1,
-        tag: ['박물관' / '미술관' / '기념관', '실내', '가족'],
+        tag: ['박물관', '미술관', '기념관', '실내', '가족'],
+        img: '../img/museum/national_museum.jpg',
     },
-    sdmMuseum: {
-        name: '서대문자연사박물관',
-        address: `서울특별시 서대문구 연희로32길 51 `,
-        homepage: `http://namu.sdm.go.kr/`,
-        opTime: `9시 ~ 18시 (입장마감 16시)`,
-        parking: `가능`,
-        price: `개인 - 어른 7,000원 / 청소년ㆍ군인 4,000원 / 어린이 3,000원
-        단체 - 어른 5,600원 / 청소년ㆍ군인 3,200원 / 어린이 2,400원
-        ※ 단체 20명 이상
-        ※ 어른(19~64세), 청소년(13~18세), 군인(하사이하 군인/전투경찰,의무경찰,경비교도 포함), 어린이(5~12세)
-        ※ 무료 : 4세 이하, 65세 이상, 장애인(복지카드를 소지한 장애인 1~6급, 1급~3급 장애인과 동반보호자 1인)`,
-        holiday: `매주월요일`,
-        tel: '서대문자연사박물관:02-330-8899',
-        detail: '도심 속의 자연 휴식처 안산자락에 국내 최초로 공공기관이 설립한 자연사박물관인 서대문자연사박물관이 2003년 7월 10일 개관하였다. 꿈 많은 어린이들이 체계적으로 보다 다양한 자연을 체험할 수 있는 기회를 제공하여, 인간이 자연의 일부이며 자연환경과 함께 어떻게 살아가야 할지를 알려주기 위해 설립되었다. 서대문자연사박물관은 청소년의 교육공간, 주민들의 문화공간, 가족들의 휴식공간으로 비록 도시에 살지만 자연스럽게 동·식물과 접할 기회를 제공함으로써, 우리들에게 생명을 아끼고 사랑하는 마음을 심어준다.',
-        isPetPossible: false,
-        part: 1,
-        tag: ['박물관' / '미술관' / '기념관', '실내', '가족'],
-    },
-    sdmHistoryMuseum: {
+    // sdmMuseum: {
+    //     name: '서대문자연사박물관',
+    //     address: `서울특별시 서대문구 연희로32길 51 `,
+    //     homepage: `http://namu.sdm.go.kr/`,
+    //     opTime: `9시 ~ 18시 (입장마감 16시)`,
+    //     parking: `가능`,
+    //     price: `개인 - 어른 7,000원 / 청소년ㆍ군인 4,000원 / 어린이 3,000원
+    //     단체 - 어른 5,600원 / 청소년ㆍ군인 3,200원 / 어린이 2,400원
+    //     ※ 단체 20명 이상
+    //     ※ 어른(19~64세), 청소년(13~18세), 군인(하사이하 군인/전투경찰,의무경찰,경비교도 포함), 어린이(5~12세)
+    //     ※ 무료 : 4세 이하, 65세 이상, 장애인(복지카드를 소지한 장애인 1~6급, 1급~3급 장애인과 동반보호자 1인)`,
+    //     holiday: `매주월요일`,
+    //     tel: '서대문자연사박물관:02-330-8899',
+    //     detail: '도심 속의 자연 휴식처 안산자락에 국내 최초로 공공기관이 설립한 자연사박물관인 서대문자연사박물관이 2003년 7월 10일 개관하였다. 꿈 많은 어린이들이 체계적으로 보다 다양한 자연을 체험할 수 있는 기회를 제공하여, 인간이 자연의 일부이며 자연환경과 함께 어떻게 살아가야 할지를 알려주기 위해 설립되었다. 서대문자연사박물관은 청소년의 교육공간, 주민들의 문화공간, 가족들의 휴식공간으로 비록 도시에 살지만 자연스럽게 동·식물과 접할 기회를 제공함으로써, 우리들에게 생명을 아끼고 사랑하는 마음을 심어준다.',
+    //     isPetPossible: false,
+    //     part: 1,
+    //     tag: ['박물관', '미술관', '기념관', '실내', '가족'],
+    //     img: '../img/museum/national_museum.jpg',
+    // },
+    seodaemun_prison: {
         name: '서대문형무소역사관',
         address: `서울특별시 서대문구 통일로 251 `,
         homepage: `http://sphh.sscmc.or.kr/`,
@@ -316,9 +334,10 @@ export const places = {
         detail: "서대문형무소는 대한제국 말에 일제의 강압으로 감옥이 지어져 80여 년 동안 우리 근·현대사 격동기의 수난과 민족의 한이 서려있는 역사의 현장이자 우리 민족의 항일 독립운동에 대한 일본 제국주의의 대표적인 탄압기관이었다.1908년 10월 21일에 경성감옥이란 이름으로 문을 연 뒤 일제에게 우리의 국권이 빼앗기자 이에 항거하는 민족독립운동이 전국에서 거세게 일어나고 일제는 수많은 우리의 애국지사들을 체포 투옥시켰다. 수용인원이 증가하자 그들은 마포 공덕동에 또 다른 감옥을 지었고, 이 때문에 1912년 9월 3일에 서대문감옥으로 이름이 바뀌었다. 이름의 변화만큼이나 많은 민족수난의 역사를 간직한 채 1992년 8월15일에 현재의 '서대문독립공원'으로 개원하였다.현재는 역사성과 보존가치를 생각해 7개 동만을 원형대로 보존하고, 그 중에서 옥사 3개동과 사형장은 사적 제324호로 지정되었다. 서대문구에서는 1995년부터 서대문독립공원 사적지에 대한 성역화사업을 시작하였다. 조국 독립을 위해 일제의 침략에 맞서 싸우다 투옥되어 모진 고문과 탄압을 받고 순국하신 애국 선열들의 넋을 기리고, 후손들에게 우리 선열들의 자주 독립 정신을 일깨워 주는 역사의 산 교육장으로 삼기 위해 새롭게 단장하여 1998년 11월 5일 서대문형무소역사관으로 개관하였다.",
         isPetPossible: false,
         part: 1,
-        tag: ['박물관' / '미술관' / '기념관', '실내', '가족'],
+        tag: ['박물관', '미술관', '기념관', '실내', '가족'],
+        img: '../img/museum/seodaemun_prison.jpg',
     },
-    mmca: {
+    national_modern_museum: {
         name: '국립현대미술관(서울)',
         address: `서울특별시 종로구 삼청로 30 (소격동)`,
         homepage: `http://www.mmca.go.kr/`,
@@ -335,9 +354,10 @@ export const places = {
         detail: '국립현대미술관(서울관)은 동시대 현대미술을 중점적으로 다루는 미술관이다. 1986년 개관한 과천관, 1998년에 개관한 덕수궁관에 이어 2013년 개관한 서울관은 조선시대 소격서, 종친부, 규장각, 사간원이 있던 자리에 자리 잡고 있다. [마당] 개념을 도입하여 건축한 국립현대미술관(서울관)은 누구나 즐기고 휴식을 취할 수 있는 공간으로 꾸며져 있다. 건물의 내외부가 유기적으로 연결되어 있으며, 주변 명소와도 조화를 이루도록 설계되었다. 국립현대미술관(서울관)은 전시실을 비롯하여 디지털정보실, 멀티미디어홀, 영화관 등 다양한 시설을 갖춘 복합예술문화센터로서 한국 현대 미술품 전시 및 신매체 융복합 전시를 진행한다.',
         isPetPossible: false,
         part: 1,
-        tag: ['박물관' / '미술관' / '기념관', '실내', '가족'],
+        tag: ['박물관', '미술관', '기념관', '실내', '가족'],
+        img: '../img/museum/national_modern_museum.jpg',
     },
-    SeoulMuseumofArt: {
+    seoul_art_museum: {
         name: '서울시립미술관(서소문본관)',
         address: `서울특별시 중구 덕수궁길 61`,
         homepage: `https://sema.seoul.go.kr/kr/visit/seosomun`,
@@ -352,9 +372,10 @@ export const places = {
         detail: '서울시립미술관(서소문본관)은 시대와 미술의 변화에 부응하고 서로를 채우며 성장해 가는 네트워크 미술관이다. 서울 도심 한복판 덕수궁 돌담길을 따라 자리 잡은 서울시립미술관은 1920년대 건축양식으로 지어진 옛 대법원 건물을 전면부만 그대로 보존한 채 신축하였다. 미술작품을 체계적으로 수집하고 보존하여 다양한 기획전을 통해 일반 시민들에게 미술을 알리고, 현대미술의 발전을 위해 이와 관련된 출판 활동과 작가 지원 프로그램을 시행하며 다양한 교육 강좌를 운영하여 미술 문화 발전에 기여하고 있다. 미술관 본관 1, 2, 3층에는 총 6개의 전시실이 있는데, 이 중 1개는 상설전시실로 [천경자의 혼]을 상시 전시하고 있다. 지하에는 교육프로그램을 진행하는 강의실과 세미나실이 자리하고 있다. 각 예술 분야의 자료를 소장한 자료실도 갖추고 있으며, 전시용 도록과 아트상품을 판매하는 뮤지엄샵과 카페테리아 등의 편의시설도 운영하고 있다. 서울시립미술관은 정동극장, 정동제일교회가 있는 고전미 넘치는 장소를 품은 정동길 옆에 있어 미술관 관람의 여운을 이어갈 수 있다.',
         isPetPossible: false,
         part: 1,
-        tag: ['박물관' / '미술관' / '기념관', '실내', '가족'],
+        tag: ['박물관', '미술관', '기념관', '실내', '가족'],
+        img: '../img/museum/seoul_art_museum.jpg',
     },
-    warmemo: {
+    war_memorial: {
         name: '전쟁기념관',
         address: `서울특별시 용산구 이태원로 29 `,
         homepage: `http://www.warmemo.or.kr/
@@ -367,37 +388,38 @@ export const places = {
         detail: '서울시 용산구 용산동에 호국전쟁의 실체를 보여주는 자료를 보존 전시하고 국민정신교육장으로 역할을 하며 조국을 위해 목숨을 바친 선열들의 숭고한 희생을 추모하고 그 업적을 기리기 위해 전쟁기념사업회에서 1994년 6월 10일 전쟁기념관을 세웠다. 전쟁기념관은 옥내전시와 옥외전시로 구분되어 있으며 3만 3천여 점의 소장유물 중 1만여 점을 전시하고 있다. 1만 900여 평의 옥내전시실은 호국추모실, 전쟁역사실, 6·25전쟁실, 해외파병실, 국군발전실, 대형장비실 등 6개 전시실로 구성되어 있으며 대형무기들이 전시되어 있는 옥외전시실이 있다. 3층 규모의 옥내전시실은 삼국시대로부터 현대까지 5천년 대한민국 전쟁사와 위국 헌신한 분들의 공로와 훈장 등이 실물·디오라마·복제품·기록화·영상 등의 다양한 전시기법에 따라 역동적이고 입체적으로 전시되어 있다.특히 6·25전쟁실은 전쟁이 일어난 원인과 전쟁 경과 및 휴전에 이르기까지의 전 과정을 쉽고 올바르게 이해할 수 있도록 체험시설 등으로 구성되어 있다. 옥외전시장에는 세계 각국의 대형무기와 6·25전쟁 상징 조형물, 광개토대왕릉비, 형제의 상, 평화의 시계탑 등이 전시되어 있다. 제2차 세계대전, 6·25전쟁, 베트남전쟁 당시 사용되었던 장비를 전시하고 있는데, K-1전차를 비롯하여 곡사포, 미사일, 헬리콥터, 수송기 등이 전시되어 있다. 기념관 양측 회랑에는 국군 전사자와 유엔군 전사자 20여 만 명의 이름이 새겨진 전사자 명비가 있으며, 전쟁기념관을 대국민 호국문화의 장으로서도 큰 역할을 하고 있다. 어린이부터 일반인까지 다양한 계층을 대상으로 한 20여개의 교육프로그램을 운영함은 물론, 국군 군악·의장행사, 어린이날 문화축제, 현충일 그림그리기 대회, 6·25 호국문화행사 등 다양한 문화행사를 연간 개최하고 있어 기념관을 찾는 관람객들에게 새로운 볼거리를 제공하고 있다. 전쟁기념관의 캐릭터는 무돌이로, 나라를 지킨다는 뜻을 가진 철모와 평화를 상징하는 월계수잎이 특징적이다.',
         isPetPossible: false,
         part: 1,
-        tag: ['박물관' / '미술관' / '기념관', '실내', '가족'],
+        tag: ['박물관', '미술관', '기념관', '실내', '가족'],
+        img: '../img/museum/war_memorial.jpg',
     },
-    nowoncosmos: {
-        name: '노원우주학교',
-        address: `서울특별시 노원구 동일로205길 13 (중계동)`,
-        homepage: `https://www.nowoncosmos.or.kr`,
-        opTime: `일반관람 월~일 오전 9:30 ~ 오후 17:30, 천문대 야간관측, 평일 없음, 금,토 19:30~21:00 (하절기 20:00~21:30)`,
-        parking: `가능`,
-        price: `유아(5세 이하) : 무료 / 어린이·청소년(6세~19세) :1,000원 / 성인(20~64세) :2,000원`,
-        holiday: `매주월요일`,
-        tel: '02-971-6232',
-        detail: '우주와 과학에 특화된 과학관이다. 미래를 향한 꿈과 희망을 담았으며, 우주의 역사, 공간에 대한 체험 중심 전시물들로 주로 구성되어 있다. 빅히스토리관과 코스모스관, 천체투영실 등으로 나뉜다. 관람객들이 직접 체험하면서 앞으로 어떻게 살아가야 할지 생각해보게 만드는 체험 공간이다.',
-        isPetPossible: false,
-        part: 2,
-        tag: ['박물관' / '미술관' / '기념관', '실내', '가족'],
-    },
-    sejongpac: {
-        name: '상상톡톡미술관',
-        address: `서울 강북구 월계로 173(번동)`,
-        homepage: `https://www.sejongpac.or.kr`,
-        opTime: '10:00~18:00 (입장마감은 17:30)',
-        parking: `있음(북서울꿈의숲 서문 주차장)`,
-        price: `유아(5세 이하) : 무료 / 어린이·청소년(6세~19세) :1,000원 / 성인(20~64세) :2,000원`,
-        holiday: `매주월요일`,
-        tel: '02-2289-5445',
-        detail: '상상 톡톡 미술관은 강북구 번동 꿈의 숲 아트센터 내에 있는 미술관을 새로 단장하여 문을 연 어린이 전용 미술관이다. 미술관은 숲 속에 위치하고 있어 어린이들이 미술과 함께 자연을 직접 체험하며 상상력과 창의력을 키울 수 있게 하였다.지상 2층 규모의 이곳은 어린이들이 좋아하는 동·식물 캐릭터와 숲을 형상화한 계단, 파이프를 이용해 만든 난간 등 아이들이 흥미를 느낄 수 있도록 독특한 인테리어로 꾸며져 있다. 특히, 미술관 2층 테라스에 단비를 내려 어린이들이 노란 우비와 우산을 쓰고 비를 맞는 체험과 같이 눈으로 보는 전시가 아닌 직접 체험하고 느끼는 색다른 전시로 꾸몄다. 이 밖에도 가족 관람객을 위해 휴게실과 수유실을 갖추고 있으며 어린이들이 안전하게 놀 수 있는 공간을 모두 친환경 소재를 사용하여 만들었다.',
-        isPetPossible: false,
-        part: 2,
-        tag: ['박물관' / '미술관' / '기념관', '실내', '가족'],
-    },
-    gugak: {
+    // nowoncosmos: {
+    //     name: '노원우주학교',
+    //     address: `서울특별시 노원구 동일로205길 13 (중계동)`,
+    //     homepage: `https://www.nowoncosmos.or.kr`,
+    //     opTime: `일반관람 월~일 오전 9:30 ~ 오후 17:30, 천문대 야간관측, 평일 없음, 금,토 19:30~21:00 (하절기 20:00~21:30)`,
+    //     parking: `가능`,
+    //     price: `유아(5세 이하) : 무료 / 어린이·청소년(6세~19세) :1,000원 / 성인(20~64세) :2,000원`,
+    //     holiday: `매주월요일`,
+    //     tel: '02-971-6232',
+    //     detail: '우주와 과학에 특화된 과학관이다. 미래를 향한 꿈과 희망을 담았으며, 우주의 역사, 공간에 대한 체험 중심 전시물들로 주로 구성되어 있다. 빅히스토리관과 코스모스관, 천체투영실 등으로 나뉜다. 관람객들이 직접 체험하면서 앞으로 어떻게 살아가야 할지 생각해보게 만드는 체험 공간이다.',
+    //     isPetPossible: false,
+    //     part: 2,
+    //     tag: ['박물관', '미술관', '기념관', '실내', '가족'],
+    // },
+    // sejongpac: {
+    //     name: '상상톡톡미술관',
+    //     address: `서울 강북구 월계로 173(번동)`,
+    //     homepage: `https://www.sejongpac.or.kr`,
+    //     opTime: '10:00~18:00 (입장마감은 17:30)',
+    //     parking: `있음(북서울꿈의숲 서문 주차장)`,
+    //     price: `유아(5세 이하) : 무료 / 어린이·청소년(6세~19세) :1,000원 / 성인(20~64세) :2,000원`,
+    //     holiday: `매주월요일`,
+    //     tel: '02-2289-5445',
+    //     detail: '상상 톡톡 미술관은 강북구 번동 꿈의 숲 아트센터 내에 있는 미술관을 새로 단장하여 문을 연 어린이 전용 미술관이다. 미술관은 숲 속에 위치하고 있어 어린이들이 미술과 함께 자연을 직접 체험하며 상상력과 창의력을 키울 수 있게 하였다.지상 2층 규모의 이곳은 어린이들이 좋아하는 동·식물 캐릭터와 숲을 형상화한 계단, 파이프를 이용해 만든 난간 등 아이들이 흥미를 느낄 수 있도록 독특한 인테리어로 꾸며져 있다. 특히, 미술관 2층 테라스에 단비를 내려 어린이들이 노란 우비와 우산을 쓰고 비를 맞는 체험과 같이 눈으로 보는 전시가 아닌 직접 체험하고 느끼는 색다른 전시로 꾸몄다. 이 밖에도 가족 관람객을 위해 휴게실과 수유실을 갖추고 있으며 어린이들이 안전하게 놀 수 있는 공간을 모두 친환경 소재를 사용하여 만들었다.',
+    //     isPetPossible: false,
+    //     part: 2,
+    //     tag: ['박물관', '미술관', '기념관', '실내', '가족'],
+    // },
+    national_gugak_center: {
         name: '국립국악원',
         address: `서울 강북구 월계로 173(번동)`,
         homepage: `http://www.gugak.go.kr`,
@@ -409,25 +431,27 @@ export const places = {
         detail: '각종 공연을 비롯한 학술 연구, 국악 교육, 해외 교류 등으로 국민과 함께하는 국악, 세계 속의 우리 국악을 추구한다. 신라시대 이후 전승되어 온 궁중음악기관에 그 기원을 둔다. 8.15 해방 후 궁중음악기관이 해체된 한때 구왕궁아악부(舊王宮雅樂部)로 존속하다가 1951년 이후 국립국악원으로 이어졌다. 2010년 현재 문화체육관광부 소속기관으로 국악연구실·기획관리과·장악과·국악진흥과·무대과를 두고, 정악단·민속악단·무용단·창작악단 등 네 개의 소속연주단을 운영하고 있다.',
         isPetPossible: false,
         part: 2,
-        tag: ['박물관' / '미술관' / '기념관', '실내', '가족'],
+        tag: ['박물관', '미술관', '기념관', '실내', '가족'],
+        img: '../img/museum/national_gugak_center.jpg',
     },
-    baekjeMuseum: {
-        name: '한성백제박물관',
-        address: `서울특별시 송파구 위례성대로 71`,
-        homepage: `http://baekjemuseum.seoul.go.kr`,
-        opTime: '상시 09:00~19:00※11월~2월 09:00~18:00 매주 월요일(단, 월요일이 공휴일인 경우 휴관하지 않음), 1월 1일, 관장이 정하는 휴관일',
-        parking: `가능`,
-        price: `[상설전시실] 무료
-        ※ 특별·기획전시는 유료로 진행될 수 있음`,
-        holiday: `매주월요일`,
-        tel: '02-2152-5800',
-        detail: '한성백제박물관은 서울특별시 송파구에 위치한 역사 박물관이다. 2천 년 전 백제의 도읍 서울에 남아있던 귀중한 문화유산을 종합적으로 조사․연구․관리한다. 건물 외형은 몽촌토성의 윤곽을 나타내면서도 해양극가 한성백제를 상징하는 배 모양으로 디자인하였으며 주변 환경과 자연스럽게 어울리도록 설계하였다. 내부는 전시공간과 교육공간으로 나누어져 있고, 카페테리아와 전망대 등이 있다.',
-        isPetPossible: false,
-        part: 4,
-        tag: ['박물관' / '미술관' / '기념관', '실내', '가족'],
-    },
+    // baekjeMuseum: {
+    //     name: '한성백제박물관',
+    //     address: `서울특별시 송파구 위례성대로 71`,
+    //     homepage: `http://baekjemuseum.seoul.go.kr`,
+    //     opTime: '상시 09:00~19:00※11월~2월 09:00~18:00 매주 월요일(단, 월요일이 공휴일인 경우 휴관하지 않음), 1월 1일, 관장이 정하는 휴관일',
+    //     parking: `가능`,
+    //     price: `[상설전시실] 무료
+    //     ※ 특별·기획전시는 유료로 진행될 수 있음`,
+    //     holiday: `매주월요일`,
+    //     tel: '02-2152-5800',
+    //     detail: '한성백제박물관은 서울특별시 송파구에 위치한 역사 박물관이다. 2천 년 전 백제의 도읍 서울에 남아있던 귀중한 문화유산을 종합적으로 조사․연구․관리한다. 건물 외형은 몽촌토성의 윤곽을 나타내면서도 해양극가 한성백제를 상징하는 배 모양으로 디자인하였으며 주변 환경과 자연스럽게 어울리도록 설계하였다. 내부는 전시공간과 교육공간으로 나누어져 있고, 카페테리아와 전망대 등이 있다.',
+    //     isPetPossible: false,
+    //     part: 4,
+    //     tag: ['박물관', '미술관', '기념관', '실내', '가족'],
+    //     img: '../img/museum/national_gugak_center.jpg',
+    // },
 
-    BukchonHanokVillage: {
+    bukchon_hanok_village: {
         name: '북촌한옥마을',
         address: `서울특별시 종로구 계동길 37 (계동)`,
         homepage: `http://hanok.seoul.go.kr/front/index.do`,
@@ -440,8 +464,9 @@ export const places = {
         isPetPossible: false,
         part: 1,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
+        img: '../img/historical_area/bukchon_hanok_village.jpg',
     },
-    Jongmyo: {
+    jongmyo: {
         name: '종묘',
         address: `서울특별시 종로구 종로 157`,
         homepage: `http://jm.cha.go.kr/`,
@@ -454,22 +479,24 @@ export const places = {
         isPetPossible: false,
         part: 1,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
+        img: '../img/historical_area/jongmyo.jpg',
     },
-    deoksugungDondeokjeon: {
-        name: '덕수궁돈덕전',
-        address: `서울특별시 중구 세종대로 99 (정동)`,
-        homepage: `https://www.deoksugung.go.kr/`,
-        opTime: '09:00~17:30 ※ 입장마감 17:00',
-        parking: `불가`,
-        price: '대인 1000원 단체 10인이상 대인 800원  (만 25세~만 64세)',
-        holiday: `매주 월요일`,
-        tel: '02-771-9951',
-        detail: '대한제국 외교 공간으로 기획되었던 돈덕전은 덕수궁 내에 있는 서양식 2층 건물이다. ‘돈덕(惇德)’의 뜻은 ‘덕 있는 이를 도탑게 해 어진 이를 믿는다’ 라는 의미로 ‘덕이 있는 자’는 교류하며 신뢰를 쌓아가야 할 여러 국가를 가리킨다. 돈덕전은 고종이 즉위 40주년 기념행사장으로 사용하려고 세운 서양식 건물로 일제에 의해 헐렸다가 2017년 발굴조사를 시작으로 약 6년 만에 완성하여 2023년 9월 정식으로 일반에 공개되었다. 새롭게 개관한 돈덕전은 대한제국의 외교 장소라는 역사적 의미를 살리면서 내부 공간을 대한제국 외교사 중심 전시와 기록보관, 도서 열람, 국내외 문화교류와 예술행사를 위한 공간으로 꾸며졌다.',
-        isPetPossible: false,
-        part: 1,
-        tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
-    },
-    hanokmaeul: {
+    // deoksugungDondeokjeon: {
+    //     name: '덕수궁돈덕전',
+    //     address: `서울특별시 중구 세종대로 99 (정동)`,
+    //     homepage: `https://www.deoksugung.go.kr/`,
+    //     opTime: '09:00~17:30 ※ 입장마감 17:00',
+    //     parking: `불가`,
+    //     price: '대인 1000원 단체 10인이상 대인 800원  (만 25세~만 64세)',
+    //     holiday: `매주 월요일`,
+    //     tel: '02-771-9951',
+    //     detail: '대한제국 외교 공간으로 기획되었던 돈덕전은 덕수궁 내에 있는 서양식 2층 건물이다. ‘돈덕(惇德)’의 뜻은 ‘덕 있는 이를 도탑게 해 어진 이를 믿는다’ 라는 의미로 ‘덕이 있는 자’는 교류하며 신뢰를 쌓아가야 할 여러 국가를 가리킨다. 돈덕전은 고종이 즉위 40주년 기념행사장으로 사용하려고 세운 서양식 건물로 일제에 의해 헐렸다가 2017년 발굴조사를 시작으로 약 6년 만에 완성하여 2023년 9월 정식으로 일반에 공개되었다. 새롭게 개관한 돈덕전은 대한제국의 외교 장소라는 역사적 의미를 살리면서 내부 공간을 대한제국 외교사 중심 전시와 기록보관, 도서 열람, 국내외 문화교류와 예술행사를 위한 공간으로 꾸며졌다.',
+    //     isPetPossible: false,
+    //     part: 1,
+    //     tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
+    //     img: '../img/historical_area/jongmyo.jpg',
+    // },
+    sunjeong_hyohwanghu_yunssichinga: {
         name: '순정효황후 윤비친가',
         address: `서울특별시 중구 퇴계로34길 28`,
         homepage: `https://www.hanokmaeul.or.kr/`,
@@ -482,6 +509,7 @@ export const places = {
         isPetPossible: false,
         part: 1,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
+        img: '../img/historical_area/sunjeong_hyohwanghu_yunssichinga.jpg',
     },
     jeongneung: {
         name: '정릉',
@@ -496,8 +524,9 @@ export const places = {
         isPetPossible: false,
         part: 2,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
+        img: '../img/historical_area/jeongneung.jpg',
     },
-    dullegil: {
+    bukhansan_dullegil_2gugan_sunlyegil: {
         name: '북한산둘레길2구간 순례길',
         address: `서울특별시 강북구 우이동 (우이동)`,
         homepage: 'http://www.knps.or.kr/portal/dulegil/bukhansan/index.do',
@@ -510,8 +539,9 @@ export const places = {
         isPetPossible: false,
         part: 2,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
+        img: '../img/historical_area/bukhansan_dullegil_2gugan_sunlyegil.jpg',
     },
-    jeongneung: {
+    uirneung: {
         name: '의릉',
         address: `서울특별시 성북구 화랑로32길 146-20 (석관동)`,
         homepage: 'https://royaltombs.cha.go.kr/html/HtmlPage.do?pg=/new/html/portal_01_07_01.jsp&mn=RT_01_07',
@@ -524,8 +554,9 @@ export const places = {
         isPetPossible: false,
         part: 2,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
+        img: '../img/historical_area/uirneung.jpg',
     },
-    taereungAndGangneung: {
+    taeneung_gwa_gangneung: {
         name: '서울 태릉과강릉',
         address: `서울특별시 노원구 화랑로 681`,
         homepage: 'http://royaltombs.cha.go.kr/',
@@ -538,8 +569,9 @@ export const places = {
         isPetPossible: false,
         part: 2,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
+        img: '../img/historical_area/taeneung_gwa_gangneung.jpg',
     },
-    achasanlo: {
+    achasanseong: {
         name: '아차산성',
         address: `서울특별시 광진구 광장동`,
         homepage: '-',
@@ -552,6 +584,7 @@ export const places = {
         isPetPossible: false,
         part: 2,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
+        img: '../img/historical_area/achasanseong.jpg',
     },
     yangcheongoseongji: {
         name: '서울양천고성지',
@@ -566,6 +599,7 @@ export const places = {
         isPetPossible: false,
         part: 3,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
+        img: '../img/historical_area/yangcheongoseongji.jpg',
     },
     yangcheonhyanggyo: {
         name: '양천향교',
@@ -580,8 +614,9 @@ export const places = {
         isPetPossible: false,
         part: 3,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
+        img: '../img/historical_area/yangcheonhyanggyo.jpg',
     },
-    amsadongyujeog: {
+    amsa_dong_ruins: {
         name: '암사동 유적',
         address: `서울특별시 강동구 올림픽로 875 (암사동)`,
         homepage: 'http://sunsa.gangdong.go.kr',
@@ -594,8 +629,9 @@ export const places = {
         isPetPossible: false,
         part: 4,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
+        img: '../img/historical_area/amsa_dong_ruins.jpg',
     },
-    bangidongGobungun: {
+    bang_idong_gobungun: {
         name: '방이동 고분군',
         address: `서울특별시 송파구 오금로 219 (방이동)`,
         homepage: '-',
@@ -608,8 +644,9 @@ export const places = {
         isPetPossible: false,
         part: 4,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
+        img: '../img/historical_area/bang_idong_gobungun.jpg',
     },
-    heonleung: {
+    heonineung: {
         name: '헌인릉',
         address: `서울특별시 서초구 헌인릉길 36-10 (내곡동)`,
         homepage: 'http://royaltombs.cha.go.kr/',
@@ -622,8 +659,9 @@ export const places = {
         isPetPossible: false,
         part: 4,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
+        img: '../img/historical_area/heonineung.jpg',
     },
-    bangidongGobungun: {
+    yun_bong_gil_memorial_hall: {
         name: '매헌 윤봉길의사 기념관',
         address: `서울특별시 서초구 매헌로 99 (양재동)`,
         homepage: 'http://www.yunbonggil.or.kr/_memorial_hall/',
@@ -636,6 +674,7 @@ export const places = {
         isPetPossible: false,
         part: 4,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
+        img: '../img/historical_area/yun_bong_gil_memorial_hall.jpg',
     },
     namSan: {
         name: '남산공원',
@@ -650,8 +689,9 @@ export const places = {
         isPetPossible: false,
         part: 1,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
+        img: '../img/park/namsan_park.jpg',
     },
-    skyPark: {
+    sky_park: {
         name: '하늘공원',
         address: `서울특별시 마포구 하늘공원로 95`,
         homepage: 'http://parks.seoul.go.k',
@@ -664,8 +704,9 @@ export const places = {
         isPetPossible: false,
         part: 1,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
+        img: '../img/park/sky_park.jpg',
     },
-    hyochangpark: {
+    hyochang_park: {
         name: '효창공원',
         address: `서울특별시 용산구 효창원로 177-18`,
         homepage: 'http://parks.seoul.go.kr/parks/detailView.do?pIdx=37',
@@ -678,8 +719,9 @@ export const places = {
         isPetPossible: false,
         part: 1,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
+        img: '../img/park/hyochang_park.jpg',
     },
-    nagsanpark: {
+    naksan_park: {
         name: '낙산공원',
         address: `서울특별시 종로구 낙산길 41`,
         homepage: 'https://parks.seoul.go.kr',
@@ -692,8 +734,9 @@ export const places = {
         isPetPossible: false,
         part: 1,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
+        img: '../img/park/naksan_park.jpg',
     },
-    hongleungsumogwon: {
+    hongneung_arboretum: {
         name: '홍릉수목원',
         address: `서울특별시 동대문구 회기로 57`,
         homepage: 'https://www.foresttrip.go.kr',
@@ -706,8 +749,9 @@ export const places = {
         isPetPossible: false,
         part: 2,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
+        img: '../img/park/hongneung_arboretum.jpg',
     },
-    gyeongchunseon: {
+    gyeongchun_line_forest_road: {
         name: '경춘선숲길',
         address: `서울특별시 노원구 하계동 107-2`,
         homepage: '비짓서울 https://korean.visitseoul.net/index',
@@ -720,8 +764,9 @@ export const places = {
         isPetPossible: false,
         part: 2,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
+        img: '../img/park/gyeongchun_line_forest_road.jpg',
     },
-    yongmapogpo: {
+    yongma_falls_park: {
         name: '용마폭포공원',
         address: `서울특별시 중랑구 용마산로 250-12`,
         homepage: 'https://www.jungnang.go.kr/portal/main/contents.do?menuNo=200599',
@@ -735,8 +780,9 @@ export const places = {
         isPetPossible: false,
         part: 2,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
+        img: '../img/park/yongma_falls_park.jpg',
     },
-    seoulforestpark: {
+    seoulforest: {
         name: '서울숲공원',
         address: `서울특별시 성동구 뚝섬로 273`,
         homepage: 'https://parks.seoul.go.kr/',
@@ -749,8 +795,9 @@ export const places = {
         isPetPossible: false,
         part: 2,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
+        img: '../img/park/seoulforest.jpg',
     },
-    gangseoseubjisaengtaepark: {
+    gangseo_wetland_ecological_park: {
         name: '강서습지생태공원',
         address: `서울특별시 강서구 양천로27길 279-23`,
         homepage: 'https://hangang.seoul.go.kr',
@@ -763,8 +810,9 @@ export const places = {
         isPetPossible: false,
         part: 3,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
+        img: '../img/park/gangseo_wetland_ecological_park.jpg',
     },
-    seonyudopark: {
+    seonyudo_park: {
         name: '선유도공원',
         address: `서울특별시 영등포구 선유로 343`,
         homepage: 'http://parks.seoul.go.kr/template/sub/seonyudo.do',
@@ -777,8 +825,9 @@ export const places = {
         isPetPossible: false,
         part: 3,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
+        img: '../img/park/seonyudo_park.jpg',
     },
-    sayugsinpark: {
+    sayukshin_park: {
         name: '사육신공원',
         address: `서울특별시 동작구 노량진로 191`,
         homepage: 'https://korean.visitseoul.net',
@@ -791,8 +840,9 @@ export const places = {
         isPetPossible: false,
         part: 3,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
+        img: '../img/park/sayukshin_park.jpg',
     },
-    galsanpark: {
+    galsan_park: {
         name: '갈산근린공원',
         address: `서울 양천구 신정동 162-56`,
         homepage: 'http://www.yangcheon.go.kr/',
@@ -805,8 +855,9 @@ export const places = {
         isPetPossible: false,
         part: 3,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
+        img: '../img/park/galsan_park.jpg',
     },
-    yongwangsangpark: {
+    yongwangsan_park: {
         name: '용왕산근린공원',
         address: `서울특별시 양천구 용왕정길 41`,
         homepage: '-',
@@ -819,8 +870,9 @@ export const places = {
         isPetPossible: false,
         part: 3,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
+        img: '../img/park/yongwangsan_park.jpg',
     },
-    ollimpiggongwon: {
+    olympic_park: {
         name: '올림픽공원',
         address: `서울특별시 송파구 올림픽로 424`,
         homepage: 'https://www.ksponco.or.kr/olympicpark/',
@@ -833,8 +885,9 @@ export const places = {
         isPetPossible: false,
         part: 4,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
+        img: '../img/park/olympic_park.jpg',
     },
-    bangidongsaengtaegyeong: {
+    bangi_dong_ecological_landscape_conservation_area: {
         name: '방이동 생태경관 보전지역',
         address: `서울특별시 송파구 동남로 397`,
         homepage: 'http://hangang.seoul.go.kr',
@@ -847,22 +900,23 @@ export const places = {
         isPetPossible: false,
         part: 4,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
+        img: '../img/park/bangi_dong_ecological_landscape_conservation_area.jpg',
     },
-    hagdongpark: {
-        name: '학동공원',
-        address: `서울특별시 강남구 논현동 279-75`,
-        homepage: '-',
-        opTime: '24시',
-        parking: `없음`,
-        price: '무료',
-        holiday: `매주 월요일`,
-        tel: '02-3423-6248',
-        detail: '신사역 인근에 자리한 근린공원으로 나무가 우거지고 잘 정비된 산책로와 더불어 정자도 있어서 주민들과 더불어 인근 직장인들이 산책과 휴식을 취하기에 좋은 공원이다. 체육시설과 배드민턴장, 음수대, 화장실 등도 설치되어 있다. 마을 모양이 학처럼 생겼다 하여 학동으로 불리던 전형적인 농촌 마을이었던 이곳에 1992년 공원을 조성하면서 옛 마을 이름을 따서 학동공원이라 하였다고 한다.',
-        isPetPossible: false,
-        part: 4,
-        tag: ['공원', '힐링', '산책', '자연', '데이트'],
-    },
-    dosanpark: {
+    // hagdongpark: {
+    //     name: '학동공원',
+    //     address: `서울특별시 강남구 논현동 279-75`,
+    //     homepage: '-',
+    //     opTime: '24시',
+    //     parking: `없음`,
+    //     price: '무료',
+    //     holiday: `매주 월요일`,
+    //     tel: '02-3423-6248',
+    //     detail: '신사역 인근에 자리한 근린공원으로 나무가 우거지고 잘 정비된 산책로와 더불어 정자도 있어서 주민들과 더불어 인근 직장인들이 산책과 휴식을 취하기에 좋은 공원이다. 체육시설과 배드민턴장, 음수대, 화장실 등도 설치되어 있다. 마을 모양이 학처럼 생겼다 하여 학동으로 불리던 전형적인 농촌 마을이었던 이곳에 1992년 공원을 조성하면서 옛 마을 이름을 따서 학동공원이라 하였다고 한다.',
+    //     isPetPossible: false,
+    //     part: 4,
+    //     tag: ['공원', '힐링', '산책', '자연', '데이트'],
+    // },
+    dosan_park: {
         name: '도산공원',
         address: `서울특별시 강남구 도산대로45길 20`,
         homepage: 'http://www.gangnam.go.kr/ 비짓서울 https://korean.visitseoul.net/',
@@ -875,5 +929,6 @@ export const places = {
         isPetPossible: false,
         part: 4,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
+        img: '../img/park/dosan_park.jpg',
     },
 };
