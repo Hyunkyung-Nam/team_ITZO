@@ -26,6 +26,7 @@ export const places = {
         part: 1,
         tag: ['궁', '자연', '힐링', '데이트', '역사'],
         img: '../img/palace/gyeongbokgung.jpg',
+        latlng: new kakao.maps.LatLng(37.58084729999999, 126.9768515),
     },
     changdeokgung: {
         name: '창덕궁',
@@ -59,6 +60,7 @@ export const places = {
         part: 1,
         tag: ['궁', '자연', '힐링', '데이트', '역사'],
         img: '../img/palace/changdeokgung.jpg',
+        latlng: new kakao.maps.LatLng(37.5827691, 126.991323),
     },
     changgyeonggung: {
         name: '창경궁',
@@ -78,6 +80,7 @@ export const places = {
         part: 1,
         tag: ['궁', '자연', '힐링', '데이트', '역사'],
         img: '../img/palace/changgyeonggung.jpg',
+        latlng: new kakao.maps.LatLng(37.5805813, 126.995041),
     },
     deoksugung: {
         name: '덕수궁',
@@ -98,6 +101,7 @@ export const places = {
         part: 1,
         tag: ['궁', '자연', '힐링', '데이트', '역사'],
         img: '../img/palace/deoksugung.jpg',
+        latlng: new kakao.maps.LatLng(37.565936, 126.9750354),
     },
     kyungheegung: {
         name: '경희궁',
@@ -114,6 +118,7 @@ export const places = {
         part: 1,
         tag: ['궁', '자연', '힐링', '데이트', '역사'],
         img: '../img/palace/kyungheegung.jpg',
+        latlng: new kakao.maps.LatLng(37.572176, 126.9679994),
     },
     unhyeongung: {
         name: '운현궁',
@@ -130,6 +135,7 @@ export const places = {
         part: 1,
         tag: ['궁', '자연', '힐링', '데이트', '역사'],
         img: '../img/palace/unhyeongung.jpg',
+        latlng: new kakao.maps.LatLng(37.5761234, 126.9871265),
     },
     jogye_temple: {
         name: '조계사',
@@ -145,6 +151,7 @@ export const places = {
         part: 1,
         tag: ['절', '자연', '힐링', '역사'],
         img: '../img/temple/jogye_temple.jpg',
+        latlng: new kakao.maps.LatLng(37.573909, 126.9825588),
     },
     jinkwan_temple: {
         name: '진관사',
@@ -160,6 +167,7 @@ export const places = {
         part: 1,
         tag: ['절', '자연', '힐링', '역사'],
         img: '../img/temple/jinkwan_temple.jpg',
+        latlng: new kakao.maps.LatLng(37.63814139999999, 126.9465791),
     },
     geumsun_temple: {
         name: '금선사',
@@ -175,6 +183,7 @@ export const places = {
         part: 1,
         tag: ['절', '자연', '힐링', '역사'],
         img: '../img/temple/geumsun_temple.jpg',
+        latlng: new kakao.maps.LatLng(37.6201201, 126.9534618),
     },
     doseon_temple: {
         name: '도선사',
@@ -190,6 +199,7 @@ export const places = {
         part: 2,
         tag: ['절', '자연', '힐링', '역사'],
         img: '../img/temple/doseon_temple.jpg',
+        latlng: new kakao.maps.LatLng(37.6554903, 126.988989),
     },
     cheonchuk_temple: {
         name: '천축사',
@@ -205,6 +215,7 @@ export const places = {
         part: 2,
         tag: ['절', '자연', '힐링', '역사'],
         img: '../img/temple/cheonchuk_temple.jpg',
+        latlng: new kakao.maps.LatLng(37.6941519, 127.0199528),
     },
     hwage_temple: {
         name: '화계사',
@@ -220,8 +231,9 @@ export const places = {
         part: 2,
         tag: ['절', '자연', '힐링', '역사'],
         img: '../img/temple/hwage_temple.jpg',
+        latlng: new kakao.maps.LatLng(37.6326087, 127.0073144),
     },
-    gaegaeun_templeunsa: {
+    gaeun_templeunsa: {
         name: '개운사',
         address: `서울특별시 성북구 개운사길 73`,
         homepage: `http://www.gaeunsa.org/`,
@@ -235,6 +247,7 @@ export const places = {
         part: 2,
         tag: ['절', '자연', '힐링', '역사'],
         img: '../img/temple/gaeun_temple.jpg',
+        latlng: new kakao.maps.LatLng(37.5900147, 127.0282597),
     },
     dalma_temple: {
         name: '달마사',
@@ -250,6 +263,7 @@ export const places = {
         part: 3,
         tag: ['절', '자연', '힐링', '역사'],
         img: '../img/temple/dalma_temple.jpg',
+        latlng: new kakao.maps.LatLng(37.4985216, 126.9625278),
     },
     bongeun_temple: {
         name: '봉은사',
@@ -265,6 +279,7 @@ export const places = {
         part: 4,
         tag: ['절', '자연', '힐링', '역사'],
         img: '../img/temple/bongeun_temple.jpg',
+        latlng: new kakao.maps.LatLng(37.5151403, 127.0569421),
     },
     doseon_temple: {
         name: '대성사',
@@ -280,6 +295,7 @@ export const places = {
         part: 4,
         tag: ['절', '자연', '힐링', '역사'],
         img: '../img/temple/doseon_temple.jpg',
+        latlng: new kakao.maps.LatLng(37.475978, 127.0134149),
     },
     national_museum: {
         name: '국립중앙박물관',
@@ -300,6 +316,7 @@ export const places = {
         part: 1,
         tag: ['박물관', '미술관', '기념관', '실내', '가족'],
         img: '../img/museum/national_museum.jpg',
+        latlng: new kakao.maps.LatLng(37.52303680000001, 126.982235),
     },
     // sdmMuseum: {
     //     name: '서대문자연사박물관',
@@ -336,6 +353,7 @@ export const places = {
         part: 1,
         tag: ['박물관', '미술관', '기념관', '실내', '가족'],
         img: '../img/museum/seodaemun_prison.jpg',
+        latlng: new kakao.maps.LatLng(37.5742169, 126.9561692),
     },
     national_modern_museum: {
         name: '국립현대미술관(서울)',
@@ -356,6 +374,7 @@ export const places = {
         part: 1,
         tag: ['박물관', '미술관', '기념관', '실내', '가족'],
         img: '../img/museum/national_modern_museum.jpg',
+        latlng: new kakao.maps.LatLng(37.5795117, 126.9805862),
     },
     seoul_art_museum: {
         name: '서울시립미술관(서소문본관)',
@@ -374,6 +393,7 @@ export const places = {
         part: 1,
         tag: ['박물관', '미술관', '기념관', '실내', '가족'],
         img: '../img/museum/seoul_art_museum.jpg',
+        latlng: new kakao.maps.LatLng(37.5643082, 126.9744408),
     },
     war_memorial: {
         name: '전쟁기념관',
@@ -390,6 +410,7 @@ export const places = {
         part: 1,
         tag: ['박물관', '미술관', '기념관', '실내', '가족'],
         img: '../img/museum/war_memorial.jpg',
+        latlng: new kakao.maps.LatLng(37.53631710000001, 126.9771144),
     },
     // nowoncosmos: {
     //     name: '노원우주학교',
@@ -433,6 +454,7 @@ export const places = {
         part: 2,
         tag: ['박물관', '미술관', '기념관', '실내', '가족'],
         img: '../img/museum/national_gugak_center.jpg',
+        latlng: new kakao.maps.LatLng(37.4777592, 127.0083043),
     },
     // baekjeMuseum: {
     //     name: '한성백제박물관',
@@ -448,7 +470,6 @@ export const places = {
     //     isPetPossible: false,
     //     part: 4,
     //     tag: ['박물관', '미술관', '기념관', '실내', '가족'],
-    //     img: '../img/museum/national_gugak_center.jpg',
     // },
 
     bukchon_hanok_village: {
@@ -465,6 +486,7 @@ export const places = {
         part: 1,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
         img: '../img/historical_area/bukchon_hanok_village.jpg',
+        latlng: new kakao.maps.LatLng(37.5790699, 126.9864283),
     },
     jongmyo: {
         name: '종묘',
@@ -480,6 +502,7 @@ export const places = {
         part: 1,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
         img: '../img/historical_area/jongmyo.jpg',
+        latlng: new kakao.maps.LatLng(37.57465850000001, 126.9940983),
     },
     // deoksugungDondeokjeon: {
     //     name: '덕수궁돈덕전',
@@ -510,6 +533,7 @@ export const places = {
         part: 1,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
         img: '../img/historical_area/sunjeong_hyohwanghu_yunssichinga.jpg',
+        latlng: new kakao.maps.LatLng(37.5583775, 126.9939831),
     },
     jeongneung: {
         name: '정릉',
@@ -525,6 +549,7 @@ export const places = {
         part: 2,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
         img: '../img/historical_area/jeongneung.jpg',
+        latlng: new kakao.maps.LatLng(37.6012152, 127.006821),
     },
     bukhansan_dullegil_2gugan_sunlyegil: {
         name: '북한산둘레길2구간 순례길',
@@ -540,6 +565,7 @@ export const places = {
         part: 2,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
         img: '../img/historical_area/bukhansan_dullegil_2gugan_sunlyegil.jpg',
+        latlng: new kakao.maps.LatLng(37.651463477583114, 127.01163053512573),
     },
     uirneung: {
         name: '의릉',
@@ -555,6 +581,7 @@ export const places = {
         part: 2,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
         img: '../img/historical_area/uirneung.jpg',
+        latlng: new kakao.maps.LatLng(37.6037986, 127.0558626),
     },
     taeneung_gwa_gangneung: {
         name: '서울 태릉과강릉',
@@ -570,6 +597,7 @@ export const places = {
         part: 2,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
         img: '../img/historical_area/taeneung_gwa_gangneung.jpg',
+        latlng: new kakao.maps.LatLng(37.6362162, 127.0974593),
     },
     achasanseong: {
         name: '아차산성',
@@ -585,6 +613,7 @@ export const places = {
         part: 2,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
         img: '../img/historical_area/achasanseong.jpg',
+        latlng: new kakao.maps.LatLng(37.5478239, 127.1047149),
     },
     yangcheongoseongji: {
         name: '서울양천고성지',
@@ -600,6 +629,7 @@ export const places = {
         part: 3,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
         img: '../img/historical_area/yangcheongoseongji.jpg',
+        latlng: new kakao.maps.LatLng(37.5743474, 126.841027),
     },
     yangcheonhyanggyo: {
         name: '양천향교',
@@ -615,6 +645,7 @@ export const places = {
         part: 3,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
         img: '../img/historical_area/yangcheonhyanggyo.jpg',
+        latlng: new kakao.maps.LatLng(37.5730424, 126.8398001),
     },
     amsa_dong_ruins: {
         name: '암사동 유적',
@@ -630,6 +661,7 @@ export const places = {
         part: 4,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
         img: '../img/historical_area/amsa_dong_ruins.jpg',
+        latlng: new kakao.maps.LatLng(37.5609568, 127.1306436),
     },
     bang_idong_gobungun: {
         name: '방이동 고분군',
@@ -645,6 +677,7 @@ export const places = {
         part: 4,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
         img: '../img/historical_area/bang_idong_gobungun.jpg',
+        latlng: new kakao.maps.LatLng(37.5079303, 127.1180914),
     },
     heonineung: {
         name: '헌인릉',
@@ -660,6 +693,7 @@ export const places = {
         part: 4,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
         img: '../img/historical_area/heonineung.jpg',
+        latlng: new kakao.maps.LatLng(37.464935, 127.0817676),
     },
     yun_bong_gil_memorial_hall: {
         name: '매헌 윤봉길의사 기념관',
@@ -675,8 +709,9 @@ export const places = {
         part: 4,
         tag: ['역사적명소', '힐링', '산책', '자연', '역사'],
         img: '../img/historical_area/yun_bong_gil_memorial_hall.jpg',
+        latlng: new kakao.maps.LatLng(37.4695908, 127.0365105),
     },
-    namSan: {
+    namsan_park: {
         name: '남산공원',
         address: `서울특별시 중구 삼일대로 231`,
         homepage: 'https://parks.seoul.go.kr/parks/detailView.do?pIdx=1',
@@ -690,10 +725,11 @@ export const places = {
         part: 1,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
         img: '../img/park/namsan_park.jpg',
+        latlng: new kakao.maps.LatLng(37.5509895, 126.9908991),
     },
     sky_park: {
         name: '하늘공원',
-        address: `서울특별시 마포구 하늘공원로 95`,
+        address: ` 대한민국 서울특별시 마포구 상암동 482`,
         homepage: 'http://parks.seoul.go.k',
         opTime: '상시개방',
         parking: `장애인 주차장 있음_무장애 편의시설`,
@@ -705,6 +741,7 @@ export const places = {
         part: 1,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
         img: '../img/park/sky_park.jpg',
+        latlng: new kakao.maps.LatLng(37.5677554, 126.8856819),
     },
     hyochang_park: {
         name: '효창공원',
@@ -720,6 +757,7 @@ export const places = {
         part: 1,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
         img: '../img/park/hyochang_park.jpg',
+        latlng: new kakao.maps.LatLng(37.5450482, 126.9603142),
     },
     naksan_park: {
         name: '낙산공원',
@@ -735,6 +773,7 @@ export const places = {
         part: 1,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
         img: '../img/park/naksan_park.jpg',
+        latlng: new kakao.maps.LatLng(37.5806571, 127.0074835),
     },
     hongneung_arboretum: {
         name: '홍릉수목원',
@@ -750,6 +789,7 @@ export const places = {
         part: 2,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
         img: '../img/park/hongneung_arboretum.jpg',
+        latlng: new kakao.maps.LatLng(37.5930966, 127.0436563),
     },
     gyeongchun_line_forest_road: {
         name: '경춘선숲길',
@@ -765,6 +805,7 @@ export const places = {
         part: 2,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
         img: '../img/park/gyeongchun_line_forest_road.jpg',
+        latlng: new kakao.maps.LatLng(37.6197458, 127.081482),
     },
     yongma_falls_park: {
         name: '용마폭포공원',
@@ -781,6 +822,7 @@ export const places = {
         part: 2,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
         img: '../img/park/yongma_falls_park.jpg',
+        latlng: new kakao.maps.LatLng(37.5728192, 127.0911912),
     },
     seoulforest: {
         name: '서울숲공원',
@@ -796,6 +838,7 @@ export const places = {
         part: 2,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
         img: '../img/park/seoulforest.jpg',
+        latlng: new kakao.maps.LatLng(37.5443878, 127.0374424),
     },
     gangseo_wetland_ecological_park: {
         name: '강서습지생태공원',
@@ -811,6 +854,7 @@ export const places = {
         part: 3,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
         img: '../img/park/gangseo_wetland_ecological_park.jpg',
+        latlng: new kakao.maps.LatLng(37.5865208, 126.8186729),
     },
     seonyudo_park: {
         name: '선유도공원',
@@ -826,6 +870,7 @@ export const places = {
         part: 3,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
         img: '../img/park/seonyudo_park.jpg',
+        latlng: new kakao.maps.LatLng(37.5431196, 126.9001167),
     },
     sayukshin_park: {
         name: '사육신공원',
@@ -841,10 +886,11 @@ export const places = {
         part: 3,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
         img: '../img/park/sayukshin_park.jpg',
+        latlng: new kakao.maps.LatLng(37.5136175, 126.9485789),
     },
     galsan_park: {
         name: '갈산근린공원',
-        address: `서울 양천구 신정동 162-56`,
+        address: `대한민국 서울특별시 양천구 목동남로 106-23`,
         homepage: 'http://www.yangcheon.go.kr/',
         opTime: '연중개방',
         parking: `있음`,
@@ -856,6 +902,7 @@ export const places = {
         part: 3,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
         img: '../img/park/galsan_park.jpg',
+        latlng: new kakao.maps.LatLng(37.50958967242726, 126.87007427215576),
     },
     yongwangsan_park: {
         name: '용왕산근린공원',
@@ -871,6 +918,7 @@ export const places = {
         part: 3,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
         img: '../img/park/yongwangsan_park.jpg',
+        latlng: new kakao.maps.LatLng(37.542222, 126.8775),
     },
     olympic_park: {
         name: '올림픽공원',
@@ -886,6 +934,7 @@ export const places = {
         part: 4,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
         img: '../img/park/olympic_park.jpg',
+        latlng: new kakao.maps.LatLng(37.5206868, 127.1214941),
     },
     bangi_dong_ecological_landscape_conservation_area: {
         name: '방이동 생태경관 보전지역',
@@ -901,6 +950,7 @@ export const places = {
         part: 4,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
         img: '../img/park/bangi_dong_ecological_landscape_conservation_area.jpg',
+        latlng: new kakao.maps.LatLng(37.5156746, 127.1253915),
     },
     // hagdongpark: {
     //     name: '학동공원',
@@ -930,5 +980,6 @@ export const places = {
         part: 4,
         tag: ['공원', '힐링', '산책', '자연', '데이트'],
         img: '../img/park/dosan_park.jpg',
+        latlng: new kakao.maps.LatLng(37.5244813, 127.0353667),
     },
 };
