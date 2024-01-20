@@ -75,6 +75,7 @@ main {
 }
 .header {
     text-align: center;
+    color: white;
 }
 .header > * {
     padding: 10px;
@@ -85,13 +86,13 @@ main {
 }
 .header > *:nth-child(2) {
     font-size: 20px;
-    color: rgb(109, 108, 108);
+    color: rgb(197, 197, 197);
 }
 .header > *:nth-child(3) {
     font-size: 30px;
 }
 .content-section1 {
-    height: 600px;
+    height: 1000px;
     padding: 20px;
     background-color: blanchedalmond;
     display: flex;
