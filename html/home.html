@@ -5,84 +5,122 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>궁석궁석</title>
         <link rel="stylesheet" href="/css/home.css" />
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
     </head>
     <body>
-        <!-- 메인 -->
-        <header id="header" class="header">
-            <ul class="tag" id="tag">
-                <li class="logo">궁석궁석</li>
-                <li class="menu"><a href="">홈</a></li>
-                <li class="menu"><a href="">테마</a></li>
-                <li class="menu"><a href="">지역별추천</a></li>
-                <li class="menu"><a href="">랜덤추천</a></li>
-            </ul>
+        <header>
+            <div class="logo">
+                <div><a href="../html/home.html">궁석궁석</a></div>
+            </div>
+            <div class="nav">
+                <div><a href="../html/home.html">홈</a></div>
+                <div><a href="../html/theme_main.html">테마</a></div>
+                <div><a href="../html/map_recommand.html">지역별 추천</a></div>
+                <div><a href="">랜덤추천</a></div>
+            </div>
         </header>
-        <!-- 메인 슬라이드 -->
-        <div class="mainslide">
-            <div class="slider">
-                <div class="slide"></div>
-                <div class="slide"></div>
-                <div class="slide"></div>
-            </div>
-        </div>
-        <!-- 메인 타이틀 -->
-        <div class="maintitle">
-            <div class="maintext">
-                <p><b>경복궁 </b></p>
-                <p>밤에 더 멋진 경복궁</p>
-            </div>
-            <hr />
-        </div>
-        <br />
-        <!-- 테마 카드 -->
-        <div id="themeview">
-            <h2>함께 떠나는 힐링 테마여행</h2>
-        </div>
-        <div id="themecard">
-            <div class="container">
-                <div class="ctbox">
-                    <div class="ctcard1">
-                        <a href="">
-                            <img src="https://i.pinimg.com/564x/c3/d9/b2/c3d9b25159ea6a6105b3b05565369861.jpg" alt="" />
-                        </a>
-                        <div class="cardtext">
-                            <p>"문구 입력"</p>
+        <main>
+            <div class="upper-section">
+                <div class="left-section">
+                    <!--메인 텍스트-->
+                    <div class="mainleft-wrap">
+                        <div class="main-text">
+                            <p>경복궁</p>
+                            <br />
+                            <span>
+                                조선 시대 왕들의 생활과 국정을 펼친 곳으로, 그 아름다움과 역사적 가치를 담고 있는
+                                대한민국의 대표적인 궁궐"
+                            </span>
                         </div>
                     </div>
-                    <div class="ctcard2">
-                        <a href="">
-                            <img src="https://i.pinimg.com/474x/47/9e/bf/479ebf76aed4cff17b7bf8bbc28e69ee.jpg" alt="" />
-                        </a>
-                        <div class="cardtext">
-                            <p>"문구 입력"</p>
-                        </div>
-                    </div>
-                    <div class="ctcard3">
-                        <a href="">
-                            <img src="https://i.pinimg.com/474x/4b/e7/5f/4be75fe554b26e5cbf0639188df0fdcb.jpg" alt="" />
-                        </a>
-                        <div class="cardtext">
-                            <p>"문구 입력"</p>
-                        </div>
-                    </div>
-                    <div class="ctcard4">
-                        <a href="">
-                            <img src="https://i.pinimg.com/474x/15/46/28/154628ef4dad2c8f77a5d888a0f65480.jpg" alt="" />
-                        </a>
-                        <div class="cardtext">
-                            <p>"문구 입력"</p>
-                        </div>
-                    </div>
-
-                    <button id="next">다음</button>
+                </div>
+                <div class="right-section">
+                    <!--메인 슬라이드 -->
+                    <div class="main-slide active" style="background-image: url('/img/palace/gyeongbokgung.jpg')"></div>
+                    <div class="main-slide" style="background-image: url('/img/park/hakdongpark.jpg')"></div>
+                    <div class="main-slide" style="background-image: url('/img/temple/bongeun_temple.jpg')"></div>
+                    <div class="main-slide" style="background-image: url('/img/museum/national_museum.jpg')"></div>
                 </div>
             </div>
-        </div>
+            <!-- 지도 -->
+            <div class="map-container">
+                <h2>지도</h2>
+                <div class="map">
+                    <div class="map-left"></div>
+                    <div class="map-right">
+                        <div>추가해야할 내용</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 테마 카드 -->
+            <div class="theme-container">
+                <h2>함께 떠나는 힐링 여행</h2>
+                <div class="theme-wrap">
+                    <div class="theme-slide-group" id="theme-slide-group1">
+                        <div class="theme-slide" id="theme-slide1">
+                            <a href="">
+                                <img src="/img/temple/doseon_temple.jpg" alt="" />
+                            </a>
+                            <div class="cardtext">
+                                <p>"문구 입력"</p>
+                            </div>
+                        </div>
+                        <div class="theme-slide" id="theme-slide2">
+                            <a href="">
+                                <img src="/img/park/hakdongpark.jpg" alt="" />
+                            </a>
+                            <div class="cardtext">
+                                <p>"문구 입력"</p>
+                            </div>
+                        </div>
+                        <div class="theme-slide" id="theme-slide3">
+                            <a href="">
+                                <img src="/img/historical_area/jongmyo.jpg" alt="" />
+                            </a>
+                            <div class="cardtext">
+                                <p>"문구 입력"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="theme-slide-group" id="theme-slide-group2">
+                        <div class="theme-slide" id="theme-slide4">
+                            <a href="">
+                                <img src="/img/palace/unhyeongung.jpg" alt="" />
+                            </a>
+                            <div class="cardtext">
+                                <p>"문구 입력"</p>
+                            </div>
+                        </div>
+                        <div class="theme-slide" id="theme-slide5">
+                            <a href="">
+                                <img src="/img/museum/seoul_art_museum.jpg" alt="" />
+                            </a>
+                            <div class="cardtext">
+                                <p>"문구 입력"</p>
+                            </div>
+                        </div>
+                        <div class="theme-slide" id="theme-slide6">
+                            <a href="">
+                                <img src="/img/historical_area/bukchon_hanok_village.jpg" alt="" />
+                            </a>
+                            <div class="cardtext">
+                                <p>"문구 입력"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="next"><i class="arrow right"></i></button>
+                </div>
+            </div>
+        </main>
         <script src="/js/home.js"></script>
     </body>
 </html>
 
 <!-- 01/18 -->
 <!-- 배너 눌렀을때 밑으로 화면 나오게 하는 기능 구현
-지도 사진이랑 지도 구역 우측에 들어가는 데이터는 따로 정리
-테마여행 슬라이드 기능 구현 -->
+            지도 사진이랑 지도 구역 우측에 들어가는 데이터는 따로 정리
+            테마여행 슬라이드 기능 구현 -->
