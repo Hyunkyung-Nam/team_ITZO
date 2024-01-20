@@ -1,102 +1,136 @@
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'),
+        url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'),
+        url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
 * {
     margin: 0;
     padding: 0;
+    box-sizing: content-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'NanumBarunGothic';
+}
+body {
+    overflow: auto;
+    background-color: #001d49;
+    display: flex;
+    flex-direction: column;
 }
 header {
+    position: fixed;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(227, 222, 222);
-    height: 100px;
-    /* text-align: center; */
-    text-align: left;
-    padding-left: 40px;
+    background-color: #fefeed;
+    height: 60px;
+    text-align: center;
+    padding: 10px;
+    min-width: 400px;
+    z-index: 1000;
     transition: all 0.3s;
-
-    /* font-family: 'GmarketSansMedium'; */
 }
 .logo {
+    display: flex;
+    justify-content: center;
+    width: 30%;
     font-size: 30px;
+    font-weight: bold;
 }
-header > * {
-    width: 50%;
+.logo a {
+    color: black;
 }
 .nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    width: 50%;
 }
 .nav > * {
-    width: 100px;
-}
-
-.header > * {
     padding: 10px;
 }
-.header > *:first-child {
-    font-weight: bold;
-    font-size: 60px;
-}
-.header > *:nth-child(2) {
-    font-size: 20px;
-    color: rgb(109, 108, 108);
-}
-.header > *:nth-child(3) {
-    font-size: 30px;
-}
-
-header .nav .random {
-    margin-left: 44px;
-}
-header .nav a {
-    text-decoration: none;
+.nav a {
     color: black;
 }
-.themes_section {
-    /* border: 1px solid red; */
+
+/* .themes_section {
+    
     position: relative;
     flex-direction: row;
     justify-content: space-between;
+} */
+.themes_section .tit {
+    width: 100%;
+    margin: 0;
+    left: 0;
+    top: 100px;
+    position: static;
+    padding: 162px 0 0;
 }
 
 .themes_section .themes_choose {
-    /* border: 1px solid rgb(0, 255, 234); */
+    position: relative;
     display: flex;
+}
+.themes_choose > * {
+    display: flex;
+}
+
+.photo {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    /* width: calc(100vw / 4);
+    height: 610px; */
+}
+.text {
     position: absolute;
-    /* flex-wrap: wrap; */
-    /* min-width이거나 미디어쿼리로...둘다도 해보기 
-themes 박스 너비를 정해주면 어느일정부분 안줄얻름*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(245, 160, 2);
+    font-size: 24px;
+    font-weight: bold;
 }
-ㅇ .themes_choose ul {
-    list-style: none;
-    /* min-width: 300px; */
+.text1 {
+    top: 44%;
 }
 
-.themes_choose ul li {
+.text2 {
+    top: 50%;
 }
 
-.themes_choose ul li p {
-    text-align: center;
-    line-height: 20px;
-    font-size: 20px;
-    color: gold;
+.text3 {
+    top: 56%;
 }
-.themes_section .themes_choose ul a {
-    text-decoration: none;
-}
-.themes_choose ul li img {
+
+.photo img {
     width: calc(100vw / 4);
     height: 610px;
-
+    /* width: 100%; */
+    opacity: 0.8;
     border-radius: 10px;
 }
-.themes_choose ul li .text {
-    color: orange;
+
+.zoom_img {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+.zoom_text {
+    font-size: 30px;
+    transition: all 0.2s;
 }
 
 .bottom {
     width: 100%;
-    position: relative;
+
     margin: auto;
     box-sizing: border-box;
     height: auto;
@@ -106,12 +140,12 @@ themes 박스 너비를 정해주면 어느일정부분 안줄얻름*/
     background: #f0f0f0;
     overflow: hidden;
     padding-bottom: 102px;
-    bottom: 0;
+    /* bottom: -222px; */
 }
 .bottom .sel_area {
+    padding: 0 15px 6px;
     position: static;
     overflow: hidden;
-    padding: 0 15px 6px;
 }
 .bottom .sel_area .sel_member {
     position: relative;
@@ -158,112 +192,95 @@ select {
     right: 0;
     top: 0;
 }
-a:link {
-    text-decoration: none;
-}
 
 @media screen and (max-width: 768px) {
     div {
         box-sizing: border-box;
     }
+    body {
+        overflow: scroll;
+    }
     header {
-        display: flex;
-        justify-content: center;
         flex-direction: column;
-        align-items: center;
-        background-color: rgb(123, 176, 240);
         height: 100px;
-        min-width: 400px;
-
-        /* padding-left: 40px; */
-        /* transition: all 0.3s; */
-        /* font-family: 'GmarketSansMedium'; */
+        justify-content: space-around;
+        text-align: center;
     }
     .logo {
-        margin-bottom: 20px;
-        font-size: 30px;
-    }
-    .logo .logo_name {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         width: 100%;
-        /* margin값을 임의로 주는건 x */
-        margin-left: -33px;
-    }
-    header > * {
-        width: 50%;
     }
     .nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    body {
+        overflow: scroll;
+    }
+    header {
+        flex-direction: column;
+        height: 100px;
+        justify-content: space-around;
+        text-align: center;
+    }
+    .logo {
         width: 100%;
     }
-    .nav > * {
-        width: 100px;
+    .nav {
+        width: 100%;
+        justify-content: space-evenly;
     }
-
-    .header > * {
-        padding: 10px;
-    }
-    .header > *:first-child {
-        font-weight: bold;
-        font-size: 60px;
-    }
-    .header > *:nth-child(2) {
-        font-size: 20px;
-        color: rgb(109, 108, 108);
-    }
-    .header > *:nth-child(3) {
-        font-size: 30px;
-    }
-
-    header .nav .random {
-        /* margin값을 임의로 주는건 x */
-        margin-left: 44px;
-    }
-    header .nav a {
-        text-decoration: none;
-        color: black;
-    }
-
     .themes_section {
-        border: 1px solid red;
         position: relative;
     }
 
     .themes_section .themes_choose {
-        border: 1px solid rgb(0, 255, 234);
+        margin: 0;
+        padding: 0;
         display: flex;
         position: absolute;
+
         flex-wrap: wrap;
-
-        /* min-width이거나 미디어쿼리로...둘다도 해보기 
-      themes 박스 너비를 정해주면 어느일정부분 안줄얻름*/
     }
-
-    .themes_choose ul {
-        list-style: none;
+    .photo {
+        position: relative;
+        overflow: hidden;
     }
-
-    .themes_choose ul li {
-    }
-
-    .themes_choose ul li p {
-        text-align: center;
-        line-height: 15px;
-        font-size: 20px;
-    }
-    .themes_choose ul li .text {
-        line-height: 15px;
-    }
-
-    .themes_choose ul li img {
-        width: 300px;
-        height: 300px;
-
+    .photo img {
+        width: 350px;
+        height: 450px;
         border-radius: 10px;
+        margin: 0;
+        padding: 0;
+        opacity: 0.8;
+    }
+    .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgb(245, 160, 2);
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .text1 {
+        top: 40%;
+    }
+
+    .text2 {
+        top: 50%;
+    }
+
+    .text3 {
+        top: 60%;
+    }
+
+    .zoom_img {
+        transform: scale(1.05);
+        transition: transform 0.2s;
+    }
+    .zoom_text {
+        font-size: 30px;
+        transition: all 0.2s;
     }
     .bottom {
         width: 100%;
@@ -275,12 +292,12 @@ a:link {
         height: 65px;
         border-top: 42px solid #f0f0f0;
         background: #f0f0f0;
-        overflow: hidden;
+        /* overflow: hidden; */
         padding-bottom: 102px;
-        bottom: 0;
+        bottom: -1000px;
     }
     .bottom .sel_area {
-        position: static;
+        /* position: static; */
         overflow: hidden;
         padding: 0 15px 6px;
     }
