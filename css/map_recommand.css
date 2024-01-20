@@ -137,9 +137,16 @@ img {
 .content-container:last-child {
     border-bottom: 0px;
 }
+.page-numbering {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .hide {
     display: none;
 }
+
 @media (max-width: 768px) {
     body {
         overflow: scroll;
