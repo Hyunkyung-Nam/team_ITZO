@@ -1,4 +1,5 @@
 import { places } from './content_object.js';
+import { latLngs } from './latlng.js';
 
 export let part = 0;
 
@@ -249,39 +250,19 @@ export function resetContainer() {
 }
 function drawMarker(map) {
     let imageSrc = '../img/icon/location-dot-solid.svg';
-    if (part === 0) {
-        for (let key in places) {
-            // 마커 이미지의 이미지 크기 입니다
-            let imageSize = new kakao.maps.Size(15, 20);
+    for (let key in latLngs) {
+        // 마커 이미지의 이미지 크기 입니다
+        let imageSize = new kakao.maps.Size(15, 20);
 
-            // 마커 이미지를 생성합니다
-            let markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+        // 마커 이미지를 생성합니다
+        let markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 
-            // 마커를 생성합니다
-            let marker = new kakao.maps.Marker({
-                map: map, // 마커를 표시할 지도
-                position: places[key].latlng, // 마커를 표시할 위치
-                image: markerImage, // 마커 이미지
-            });
-            marker.setClickable(false);
-        }
-    } else {
-        for (let key in places) {
-            // 마커 이미지의 이미지 크기 입니다
-            if (places[key].part === part) {
-                let imageSize = new kakao.maps.Size(24, 35);
-
-                // 마커 이미지를 생성합니다
-                let markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-
-                // 마커를 생성합니다
-                let marker = new kakao.maps.Marker({
-                    map: map, // 마커를 표시할 지도
-                    position: places[key].latlng, // 마커를 표시할 위치
-                    image: markerImage, // 마커 이미지
-                });
-                marker.setClickable(false);
-            }
-        }
+        // 마커를 생성합니다
+        let marker = new kakao.maps.Marker({
+            map: map, // 마커를 표시할 지도
+            position: latLngs[key].latlng, // 마커를 표시할 위치
+            image: markerImage, // 마커 이미지
+        });
+        marker.setClickable(false);
     }
 }

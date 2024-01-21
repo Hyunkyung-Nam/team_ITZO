@@ -15,6 +15,7 @@ $(document).ready(function () {
                 $('.op-time').text(places[key].opTime);
                 $('.parking').text(places[key].parking);
                 $('.price').text(places[key].price);
+                $('copyright').text(`이미지 출처 : ${places[key].copyright}`);
             }
         }
     }
