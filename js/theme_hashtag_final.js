@@ -1,4 +1,4 @@
-// import { places } from './hs.js';
+import { places } from './content_object.js';
 
 //함수를 전역객체에 직접 할당
 window.goRelation2 = function () {
@@ -116,7 +116,7 @@ function resetContent(pageNum, hashtags) {
 function setContent(key, contentCount) {
     let childCount = `eq(${contentCount})`;
     $('.content-img-section').children(`img:${childCount}`).attr('src', places[key].img);
-    $('.content-img-section').children(`img:${childCount}`).attr('style', 'height:140px');
+    $('.content-img-section').children(`img:${childCount}`).attr('style'); //'height:140px'
     $(`.content-preview-header:${childCount}`).text(places[key].name);
     $(`.content-preview-address:${childCount}`).text(places[key].address);
     const tagString = setTag(places[key].tag);
