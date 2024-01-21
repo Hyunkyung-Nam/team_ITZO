@@ -14,6 +14,8 @@
     box-sizing: content-box;
     text-decoration: none;
     font-family: 'NanumBarunGothic';
+    word-wrap: break-word;
+    word-break: break-all;
 }
 body {
     overflow: auto;
@@ -59,8 +61,10 @@ header {
 main {
     width: 100vw;
     position: relative;
-    left: 10%;
-    top: 60px;
+    top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .container {
     width: 80%;
@@ -92,10 +96,9 @@ main {
     font-size: 30px;
 }
 .content-section1 {
-    height: 1000px;
-    padding: 20px;
     background-color: blanchedalmond;
     display: flex;
+    padding: 20px;
 }
 .content-section1 > * {
     width: 50%;
@@ -104,11 +107,20 @@ main {
     justify-content: center;
 }
 .img-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     padding: 20px 0;
 }
 .content img {
     width: 90%;
-    height: 100%;
+    height: 60%;
+    box-shadow: 5px 5px #001d49;
+}
+.copyright {
+    width: 90%;
+    background-color: red;
 }
 .detail-section {
     display: flex;
@@ -119,7 +131,9 @@ main {
 .detail-head {
     width: 100%;
     height: 20%;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     line-height: 3;
     font-size: 30px;
     font-weight: bold;
@@ -127,23 +141,24 @@ main {
 }
 .detail-bottom {
     height: 80%;
-    padding: 30px 20px;
+    padding: 20px;
 }
-.detail-bottom > * {
-    height: 40%;
-}
+
 .detail-information {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: baseline;
     font-size: 15px;
-    height: 60%;
+}
+.detail-explanation {
+    padding-bottom: 10px;
 }
 .detail-information > div {
     width: 100%;
     display: flex;
     padding: 5px;
+    height: fit-content;
 }
 .detail-information > div > div {
     width: 50%;
@@ -189,8 +204,14 @@ main {
         justify-content: space-evenly;
     }
     main {
-        top: 100px;
+        top: 110px;
         flex-direction: column;
         align-items: center;
+    }
+    .content-section1 {
+        flex-direction: column;
+    }
+    .content-section1 > * {
+        width: 100%;
     }
 }
