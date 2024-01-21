@@ -66,6 +66,7 @@ export function drawMap() {
     for (let i = 0, len = areas.length; i < len; i++) {
         displayArea(areas[i], map, customOverlay);
     }
+    drawMarker(map);
 }
 // 다각형을 생상하고 이벤트를 등록하는 함수입니다
 function displayArea(area, map, customOverlay) {
@@ -88,9 +89,6 @@ function displayArea(area, map, customOverlay) {
     // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
     kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
         polygon.setOptions({ fillColor: '#09f' });
-
-        customOverlay.setContent('<div class="area">' + area.name + '</div>');
-
         customOverlay.setPosition(mouseEvent.latLng);
         customOverlay.setMap(map);
     });
@@ -110,9 +108,16 @@ function displayArea(area, map, customOverlay) {
     // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다
     kakao.maps.event.addListener(polygon, 'click', function (mouseEvent) {
         const contentCotainer = $('.content-container');
-        contentCotainer.removeClass('hide');
-        $('.page-numbering').empty();
-        clickEvent(area);
+
+        $('.page-numbering').addClass('hide');
+        $('.content-container').addClass('hide');
+        resetContainer();
+        setTimeout(() => {
+            $('.content-container').removeClass('hide');
+            $('.page-numbering').empty();
+            clickEvent(area);
+            $('.page-numbering').removeClass('hide');
+        }, 100);
     });
 }
 function clickEvent(area) {
@@ -223,9 +228,60 @@ function setTag(tags) {
 function createButtonEvent() {
     $('.page-numbering-btn').on('click', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' }); //최상단으로 스크롤 옮기기
-        $('.content-container').removeClass('hide');
-        let number = $(this).text().replace('[', '');
-        number = Number(number.replace(']', ''));
-        resetContent(number);
+        $('.content-container').addClass('hide');
+        $('.page-numbering').addClass('hide');
+        resetContainer();
+        setTimeout(() => {
+            $('.content-container').removeClass('hide');
+            let number = $(this).text().replace('[', '');
+            number = Number(number.replace(']', ''));
+            resetContent(number);
+            $('.page-numbering').removeClass('hide');
+        }, 100);
     });
+}
+export function resetContainer() {
+    $('.content-img-section').children(`img`).attr('src', '');
+    $('.content-img-section').children(`img`).attr('style', 'height:140px');
+    $(`.content-preview-header`).text('');
+    $(`.content-preview-address`).text('');
+    $(`.content-preview-tag`).text('');
+}
+function drawMarker(map) {
+    let imageSrc = '../img/icon/location-dot-solid.svg';
+    if (part === 0) {
+        for (let key in places) {
+            // 마커 이미지의 이미지 크기 입니다
+            let imageSize = new kakao.maps.Size(15, 20);
+
+            // 마커 이미지를 생성합니다
+            let markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+            // 마커를 생성합니다
+            let marker = new kakao.maps.Marker({
+                map: map, // 마커를 표시할 지도
+                position: places[key].latlng, // 마커를 표시할 위치
+                image: markerImage, // 마커 이미지
+            });
+            marker.setClickable(false);
+        }
+    } else {
+        for (let key in places) {
+            // 마커 이미지의 이미지 크기 입니다
+            if (places[key].part === part) {
+                let imageSize = new kakao.maps.Size(24, 35);
+
+                // 마커 이미지를 생성합니다
+                let markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+                // 마커를 생성합니다
+                let marker = new kakao.maps.Marker({
+                    map: map, // 마커를 표시할 지도
+                    position: places[key].latlng, // 마커를 표시할 위치
+                    image: markerImage, // 마커 이미지
+                });
+                marker.setClickable(false);
+            }
+        }
+    }
 }

@@ -1,11 +1,17 @@
-import { drawMap, initSetting } from './draw_map.js';
+import { drawMap, initSetting, resetContainer } from './draw_map.js';
 
 drawMap();
 
 $('.reset-map').click(function () {
-    $('.content-container').removeClass('hide');
-    $('.page-numbering').empty();
+    $('.page-numbering').addClass('hide');
+    $('.content-container').addClass('hide');
+    resetContainer();
     initSetting();
+
+    setTimeout(() => {
+        $('.content-container').removeClass('hide');
+        $('.page-numbering').empty();
+    }, 100);
 });
 
 $('.content-container').click(function () {
