@@ -1,0 +1,39 @@
+/* 기본 스타일 */
+.place {
+    /* 모든 장소를 기본적으로 보이도록 설정*/
+    display: block;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+}
+
+/* 버튼 스타일 */
+#hashtag-buttons {
+    margin-bottom: 20px;
+}
+
+.hashtag {
+    margin-right: 5px;
+}
+
+/* 활성화된 장소의 스타일 */
+.place.active {
+    display: block;
+}
+
+.tagclivkView {
+    width: 100%;
+    position: relative;
+}
+.tagclickView .btn_refresh {
+    overflow: hidden;
+    position: absolute;
+    text-decoration: none;
+    right: 53px;
+    top: 15px;
+    width: 23px;
+    height: 23px;
+    background: url(https://korean.visitkorea.or.kr/resources/images/sub/btn_refresh_mtag.png) 0 0 / 100% 100% no-repeat;
+    text-indent: -999px;
+    border: none;
+}

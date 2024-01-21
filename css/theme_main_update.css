@@ -1,0 +1,354 @@
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'),
+        url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'),
+        url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'NanumBarunGothic';
+}
+body {
+    overflow: auto;
+    background-color: #001d49;
+    display: flex;
+    flex-direction: column;
+}
+header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fefeed;
+    height: 60px;
+    text-align: center;
+    padding: 10px;
+    min-width: 400px;
+    z-index: 1000;
+    transition: all 0.3s;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    font-size: 30px;
+    font-weight: bold;
+}
+.logo a {
+    color: black;
+}
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+}
+.nav > * {
+    padding: 10px;
+}
+.nav a {
+    color: black;
+}
+
+/* .themes_section {
+    
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+.themes_section .tit {
+    width: 100%;
+    margin: 0;
+    left: 0;
+    top: 100px;
+    position: static;
+    padding: 162px 0 0;
+}
+
+.themes_section .themes_choose {
+    position: relative;
+    display: flex;
+}
+.themes_choose > * {
+    display: flex;
+}
+
+.photo {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    /* width: calc(100vw / 4);
+    height: 610px; */
+}
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(245, 160, 2);
+    font-size: 24px;
+    font-weight: bold;
+}
+.text1 {
+    top: 44%;
+}
+
+.text2 {
+    top: 50%;
+}
+
+.text3 {
+    top: 56%;
+}
+
+.photo img {
+    width: calc(100vw / 4);
+    height: 610px;
+    /* width: 100%; */
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+.zoom_img {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+.zoom_text {
+    font-size: 30px;
+    transition: all 0.2s;
+}
+
+.bottom {
+    width: 100%;
+
+    margin: auto;
+    box-sizing: border-box;
+    height: auto;
+    padding: 0;
+    height: 65px;
+    border-top: 42px solid #f0f0f0;
+    background: #f0f0f0;
+    overflow: hidden;
+    padding-bottom: 102px;
+    /* bottom: -222px; */
+}
+.bottom .sel_area {
+    padding: 0 15px 6px;
+    position: static;
+    overflow: hidden;
+}
+.bottom .sel_area .sel_member {
+    position: relative;
+    background: none;
+    border: 0;
+}
+.bottom .sel_area .sel_member select {
+    background: #fff url(https://korean.visitkorea.or.kr/resources/images/main/ico_select5.png) 100% 50%/30px 8px
+        no-repeat;
+    padding: 0 0 0 15px;
+    height: 35px;
+    width: calc(100% - 65px);
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 18px;
+    border: 1px solid #bbb;
+    color: #666;
+    vertical-align: top;
+}
+/* 화살표 사라지기 */
+select {
+    -webkit-appearance: none; /* Chrome, Safari, Edge */
+    -moz-appearance: none; /* Firefox */
+    appearance: none; /* 일반적인 스타일링을 위한 appearance 속성 */
+    background-image: none; /* 배경 이미지 제거 */
+    padding-right: 1em; /* 오른쪽 여백을 추가하여 텍스트와 겹치지 않게 함 */
+    background-color: transparent; /* 배경색을 투명하게 설정 */
+}
+.bottom .sel_area .sel_member #relation2 {
+    margin-bottom: 10px;
+}
+.sel_area .sel_member button {
+    width: 50px;
+    font-size: 14px;
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    background: #777676;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 13px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+@media screen and (max-width: 768px) {
+    div {
+        box-sizing: border-box;
+    }
+    body {
+        overflow: scroll;
+    }
+    header {
+        flex-direction: column;
+        height: 100px;
+        justify-content: space-around;
+        text-align: center;
+    }
+    .logo {
+        width: 100%;
+    }
+    .nav {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    body {
+        overflow: scroll;
+    }
+    header {
+        flex-direction: column;
+        height: 100px;
+        justify-content: space-around;
+        text-align: center;
+    }
+    .logo {
+        width: 100%;
+    }
+    .nav {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .themes_section {
+        position: relative;
+    }
+
+    .themes_section .themes_choose {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        position: absolute;
+
+        flex-wrap: wrap;
+    }
+    .photo {
+        position: relative;
+        overflow: hidden;
+    }
+    .photo img {
+        width: 350px;
+        height: 450px;
+        border-radius: 10px;
+        margin: 0;
+        padding: 0;
+        opacity: 0.8;
+    }
+    .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgb(245, 160, 2);
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .text1 {
+        top: 40%;
+    }
+
+    .text2 {
+        top: 50%;
+    }
+
+    .text3 {
+        top: 60%;
+    }
+
+    .zoom_img {
+        transform: scale(1.05);
+        transition: transform 0.2s;
+    }
+    .zoom_text {
+        font-size: 30px;
+        transition: all 0.2s;
+    }
+    .bottom {
+        width: 100%;
+        position: relative;
+        margin: auto;
+        box-sizing: border-box;
+        height: auto;
+        padding: 0;
+        height: 65px;
+        border-top: 42px solid #f0f0f0;
+        background: #f0f0f0;
+        /* overflow: hidden; */
+        padding-bottom: 102px;
+        bottom: -1000px;
+    }
+    .bottom .sel_area {
+        /* position: static; */
+        overflow: hidden;
+        padding: 0 15px 6px;
+    }
+    .bottom .sel_area .sel_member {
+        position: relative;
+        background: none;
+        border: 0;
+    }
+    .bottom .sel_area .sel_member select {
+        background: #fff url(https://korean.visitkorea.or.kr/resources/images/main/ico_select5.png) 100% 50%/30px 8px
+            no-repeat;
+        padding: 0 0 0 15px;
+        height: 35px;
+        width: calc(100% - 65px);
+        border-radius: 5px;
+        font-size: 13px;
+    }
+    select {
+        line-height: 18px;
+        border: 1px solid #bbb;
+        color: #666;
+        vertical-align: top;
+    }
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-image: none;
+        padding-right: 1em;
+        background-color: transparent;
+    }
+    .bottom .sel_area .sel_member #relation2 {
+        margin-bottom: 10px;
+    }
+    .sel_area .sel_member button {
+        width: 50px;
+        font-size: 14px;
+        display: inline-block;
+        height: 35px;
+        line-height: 35px;
+        color: #fff;
+        background: #777676;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 13px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    a:link {
+        text-decoration: none;
+    }
+}
