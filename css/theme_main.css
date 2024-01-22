@@ -87,8 +87,7 @@ header {
     position: relative;
     overflow: hidden;
     margin-bottom: 20px;
-    /* width: calc(100vw / 4);
-    height: 610px; */
+    border-radius: 10px;
 }
 .text {
     position: absolute;
@@ -116,7 +115,6 @@ header {
     height: 610px;
     /* width: 100%; */
     opacity: 0.8;
-    border-radius: 10px;
 }
 
 .zoom_img {
