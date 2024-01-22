@@ -1,4 +1,4 @@
-import { drawMap, initSetting, resetContainer } from './draw_map.js';
+import { drawMap, initSetting, resetContainer } from './draw_map_recommand.js';
 
 drawMap();
 
