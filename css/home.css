@@ -1,14 +1,14 @@
 @font-face {
-    font-family: 'NanumBarunGothic';
-
     font-style: normal;
     font-weight: 400;
+    font-family: 'NanumBarunGothic';
+
     src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
     src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'),
         url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'),
         url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     body {
         overflow: scroll;
     }
@@ -20,7 +20,6 @@
     }
     .logo {
         width: 100%;
-        justify-content: center;
     }
     .nav {
         width: 100%;
@@ -32,12 +31,34 @@
         align-items: center;
     }
     .left-section {
-        z-index: 8;
+        width: 100%;
+        height: 240px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        padding-bottom: 0;
+    }
+    .mainleft-wrap {
+        width: 95%;
+        height: 100%;
+    }
+    .main-textbox {
+        z-index: 5;
+    }
+    #map {
+        height: 100%;
     }
     .right-section {
-        z-index: 9;
+        padding: 20px 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        z-index: 6;
     }
-}
+} */
 * {
     margin: 0;
     padding: 0;
@@ -95,7 +116,7 @@ main {
     top: 60px;
     width: 100vw;
 }
-.upper-section {
+.mainslide-container {
     display: flex;
     width: 100%;
 }
@@ -115,19 +136,53 @@ main {
     height: 100%;
     position: relative;
 }
-.main-text {
+.main-textbox {
     position: absolute;
-    color: white;
-    text-align: left;
-    top: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-.main-text p {
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration-line: underline;
+.main-text {
+    color: white;
+    text-align: center;
+    top: 40%;
+    left: 100px;
+    display: none;
+}
+.main-text.active {
+    display: block;
+}
+.main-title {
+    display: inline-block;
+    padding: 0 15px;
+    height: 30px;
+    line-height: 28px;
+    background: #000;
+    border-radius: 15px 15px 15px 15px;
+    font-weight: 300;
+    color: white;
+    bottom: 30px;
+    position: relative;
+    bottom: 15px;
+    font-size: 20px;
+}
+.text-box {
+    position: relative;
+}
+.text {
+    font-size: 18px;
+    text-shadow: 2px 2px 4px #000000;
+}
+.page-move {
+    border-bottom: 1px solid white;
+    padding-bottom: 2px;
+    color: white;
+    position: absolute;
+    left: 110px;
+    top: 120px;
 }
 .right-section {
-    width: 100%;
+    width: 50%;
     height: 500px;
     justify-content: center;
     display: flex;
@@ -136,6 +191,8 @@ main {
     overflow: scroll;
     top: 60px;
     z-index: 9;
+    border-radius: 5%;
+    box-shadow: 5px 5px black;
 }
 .main-slide {
     width: 100%;
@@ -148,38 +205,32 @@ main {
 .main-slide.active {
     display: block;
 }
-.map-container {
+.map-section {
     position: relative;
-    top: 100px;
+    top: 150px;
 }
-.map {
-    height: 400px;
+.map-container {
     width: 100%;
-    display: flex;
+    height: 500px;
+    background-color: #fefeed;
 }
-.map-left {
-    width: 70%;
-    box-sizing: border-box;
-    background-color: coral;
-}
-.map-right {
-    width: 30%;
-    box-sizing: border-box;
-    background-color: #001d49;
-}
-.map-left p {
+.map-text {
+    text-align: center;
     font-size: 28px;
     font-weight: bold;
-    text-decoration-line: underline;
     color: white;
 }
-
 h2 {
     color: white;
     font-size: 28px;
     font-weight: bold;
-    text-decoration-line: underline;
     margin-top: 20;
+}
+.theme-text {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
 }
 .theme-container {
     background: #001d49;
@@ -188,10 +239,12 @@ h2 {
     top: 200px;
 }
 .theme-wrap {
+    position: relative;
     height: 400px;
     width: 100%;
     display: flex;
     margin-top: 50px;
+    justify-content: center;
 }
 .theme-slide-group {
     display: flex;
@@ -212,12 +265,35 @@ h2 {
     object-fit: cover;
     object-position: center;
     border-radius: 50%;
+    box-shadow: 5px 5px 5px black;
 }
 .cardtext {
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     color: white;
     margin-top: 10px;
+    line-height: 1.5;
+}
+#prev,
+#next {
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-50%);
+    /* 버튼 배경색을 변경합니다. 원하는 색으로 변경하실 수 있습니다. */
+    background-color: #f8f9fa;
+    /* 버튼을 원형으로 만듭니다. */
+    border-radius: 50%;
+    /* 버튼 내부의 여백을 설정합니다. */
+    padding: 10px;
+    /* 버튼의 경계선을 제거합니다. */
+    border: none;
+}
+#prev {
+    left: 48%;
+}
+
+#next {
+    left: 52%;
 }
 .arrow {
     border: solid black;
@@ -225,7 +301,198 @@ h2 {
     display: inline-block;
     padding: 3px;
 }
+
 .right {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+/* footer */
+.bottom {
+    top: 400px;
+    width: 100%;
+    position: relative;
+    margin: auto;
+    box-sizing: border-box;
+    height: auto;
+    padding: 0;
+    height: 65px;
+    border-top: 42px solid #f0f0f0;
+    background: #f0f0f0;
+    overflow: hidden;
+    padding-bottom: 102px;
+    bottom: 0;
+}
+.bottom .sel_area {
+    position: static;
+    overflow: hidden;
+    padding: 0 15px 6px;
+}
+.bottom .sel_area .sel_member {
+    position: relative;
+    background: none;
+    border: 0;
+}
+.bottom .sel_area .sel_member select {
+    background: #fff url(https://korean.visitkorea.or.kr/resources/images/main/ico_select5.png) 100% 50%/30px 8px
+        no-repeat;
+    padding: 0 0 0 15px;
+    height: 35px;
+    width: calc(100% - 65px);
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 18px;
+    border: 1px solid #bbb;
+    color: #666;
+    vertical-align: top;
+}
+/* 화살표 사라지기 */
+select {
+    -webkit-appearance: none; /* Chrome, Safari, Edge */
+    -moz-appearance: none; /* Firefox */
+    appearance: none; /* 일반적인 스타일링을 위한 appearance 속성 */
+    background-image: none; /* 배경 이미지 제거 */
+    padding-right: 1em; /* 오른쪽 여백을 추가하여 텍스트와 겹치지 않게 함 */
+    background-color: transparent; /* 배경색을 투명하게 설정 */
+}
+.bottom .sel_area .sel_member #relation2 {
+    margin-bottom: 10px;
+}
+.sel_area .sel_member button {
+    width: 50px;
+    font-size: 14px;
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    background: #777676;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 13px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+a:link {
+    text-decoration: none;
+}
+@media (max-width: 768px) {
+    body {
+        overflow: scroll;
+    }
+    header {
+        flex-direction: column;
+        height: 100px;
+        justify-content: space-around;
+        text-align: center;
+    }
+    .logo {
+        width: 100%;
+    }
+    .nav {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    main {
+        top: 100px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .left-section {
+        width: 100%;
+        height: 240px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        padding-bottom: 0;
+    }
+    .mainleft-wrap {
+        width: 95%;
+        height: 100%;
+    }
+    .main-textbox {
+        z-index: 5;
+    }
+    #map {
+        height: 100%;
+    }
+    .right-section {
+        padding: 20px 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        z-index: 6;
+    }
+    .mainslide-container {
+        flex-direction: column;
+    }
+    .left-section,
+    .right-section {
+        width: 100%;
+    }
+    .mainleft-wrap,
+    .main-textbox {
+        width: 90%;
+    }
+    .main-text,
+    .main-title {
+        font-size: 16px;
+    }
+    .text {
+        font-size: 14px;
+    }
+    .page-move {
+        left: 30px;
+        top: 70px;
+    }
+    .right-section {
+        height: 300px;
+    }
+    .theme-container {
+        top: 50px;
+    }
+    .theme-wrap {
+        height: 200px;
+    }
+    .theme-slide {
+        width: 150px;
+        height: 150px;
+    }
+    .cardtext {
+        font-size: 10px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    .map-section {
+        height: 200px;
+    }
+    .map-left p,
+    .theme-text,
+    .map-text {
+        font-size: 20px;
+    }
+    .reset-map {
+        width: 30px;
+        height: 30px;
+    }
+    #map {
+        height: 60%;
+    }
+    .bottom .sel_area .sel_member select {
+        height: 20px;
+        font-size: 10px;
+    }
+    .sel_area .sel_member button {
+        width: 30px;
+        height: 20px;
+        font-size: 10px;
+    }
 }
