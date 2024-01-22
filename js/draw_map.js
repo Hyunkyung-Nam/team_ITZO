@@ -1,5 +1,5 @@
-import { places } from './content_object.js';
 import { latLngs } from './latlng.js';
+import { settingEvent } from './pop_up.js';
 
 export let part = 0;
 
@@ -13,7 +13,6 @@ export function drawMap() {
     $.ajaxSetup({
         async: false,
     });
-
     // 2) getJSON 메소드를 이용해 JSON 파일을 파싱함
     $.getJSON('../json/seoul_map.json', function (geojson) {
         let units = geojson.features; // 파일에서 key값이 "features"인 것의 value를 통으로 가져옴(이것은 여러지역에 대한 정보를 모두 담고있음)
@@ -81,45 +80,7 @@ function displayArea(area, map, customOverlay) {
         fillColor: '#fff',
         fillOpacity: 0.7,
     });
-    const contentCotainer = $('.content-container');
-    contentCotainer.removeClass('hide');
-    $('.page-numbering').empty();
-    initSetting();
-
-    // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다
-    // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
-    kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
-        polygon.setOptions({ fillColor: '#09f' });
-        customOverlay.setPosition(mouseEvent.latLng);
-        customOverlay.setMap(map);
-    });
-
-    // 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다
-    kakao.maps.event.addListener(polygon, 'mousemove', function (mouseEvent) {
-        customOverlay.setPosition(mouseEvent.latLng);
-    });
-
-    // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
-    // 커스텀 오버레이를 지도에서 제거합니다
-    kakao.maps.event.addListener(polygon, 'mouseout', function () {
-        polygon.setOptions({ fillColor: '#fff' });
-        customOverlay.setMap(null);
-    });
-
-    // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다
-    kakao.maps.event.addListener(polygon, 'click', function (mouseEvent) {
-        const contentCotainer = $('.content-container');
-
-        $('.page-numbering').addClass('hide');
-        $('.content-container').addClass('hide');
-        resetContainer();
-        setTimeout(() => {
-            $('.content-container').removeClass('hide');
-            $('.page-numbering').empty();
-            clickEvent(area);
-            $('.page-numbering').removeClass('hide');
-        }, 100);
-    });
+    settingEvent(area, map, polygon, customOverlay);
 }
 function clickEvent(area) {
     if (area.name === 'part1') {
@@ -131,122 +92,6 @@ function clickEvent(area) {
     } else if (area.name === 'part4') {
         part = 4;
     }
-
-    setContentContainer(area);
-}
-export function initSetting() {
-    let contentCount = 0;
-    part = 0;
-    for (let key in places) {
-        if (contentCount < 6) {
-            setContent(key, contentCount);
-        }
-        contentCount++;
-    }
-    const pageNumber = Math.ceil(contentCount / 6);
-    for (let i = 1; i <= pageNumber; i++) {
-        $('.page-numbering').append(`<button type='button' class = 'page-numbering-btn'>[${i}]  </button>`);
-        $('.page-numbering')
-            .children()
-            .css({ color: 'white', 'background-color': 'unset', border: '0', cursor: 'pointer' });
-    }
-    createButtonEvent();
-}
-
-function setContentContainer(area) {
-    let contentCount = 0;
-
-    for (let key in places) {
-        if (places[key].part === part) {
-            if (contentCount < 6) {
-                setContent(key, contentCount);
-            }
-            contentCount++;
-        }
-    }
-    if (contentCount < 6) {
-        for (let i = contentCount; i < 6; i++) {
-            hideContent(i);
-        }
-    }
-    const pageNumber = Math.ceil(contentCount / 6);
-    for (let i = 1; i <= pageNumber; i++) {
-        $('.page-numbering').append(`<button type='button' class = 'page-numbering-btn'>[${i}]  </button>`);
-        $('.page-numbering')
-            .children()
-            .css({ color: 'white', 'background-color': 'unset', border: '0', cursor: 'pointer' });
-    }
-    createButtonEvent();
-}
-function resetContent(pageNum) {
-    let totalContentCount = 0;
-    let showItemCount = 0;
-    let itemNum = (pageNum - 1) * 6;
-
-    for (let key in places) {
-        if (places[key].part === part) {
-            if (totalContentCount >= itemNum && showItemCount < 6) {
-                setContent(key, showItemCount);
-                showItemCount++;
-            }
-            totalContentCount++;
-        } else if (part === 0) {
-            if (totalContentCount >= itemNum && showItemCount < 6) {
-                setContent(key, showItemCount);
-                showItemCount++;
-            }
-            totalContentCount++;
-        }
-    }
-
-    if (showItemCount < 6) {
-        for (let i = showItemCount; i < 7; i++) {
-            hideContent(i);
-        }
-    }
-}
-
-function setContent(key, contentCount) {
-    let childCount = `eq(${contentCount})`;
-    $('.content-img-section').children(`img:${childCount}`).attr('src', places[key].img);
-    $('.content-img-section').children(`img:${childCount}`).attr('style', 'height:140px');
-    $(`.content-preview-header:${childCount}`).text(places[key].name);
-    $(`.content-preview-address:${childCount}`).text(places[key].address);
-    const tagString = setTag(places[key].tag);
-    $(`.content-preview-tag:${childCount}`).text(tagString);
-}
-function hideContent(contentCount) {
-    let childCount = `eq(${contentCount})`;
-    $(`.content-container:${childCount}`).addClass('hide');
-}
-function setTag(tags) {
-    let tagString = '';
-    for (let tag of tags) {
-        tagString += `#${tag} `;
-    }
-    return tagString;
-}
-function createButtonEvent() {
-    $('.page-numbering-btn').on('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' }); //최상단으로 스크롤 옮기기
-        $('.content-container').addClass('hide');
-        $('.page-numbering').addClass('hide');
-        resetContainer();
-        setTimeout(() => {
-            $('.content-container').removeClass('hide');
-            let number = $(this).text().replace('[', '');
-            number = Number(number.replace(']', ''));
-            resetContent(number);
-            $('.page-numbering').removeClass('hide');
-        }, 100);
-    });
-}
-export function resetContainer() {
-    $('.content-img-section').children(`img`).attr('src', '');
-    $('.content-img-section').children(`img`).attr('style', 'height:140px');
-    $(`.content-preview-header`).text('');
-    $(`.content-preview-address`).text('');
-    $(`.content-preview-tag`).text('');
 }
 function drawMarker(map) {
     let imageSrc = '../img/icon/location-dot-solid.svg';
