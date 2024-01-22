@@ -1,5 +1,9 @@
 import { places } from './content_object.js';
 
+//아무것도 실행되지 않았을때 맨 처음 로드페이지 화면
+$(document).ready(function () {
+    $('#All').click();
+});
 //함수를 전역객체에 직접 할당
 window.goRelation2 = function () {
     let selectElement = document.getElementById('relation2');
@@ -27,10 +31,12 @@ $('#All').click(function () {
     $(this).toggleClass('all_btn_active');
     $('.active').removeClass('active');
 });
+
 window.refreshTag = function () {
     // 새로고침 누르면 #전체 로 set
     $('#All').addClass('all_btn_active');
     $('button.active').removeClass('active').addClass('');
+    $('#All').trigger('click');
 };
 
 let hashtags = []; // 해시태그를 저장하는 배열
@@ -57,15 +63,14 @@ $('.hashtag').click(function () {
     console.log(hashtags); //배열안에 들어가서 중복되는거 나오게끔 만들어짐.
 });
 
-$('.page-numbering').empty();
-$('.content-container').removeClass('hide');
+$('.btn_refresh').click(function () {
+    refreshTag();
+});
 
 function setContentContainer(hashtags) {
+    $('.page-numbering').empty();
+    $('.content-container').removeClass('hide');
     let contentCount = 0;
-
-    if (hashtags === '전체') {
-        display.style = 'block';
-    }
 
     for (let key in places) {
         //선택한 모든 해시태그들이 장소에 포함되어 있는지 확인
@@ -85,9 +90,15 @@ function setContentContainer(hashtags) {
     const pageNumber = Math.ceil(contentCount / 6); //올림
     for (let i = 1; i <= pageNumber; i++) {
         $('.page-numbering').append(`<button type='button' class='content-container-btn'>[${i}]  </button>`);
-        $('.page-numbering')
-            .children()
-            .css({ color: 'white', 'background-color': 'unset', border: '0', cursor: 'pointer' });
+        $('.page-numbering').children().css({
+            color: 'black',
+            'background-color': '#f8f9fa',
+            border: 'solid #f8f9fa',
+            'border-radius': '0',
+            cursor: 'pointer',
+            padding: '3px',
+            margin: '2px',
+        });
     }
     createButtonEvent();
 }
@@ -98,7 +109,7 @@ function resetContent(pageNum, hashtags) {
     let itemNum = (pageNum - 1) * 6; //6
     for (let key in places) {
         //여러 개의 해시태그 중 하나라도 해당하는 장소를 필터링
-        if (hashtags.some((hashtag) => places[key].tag.includes(hashtag))) {
+        if (hashtags.includes('전체') || hashtags.some((hashtag) => places[key].tag.includes(hashtag))) {
             if (totalContentCount >= itemNum && showItemCount < 6) {
                 setContent(key, showItemCount);
                 showItemCount++;
@@ -116,7 +127,7 @@ function resetContent(pageNum, hashtags) {
 function setContent(key, contentCount) {
     let childCount = `eq(${contentCount})`;
     $('.content-img-section').children(`img:${childCount}`).attr('src', places[key].img);
-    $('.content-img-section').children(`img:${childCount}`).attr('style'); //'height:140px'
+    $('.content-img-section').children(`img:${childCount}`).attr('style');
     $(`.content-preview-header:${childCount}`).text(places[key].name);
     $(`.content-preview-address:${childCount}`).text(places[key].address);
     const tagString = setTag(places[key].tag);
@@ -139,6 +150,41 @@ function createButtonEvent() {
         $('.content-container').removeClass('hide');
         let number = $(this).text().replace('[', '');
         number = Number(number.replace(']', ''));
-        resetContent(number);
+
+        resetContent(number, hashtags);
+
+        $('.content-container-btn.active').removeClass('active');
+        $(this).addClass('active');
+        $('.content-container-btn').css({
+            color: 'black',
+            'background-color': '#f8f9fa',
+            border: 'solid #f8f9fa',
+            'border-radius': '0',
+            cursor: 'pointer',
+            padding: '3px',
+            margin: '2px',
+        });
+
+        $('.content-container-btn.active').css({
+            color: 'black',
+            'background-color': '#f5f56d',
+            border: 'solid #f5f56d',
+            'border-radius': '0',
+            cursor: 'pointer',
+            padding: '3px',
+            margin: '2px',
+        });
     });
 }
+
+$('.content-container').click(function () {
+    const contentName = $(this).children('div:last').children('.content-preview-header').text();
+    localStorage.setItem('name', contentName);
+    window.location.href = '../html/show_content.html';
+});
+
+$('.content-container').click(function () {
+    const contentName = $(this).children('div:last').children('.content-img-section').img();
+    localStorage.setItem('img', contentName);
+    window.location.href = '../html/show_content.html';
+});

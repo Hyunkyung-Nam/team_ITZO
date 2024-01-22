@@ -14,3 +14,10 @@ function goRelation() {
         window.open(selectedOption, '_blank');
     }
 }
+
+$('img').hover(function () {
+    $(this).toggleClass('zoom_img');
+});
+$('.text').hover(function () {
+    $(this).toggleClass('zoom_text');
+});
