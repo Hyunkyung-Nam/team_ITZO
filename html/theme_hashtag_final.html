@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>궁석궁석</title>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
         <link rel="stylesheet" href="../css/theme_hashtag_final.css" />
@@ -23,27 +23,34 @@
         </header>
         <div class="contents">
             <div class="hashtag_section">
+                <div class="color_bgcolor"></div>
                 <button type="button" onclick="refreshTag()" class="btn_refresh">새로고침</button>
                 <div class="buttons">
                     <button class="hashtag" id="All" data-hashtag="전체" onclick="btnAll()">#전체</button>
-                    <button class="hashtag" data-hashtag="궁">#궁</button>
-                    <button class="hashtag" data-hashtag="절">#절</button>
-                    <!--  -->
-                    <button class="hashtag" data-hashtag="박물관">#박물관</button>
-                    <button class="hashtag" data-hashtag="미술관">#미술관</button>
-                    <button class="hashtag" data-hashtag="기념관">#기념관</button>
-                    <!--  -->
+                    <button class="hashtag" data-hashtag="궁/절">#궁/절</button>
+                    <button class="hashtag" data-hashtag="박물관/미술관/기념관">#박물관/미술관/기념관</button>
+                    <button class="hashtag" data-hashtag="공원">#공원</button>
                     <button class="hashtag" data-hashtag="역사적명소">#역사적명소</button>
                     <button class="hashtag" data-hashtag="자연">#자연</button>
                     <button class="hashtag" data-hashtag="힐링">#힐링</button>
-
                     <button class="hashtag" data-hashtag="역사">#역사</button>
                     <button class="hashtag" data-hashtag="데이트">#데이트</button>
-
                     <button class="hashtag" data-hashtag="산책">#산책</button>
-                    <button class="hashtag" data-hashtag="데이트">#데이트</button>
                     <button class="hashtag" data-hashtag="실내">#실내</button>
-                    <button class="hashtag" data-hashtag="가족">#가족</button>
+                    <button class="hashtag" data-hashtag="가족과함께">#가족과함께</button>
+                    <button class="hashtag" data-hashtag="종로가볼만한곳">#종로가볼만한곳</button>
+                    <button class="hashtag" data-hashtag="아이와함께">#아이와함께</button>
+                    <button class="hashtag" data-hashtag="봄꽃여행">#봄꽃여행</button>
+                    <button class="hashtag" data-hashtag="나들이">#나들이</button>
+                    <button class="hashtag" data-hashtag="공연">#공연</button>
+                    <button class="hashtag" data-hashtag="전시">#전시</button>
+                    <button class="hashtag" data-hashtag="휴식하기좋은곳">#휴식하기좋은곳</button>
+                    <button class="hashtag" data-hashtag="사찰여행">#사찰여행</button>
+                    <button class="hashtag" data-hashtag="템플스테이">#템플스테이</button>
+                    <button class="hashtag" data-hashtag="북한산">#북한산</button>
+                    <button class="hashtag" data-hashtag="도봉산">#도봉산</button>
+                    <button class="hashtag" data-hashtag="문화공간">#문화공간</button>
+                    <button class="hashtag" data-hashtag="유네스코세계문화유산">#유네스코세계문화유산</button>
                 </div>
             </div>
 
@@ -51,22 +58,7 @@
                 <!-- <li> -->
                 <li class="content-container">
                     <div class="content-img-section">
-                        <!-- <a href=""></a> -->
-                        <img src="" alt="임시사진" />
-                    </div>
-                    <div class="content-preview-section">
-                        <div class="content-preview-header">
-                            <!-- <a href=""></a> -->
-                        </div>
-                        <div class="content-preview-address"></div>
-                        <div class="content-preview-tag"></div>
-                    </div>
-                </li>
-                <!-- </li> -->
-                <!-- <li> -->
-                <li class="content-container">
-                    <div class="content-img-section">
-                        <img src="" alt="임시사진" />
+                        <img src="" alt="사진" />
                     </div>
                     <div class="content-preview-section">
                         <div class="content-preview-header"></div>
@@ -78,7 +70,7 @@
                 <!-- <li> -->
                 <li class="content-container">
                     <div class="content-img-section">
-                        <img src="" alt="임시사진" />
+                        <img src="" alt="사진" />
                     </div>
                     <div class="content-preview-section">
                         <div class="content-preview-header"></div>
@@ -90,7 +82,7 @@
                 <!-- <li> -->
                 <li class="content-container">
                     <div class="content-img-section">
-                        <img src="" alt="임시사진" />
+                        <img src="" alt="사진" />
                     </div>
                     <div class="content-preview-section">
                         <div class="content-preview-header"></div>
@@ -102,7 +94,7 @@
                 <!-- <li> -->
                 <li class="content-container">
                     <div class="content-img-section">
-                        <img src="" alt="임시사진" />
+                        <img src="" alt="사진" />
                     </div>
                     <div class="content-preview-section">
                         <div class="content-preview-header"></div>
@@ -114,7 +106,19 @@
                 <!-- <li> -->
                 <li class="content-container">
                     <div class="content-img-section">
-                        <img src="" alt="임시사진" />
+                        <img src="" alt="사진" />
+                    </div>
+                    <div class="content-preview-section">
+                        <div class="content-preview-header"></div>
+                        <div class="content-preview-address"></div>
+                        <div class="content-preview-tag"></div>
+                    </div>
+                </li>
+                <!-- </li> -->
+                <!-- <li> -->
+                <li class="content-container">
+                    <div class="content-img-section">
+                        <img src="" alt="사진" />
                     </div>
                     <div class="content-preview-section">
                         <div class="content-preview-header"></div>
@@ -124,7 +128,9 @@
                 </li>
                 <!-- </li> -->
             </div>
-            <div class="page-numbering"></div>
+            <div class="page-numbering">
+                <!-- <a href=""></a> -->
+            </div>
         </div>
         <div class="bottom">
             <div class="sel_area">
