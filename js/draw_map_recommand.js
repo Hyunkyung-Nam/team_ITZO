@@ -150,6 +150,7 @@ export function initSetting() {
             .children()
             .css({ color: 'white', 'background-color': 'unset', border: '0', cursor: 'pointer' });
     }
+
     createButtonEvent();
 }
 
@@ -176,6 +177,7 @@ function setContentContainer(area) {
             .children()
             .css({ color: 'white', 'background-color': 'unset', border: '0', cursor: 'pointer' });
     }
+
     createButtonEvent();
 }
 function resetContent(pageNum) {
@@ -227,11 +229,33 @@ function setTag(tags) {
     return tagString;
 }
 function createButtonEvent() {
+    pageNumberingButtonInit();
     $('.page-numbering-btn').on('click', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' }); //최상단으로 스크롤 옮기기
         $('.content-container').addClass('hide');
         $('.page-numbering').addClass('hide');
         resetContainer();
+        $('.page-numbering-btn.active').removeClass('active');
+        $(this).addClass('active');
+        $('.page-numbering-btn').css({
+            color: 'black',
+            'background-color': '#f8f9fa',
+            border: 'solid #f8f9fa',
+            'border-radius': '0',
+            cursor: 'pointer',
+            padding: '3px',
+            margin: '2px',
+        });
+
+        $('.active').css({
+            color: 'black',
+            'background-color': '#f5f56d',
+            border: 'solid #f5f56d',
+            'border-radius': '0',
+            cursor: 'pointer',
+            padding: '3px',
+            margin: '2px',
+        });
         setTimeout(() => {
             $('.content-container').removeClass('hide');
             let number = $(this).text().replace('[', '');
@@ -239,6 +263,28 @@ function createButtonEvent() {
             resetContent(number);
             $('.page-numbering').removeClass('hide');
         }, 100);
+    });
+}
+function pageNumberingButtonInit() {
+    $('.page-numbering-btn:eq(0)').addClass('active');
+    $('.page-numbering-btn').css({
+        color: 'black',
+        'background-color': '#f8f9fa',
+        border: 'solid #f8f9fa',
+        'border-radius': '0',
+        cursor: 'pointer',
+        padding: '3px',
+        margin: '2px',
+    });
+
+    $('.active').css({
+        color: 'black',
+        'background-color': '#f5f56d',
+        border: 'solid #f5f56d',
+        'border-radius': '0',
+        cursor: 'pointer',
+        padding: '3px',
+        margin: '2px',
     });
 }
 export function resetContainer() {
