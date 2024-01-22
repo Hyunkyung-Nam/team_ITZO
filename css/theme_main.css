@@ -7,6 +7,13 @@
         url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'),
         url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'intelone-mono-font-family-regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/intelone-mono-font-family-regular.woff2')
+        format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
 
 * {
     margin: 0;
@@ -128,27 +135,29 @@ header {
 
 .bottom {
     width: 100%;
-
     margin: auto;
     box-sizing: border-box;
     height: auto;
     padding: 0;
     height: 65px;
-    border-top: 42px solid #f0f0f0;
+    /* border-top: 42px solid #f0f0f0; */
     background: #f0f0f0;
     overflow: hidden;
-    padding-bottom: 102px;
-    /* bottom: -222px; */
+    /* padding-bottom: 122px; */
+    /* border-bottom: 1px solid #b7b6b6; */
 }
 .bottom .sel_area {
     padding: 0 15px 6px;
     position: static;
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
 }
 .bottom .sel_area .sel_member {
     position: relative;
     background: none;
     border: 0;
+    width: 500px;
 }
 .bottom .sel_area .sel_member select {
     background: #fff url(https://korean.visitkorea.or.kr/resources/images/main/ico_select5.png) 100% 50%/30px 8px
@@ -172,9 +181,9 @@ select {
     padding-right: 1em; /* 오른쪽 여백을 추가하여 텍스트와 겹치지 않게 함 */
     background-color: transparent; /* 배경색을 투명하게 설정 */
 }
-.bottom .sel_area .sel_member #relation2 {
+/* .bottom .sel_area .sel_member #relation2 {
     margin-bottom: 10px;
-}
+} */
 .sel_area .sel_member button {
     width: 50px;
     font-size: 14px;
@@ -186,11 +195,40 @@ select {
     border-radius: 5px;
     text-align: center;
     font-size: 13px;
-    position: absolute;
+    /* position: absolute; */
     right: 0;
     top: 0;
 }
 
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background: #f0f0f0;
+    padding: 54px 142px 80px;
+}
+.footLogo {
+    font-size: 20px;
+    font-family: 'intelone-mono-font-family-regular';
+}
+.team {
+    font-family: 'intelone-mono-font-family-regular';
+    font-size: 14px;
+}
+.img3,
+.img2 {
+    width: 115px;
+    height: 30px;
+    padding-left: 20px;
+}
+.footer .logo_list {
+    flex-direction: row;
+    display: flex;
+    padding-left: 6px;
+}
+
+.logo_list > a {
+    cursor: pointer;
+}
 @media screen and (max-width: 768px) {
     div {
         box-sizing: border-box;
