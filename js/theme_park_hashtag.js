@@ -2,7 +2,7 @@ import { places } from './content_object.js';
 
 //아무것도 실행되지 않았을때 맨 처음 로드페이지 화면
 $(document).ready(function () {
-    $('#All').click();
+    $('#park').click();
 });
 //함수를 전역객체에 직접 할당
 window.goRelation2 = function () {

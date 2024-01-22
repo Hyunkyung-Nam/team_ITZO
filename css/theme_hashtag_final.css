@@ -18,7 +18,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* box-sizing: content-box; */
     text-decoration: none;
     list-style: none;
     font-family: 'NanumBarunGothic';
@@ -40,6 +39,8 @@ header {
     min-width: 400px;
     z-index: 1000;
     transition: all 0.3s;
+    /* 그림자 추가 */
+    box-shadow: 6px 6px 4.3px 3px rgba(200, 199, 199, 0.2);
 }
 .logo {
     display: flex;
@@ -192,6 +193,7 @@ header {
 }
 
 /* footer 부분 (가장 하단 부분) */
+/* box-sizing: border-box;  이거 꼭 bottom만이라도 적용해주기*/
 .bottom {
     width: 100%;
     margin: auto;
@@ -199,11 +201,9 @@ header {
     height: auto;
     padding: 0;
     height: 65px;
-    /* border-top: 42px solid #f0f0f0; */
+
     background: #f0f0f0;
     overflow: hidden;
-    /* padding-bottom: 122px; */
-    /* border-bottom: 1px solid #b7b6b6; */
 }
 .bottom .sel_area {
     padding: 0 15px 6px;
@@ -294,6 +294,10 @@ select {
 .logo_list > a {
     cursor: pointer;
 }
+button {
+    border-radius: 10px;
+    border: 1px solid gray;
+}
 /*  */
 /*  */
 .page-numbering {
@@ -317,10 +321,6 @@ select {
 .all_btn_active {
     background-color: #50617d;
     color: aliceblue;
-}
-button {
-    border-radius: 10px;
-    border: 1px solid gray;
 }
 /* footer 부분 할때 이 반응형도 추가해주세요.(1080px부분) */
 @media screen and (max-width: 1080px) {

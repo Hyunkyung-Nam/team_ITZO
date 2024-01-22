@@ -14,7 +14,6 @@
     font-weight: 400;
     font-style: normal;
 }
-
 * {
     margin: 0;
     padding: 0;
@@ -24,10 +23,7 @@
     font-family: 'NanumBarunGothic';
 }
 body {
-    overflow: auto;
     background-color: #001d49;
-    display: flex;
-    flex-direction: column;
 }
 header {
     position: fixed;
@@ -68,82 +64,136 @@ header {
 .nav a {
     color: black;
 }
-
-/* .themes_section {
-    
-    position: relative;
-    flex-direction: row;
-    justify-content: space-between;
-} */
-.themes_section .tit {
+.contents {
     width: 100%;
-    margin: 0;
-    left: 0;
-    top: 100px;
-    position: static;
-    padding: 162px 0 0;
+    padding: 135px 91px 30px;
+    margin: 0 auto;
+    /* position: relative; */
+    /* overflow: hidden; */
 }
-
-.themes_section .themes_choose {
-    position: relative;
-    display: flex;
-}
-.themes_choose > * {
-    display: flex;
-}
-
-.photo {
-    position: relative;
+.btn_refresh {
     overflow: hidden;
-    margin-bottom: 20px;
-}
-.text_list {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: whitesmoke;
-    font-size: 24px;
+    right: 17px;
+    top: 15px;
+    width: 23px;
+    height: 23px;
+    background: url(https://korean.visitkorea.or.kr/resources/images/sub/btn_refresh_mtag.png) 0 0 / 100% 100% no-repeat;
+    text-indent: -999px;
+    border: none;
+    border-radius: 0;
+}
+
+.contents .hashtag_section {
+    width: 100%;
+    height: 140px;
+
+    position: relative;
+    display: flex; /* Flexbox 사용 선언 */
+    justify-content: center; /* 가로축 가운데 정렬 */
+    align-items: center; /* 세로축 가운데 정렬 */
+}
+.color_bgcolor {
+    width: 100%;
+    height: 140px;
+    background-color: #fefeed;
+    opacity: 0.86;
+    position: absolute;
+}
+.color_bgcolor,
+.btn_refresh {
+    position: absolute;
+}
+
+.contents .hashtag_section .buttons {
+    margin: 0 30px;
+    padding: 12px 0;
+    position: relative;
+    z-index: 30;
+}
+.contents .hashtag_section .buttons button {
+    padding: 5px 10px;
+    height: auto;
+    border-radius: 20px;
+    margin-right: 5px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+
+    /* font-size: 1em; */
+}
+.content-wrap {
+    margin-top: 30px;
+    border-top: 2px solid #999;
+    width: 100%;
+    padding-left: 0;
+    /* position: relative; */
+    /* border-bottom: 2px solid #999; */
+}
+
+.content-wrap > li {
+    padding: 20px 10px;
+    position: relative;
+    border-bottom: 1px solid #e6e6e6;
+    margin: 5px 0 5px;
+    overflow: auto;
+    cursor: pointer;
+}
+
+.content-wrap > li .content-img-section {
+    float: left;
+    position: relative;
+    width: 140px;
+    height: 94px;
+}
+.content-img-section img {
+    width: 140px;
+    height: 94px;
+    vertical-align: middle;
+}
+.content-wrap > li .content-preview-section {
+    padding-left: 178px !important;
+    padding-right: 20px;
+    color: rgb(244, 244, 234);
+}
+.content-wrap > li .content-preview-section .content-preview-header {
+    display: flex;
+    margin-top: -5px;
+    padding-bottom: 5px;
+    font-size: 17px;
     font-weight: bold;
 }
-.text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: whitesmoke;
-    font-size: 24px;
-    font-weight: bold;
+/* .content-wrap > li .content-preview-section .content-preview-header a {
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+  font-weight: bold;
+  font-size: 20px;
+  color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  /* font-size: 15px;
+line-height: 16px;
+font-weight: bold;
+text-decoration: none;
+color: black; }*/
+
+.content-wrap > li .content-preview-section .content-preview-address {
+    display: flex;
+    margin-top: 26px;
+    padding-bottom: 5px;
+    font-size: 14px;
+    color: rgb(212, 210, 210);
 }
-.text1 {
-    top: 44%;
+.content-wrap > li .content-preview-section .content-preview-tag {
+    display: flex;
+    margin-top: 10px;
+    font-size: 14px;
+    color: rgb(212, 210, 210);
 }
 
-.text2 {
-    top: 50%;
-    padding: 8px 0;
-}
-
-.text3 {
-    top: 56%;
-}
-
-.photo img {
-    width: calc(100vw / 4);
-    height: 610px;
-    /* width: 100%; */
-    opacity: 0.8;
-}
-
-.zoom_img {
-    transform: scale(1.05);
-    transition: transform 0.2s;
-}
-.zoom_text {
-    font-size: 28px;
-    transition: all 0.2s;
-}
-
+/* footer 부분 (가장 하단 부분) */
+/* box-sizing: border-box;  이거 꼭 bottom만이라도 적용해주기*/
 .bottom {
     width: 100%;
     margin: auto;
@@ -191,7 +241,7 @@ select {
     background-color: transparent; /* 배경색을 투명하게 설정 */
 }
 /* .bottom .sel_area .sel_member #relation2 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 } */
 .sel_area .sel_member button {
     width: 50px;
@@ -248,6 +298,31 @@ button {
     border-radius: 10px;
     border: 1px solid gray;
 }
+/*  */
+/*  */
+.page-numbering {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    text-align: center;
+    padding-left: 6px;
+}
+
+.hide {
+    display: none;
+}
+.hashtag.active {
+    background-color: #50617d;
+
+    color: aliceblue;
+}
+.all_btn_active {
+    background-color: #50617d;
+    color: aliceblue;
+}
+/* footer 부분 할때 이 반응형도 추가해주세요.(1080px부분) */
 @media screen and (max-width: 1080px) {
     .footer2 {
         flex-direction: column;
@@ -258,7 +333,49 @@ button {
         justify-content: flex-end;
     }
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 990px) {
+    div {
+        box-sizing: border-box;
+    }
+    body {
+        overflow: scroll;
+    }
+
+    .contents .hashtag_section {
+        width: 100%;
+        height: 250px;
+        position: relative;
+    }
+    .color_bgcolor {
+        width: 100%;
+        height: 250px;
+        background-color: #fefeed;
+        opacity: 0.86;
+        position: absolute;
+    }
+
+    .btn_refresh {
+        position: absolute;
+    }
+    .contents .hashtag_section .buttons {
+        margin: 0 30px;
+        padding: 12px 0;
+        position: relative;
+        z-index: 30;
+    }
+    .contents .hashtag_section .buttons button {
+        padding: 5px 10px;
+        height: auto;
+        border-radius: 20px;
+        margin-right: 5px;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+    }
+
+    /* font-size: 1em; */
+}
+
+@media screen and (max-width: 768px) {
     div {
         box-sizing: border-box;
     }
@@ -278,7 +395,9 @@ button {
         width: 100%;
         justify-content: space-evenly;
     }
-
+    body {
+        overflow: scroll;
+    }
     header {
         flex-direction: column;
         height: 100px;
@@ -291,81 +410,5 @@ button {
     .nav {
         width: 100%;
         justify-content: space-evenly;
-    }
-    .themes_section {
-        position: relative;
-    }
-    /* .themes_choose_part1,
-    .themes_choose_part2 {
-        position: relative;
-    } */
-    .themes_section .themes_choose .themes_choose_part1 {
-        margin-bottom: -25px;
-    }
-
-    .themes_section .themes_choose {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        /* position: absolute; */
-
-        flex-wrap: wrap;
-    }
-    .photo {
-        position: relative;
-        /* overflow: hidden; */
-    }
-    .photo img {
-        width: 400px;
-        height: 500px;
-
-        margin: 0;
-        padding: 0;
-        opacity: 0.8;
-    }
-    .text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: whitesmoke;
-        font-size: 24px;
-        font-weight: bold;
-    }
-    .text1 {
-        top: 40%;
-    }
-
-    .text2 {
-        top: 50%;
-    }
-
-    .text3 {
-        top: 60%;
-    }
-
-    .zoom_img {
-        transform: scale(1.05);
-        transition: transform 0.2s;
-    }
-    .zoom_text {
-        font-size: 28px;
-        transition: all 0.2s;
-    }
-
-    a:link {
-        text-decoration: none;
-    }
-    .footer {
-        z-index: 400;
-    }
-    .footer2 {
-        flex-direction: column;
-        display: flex;
-    }
-    .logo_list,
-    .sel_area {
-        justify-content: flex-end;
     }
 }

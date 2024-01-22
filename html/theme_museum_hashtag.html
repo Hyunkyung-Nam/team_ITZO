@@ -6,7 +6,7 @@
         <title>궁석궁석</title>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-        <link rel="stylesheet" href="../css/theme_hashtag_final.css" />
+        <link rel="stylesheet" href="../css/theme_museum_hashtag.css" />
     </head>
     <body>
         <header>
@@ -27,10 +27,12 @@
                 <button type="button" onclick="refreshTag()" class="btn_refresh">새로고침</button>
                 <div class="buttons">
                     <button class="hashtag" id="All" data-hashtag="전체" onclick="btnAll()">#전체</button>
-                    <button class="hashtag" data-hashtag="고궁/절">#고궁/절</button>
-                    <button class="hashtag" data-hashtag="박물관/미술관/기념관">#박물관/미술관/기념관</button>
-                    <button class="hashtag" data-hashtag="공원">#공원</button>
-                    <button class="hashtag" data-hashtag="역사적명소">#역사적명소</button>
+                    <button class="hashtag" id="palace_temple" data-hashtag="고궁/절">#고궁/절</button>
+                    <button class="hashtag" id="museum_place" data-hashtag="박물관/미술관/기념관">
+                        #박물관/미술관/기념관
+                    </button>
+                    <button class="hashtag" id="park" data-hashtag="공원">#공원</button>
+                    <button class="hashtag" id="historical_landmark" data-hashtag="역사적명소">#역사적명소</button>
                     <button class="hashtag" data-hashtag="자연">#자연</button>
                     <button class="hashtag" data-hashtag="힐링">#힐링</button>
                     <button class="hashtag" data-hashtag="역사">#역사</button>
@@ -209,6 +211,6 @@
             </div>
         </div>
         <script type="module" src="../js/content_object.js"></script>
-        <script type="module" src="../js/theme_hashtag_final.js"></script>
+        <script type="module" src="../js/theme_museum_hashtag.js"></script>
     </body>
 </html>
