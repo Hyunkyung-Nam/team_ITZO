@@ -109,7 +109,7 @@ function resetContent(pageNum, hashtags) {
     let itemNum = (pageNum - 1) * 6; //6
     for (let key in places) {
         //여러 개의 해시태그 중 하나라도 해당하는 장소를 필터링
-        if (hashtags.includes('전체') || hashtags.some((hashtag) => places[key].tag.includes(hashtag))) {
+        if (hashtags.includes('전체') || hashtags.every((hashtag) => places[key].tag.includes(hashtag))) {
             if (totalContentCount >= itemNum && showItemCount < 6) {
                 setContent(key, showItemCount);
                 showItemCount++;
