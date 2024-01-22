@@ -265,9 +265,15 @@ select {
     background: #f0f0f0;
     padding: 54px 142px 80px;
 }
+.footer2 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
 .footLogo {
     font-size: 20px;
     font-family: 'intelone-mono-font-family-regular';
+    display: flex;
 }
 .team {
     font-family: 'intelone-mono-font-family-regular';
@@ -316,7 +322,17 @@ button {
     border-radius: 10px;
     border: 1px solid gray;
 }
-
+/* footer 부분 할때 이 반응형도 추가해주세요.(1080px부분) */
+@media screen and (max-width: 1080px) {
+    .footer2 {
+        flex-direction: column;
+        display: flex;
+    }
+    .logo_list,
+    .sel_area {
+        justify-content: flex-end;
+    }
+}
 @media screen and (max-width: 990px) {
     div {
         box-sizing: border-box;
