@@ -1,6 +1,17 @@
 import { drawMap, initSetting, resetContainer } from './draw_map_recommand.js';
 
-drawMap();
+let map = drawMap();
+
+if (window.matchMedia('(max-width: 768px)').matches) {
+    map.setLevel(10);
+} else {
+    map.setLevel(9);
+}
+
+window.onresize = function (event) {
+    var innerWidth = window.innerWidth;
+    innerWidth <= '768' ? mapSizeSmall() : mapSizeBig();
+};
 
 $('.reset-map').click(function () {
     $('.page-numbering').addClass('hide');
@@ -20,3 +31,14 @@ $('.content-container').click(function () {
     localStorage.setItem('page', 'map_recommand');
     window.location.href = '../html/show_content.html';
 });
+
+function mapSizeSmall() {
+    map.relayout();
+    map.setCenter(new kakao.maps.LatLng(37.566826, 126.9786567));
+    map.setLevel(10, { animate: true });
+}
+function mapSizeBig() {
+    map.relayout();
+    map.setCenter(new kakao.maps.LatLng(37.566826, 126.9786567));
+    map.setLevel(9, { animate: true });
+}
