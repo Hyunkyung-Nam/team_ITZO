@@ -21,3 +21,6 @@ $('img').hover(function () {
 $('.text').hover(function () {
     $(this).toggleClass('zoom_text');
 });
+$('.text_list').hover(function () {
+    $(this).toggleClass('zoom_text');
+});
