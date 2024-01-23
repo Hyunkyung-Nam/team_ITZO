@@ -17,5 +17,6 @@ $('.reset-map').click(function () {
 $('.content-container').click(function () {
     const contentName = $(this).children('div:last').children('.content-preview-header').text();
     localStorage.setItem('name', contentName);
+    localStorage.setItem('page', 'map_recommand');
     window.location.href = '../html/show_content.html';
 });

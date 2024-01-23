@@ -22,12 +22,13 @@ body {
 
 main {
     position: relative;
-    top: 80px;
     display: flex;
     justify-content: center;
     align-items: start;
-    min-width: 400px;
+    min-width: 300px;
     height: fit-content;
+    padding-top: 100px;
+    min-height: 90vh;
 }
 .left-section {
     padding: 40px 0;
@@ -64,6 +65,7 @@ main {
     z-index: 100;
     width: 100%;
     height: 80%;
+    border: 3px dashed #001d49;
 }
 .right-section {
     padding: 20px 0;
@@ -90,11 +92,28 @@ main {
 }
 .content-preview-section {
     width: 60%;
-    padding: 10px;
+    padding: 0 10px 0 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: left;
+}
+.content-preview-header {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+.content-preview-address {
+    font-size: 15px;
+    margin-top: 26px;
+    padding-bottom: 5px;
+    color: rgb(212, 210, 210);
+}
+.content-preview-tag {
+    font-size: 15px;
+    margin-top: 10px;
+    color: rgb(212, 210, 210);
+    word-break: keep-all;
 }
 img {
     width: 100%;
@@ -119,21 +138,7 @@ img {
     body {
         overflow: scroll;
     }
-    header {
-        flex-direction: column;
-        height: 100px;
-        justify-content: space-around;
-        text-align: center;
-    }
-    .logo {
-        width: 100%;
-    }
-    .nav {
-        width: 100%;
-        justify-content: space-evenly;
-    }
     main {
-        top: 100px;
         flex-direction: column;
         align-items: center;
     }

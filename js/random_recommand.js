@@ -7,6 +7,7 @@ $('.click').click(function () {
         console.log(rand);
         const contentName = places[Object.keys(places)[rand]].name;
         localStorage.setItem('name', contentName);
+        localStorage.setItem('page', 'random_recommand');
         window.location.href = '../html/show_content.html';
     } else if ($(this).text() === '지역별 추천') {
         localStorage.setItem('random', $(this).text());

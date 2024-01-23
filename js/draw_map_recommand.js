@@ -224,7 +224,7 @@ function hideContent(contentCount) {
 function setTag(tags) {
     let tagString = '';
     for (let tag of tags) {
-        tagString += `#${tag} `;
+        tagString += `#${tag}\u00a0\u00a0`;
     }
     return tagString;
 }
