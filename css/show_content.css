@@ -104,6 +104,7 @@ main {
 .detail-bottom {
     height: 80%;
     padding: 20px;
+    white-space: pre-line;
 }
 
 .detail-information {
