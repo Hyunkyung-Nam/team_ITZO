@@ -76,5 +76,6 @@ function showKeywords() {
 
     const contentName = tagObject[rand].name;
     localStorage.setItem('name', contentName);
+    localStorage.setItem('page', 'random_recommand');
     window.location.href = '../html/show_content.html';
 }
