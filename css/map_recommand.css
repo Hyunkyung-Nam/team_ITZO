@@ -22,6 +22,7 @@ body {
 }
 
 main {
+    width: 100vw;
     position: relative;
     display: flex;
     justify-content: center;
@@ -74,6 +75,7 @@ main {
     height: 100%;
     display: flex;
     justify-content: center;
+    word-wrap: break-word;
 }
 .content-wrap {
     width: 95%;
@@ -145,7 +147,7 @@ img {
     }
     main {
         flex-direction: column;
-        align-items: center;
+        justify-content: flex-start;
     }
     .left-section {
         width: 100%;

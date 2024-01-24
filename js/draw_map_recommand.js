@@ -42,6 +42,7 @@ export function drawMap() {
 
     let mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {
+            disableDoubleClickZoom: true,
             center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
             level: 9, // 지도의 확대 레벨
         };
@@ -70,6 +71,7 @@ export function drawMap() {
 // 다각형을 생상하고 이벤트를 등록하는 함수입니다
 function displayArea(area, map, customOverlay) {
     // 다각형을 생성합니다
+    let isClicked = false;
     let polygon = new kakao.maps.Polygon({
         map: map, // 다각형을 표시할 지도 객체
         path: area.path,
@@ -88,27 +90,32 @@ function displayArea(area, map, customOverlay) {
     // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
     kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
         polygon.setOptions({ fillColor: '#09f' });
-        customOverlay.setPosition(mouseEvent.latLng);
-        customOverlay.setMap(map);
-    });
-
-    // 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다
-    kakao.maps.event.addListener(polygon, 'mousemove', function (mouseEvent) {
-        customOverlay.setPosition(mouseEvent.latLng);
     });
 
     // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
     // 커스텀 오버레이를 지도에서 제거합니다
-    kakao.maps.event.addListener(polygon, 'mouseout', function () {
+    kakao.maps.event.addListener(polygon, 'mouseout', function (mouseEvent) {
         polygon.setOptions({ fillColor: '#fff' });
-        customOverlay.setMap(null);
     });
 
+    kakao.maps.event.addListener(polygon, 'mousedown', function (mouseEvent) {
+        // polygon.setOptions({ fillColor: '#09f' });
+        isClicked = true;
+
+        const contentCotainer = $('.content-container');
+        $('.page-numbering').addClass('hide');
+        $('.content-container').addClass('hide');
+        resetContainer();
+        setTimeout(() => {
+            $('.content-container').removeClass('hide');
+            $('.page-numbering').empty();
+            clickEvent(area);
+            $('.page-numbering').removeClass('hide');
+        }, 100);
+    });
     // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다
-    kakao.maps.event.addListener(polygon, 'click', function (mouseEvent) {
-        polygon.setOptions({ fillColor: '#09f' });
-        customOverlay.setPosition(mouseEvent.latLng);
-        customOverlay.setMap(map);
+    kakao.maps.event.addListener(polygon, 'touch', function (mouseEvent) {
+        // polygon.setOptions({ fillColor: '#09f' });
 
         const contentCotainer = $('.content-container');
         $('.page-numbering').addClass('hide');

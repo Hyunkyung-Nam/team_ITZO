@@ -34,6 +34,8 @@ header {
     z-index: 1000;
     transition: all 0.3s;
     word-wrap: normal;
+    width: 100%;
+    min-width: 300px;
 }
 .logo {
     display: flex;
