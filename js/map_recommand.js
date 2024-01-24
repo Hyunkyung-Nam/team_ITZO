@@ -8,6 +8,14 @@ if (window.matchMedia('(max-width: 768px)').matches) {
     map.setLevel(9);
 }
 
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 200) {
+        $('.btn_top_move').fadeIn();
+    } else {
+        $('.btn_top_move').fadeOut();
+    }
+});
+
 window.onresize = function (event) {
     var innerWidth = window.innerWidth;
     innerWidth <= '768' ? mapSizeSmall() : mapSizeBig();
