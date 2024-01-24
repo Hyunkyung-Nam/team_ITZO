@@ -33,14 +33,12 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #fefeed;
-    height: 60px;
+    height: 80px;
     text-align: center;
     padding: 10px;
-    min-width: 400px;
+    min-width: 300px;
     z-index: 1000;
     transition: all 0.3s;
-    /* 그림자 추가 */
-    box-shadow: 6px 6px 4.3px 3px rgba(200, 199, 199, 0.2);
 }
 .logo {
     display: flex;
@@ -68,6 +66,8 @@ header {
     width: 100%;
     padding: 135px 91px 30px;
     margin: 0 auto;
+    min-height: 90vh;
+    min-width: 300px;
     /* position: relative; */
     /* overflow: hidden; */
 }
@@ -162,32 +162,17 @@ header {
     font-size: 17px;
     font-weight: bold;
 }
-/* .content-wrap > li .content-preview-section .content-preview-header a {
-    overflow: hidden;
-    display: inline-block;
-    width: 100%;
-    font-weight: bold;
-    font-size: 20px;
-    color: #000;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-
-    /* font-size: 15px;
-  line-height: 16px;
-  font-weight: bold;
-  text-decoration: none;
-  color: black; }*/
 
 .content-wrap > li .content-preview-section .content-preview-address {
     display: flex;
-    margin-top: 26px;
-    padding-bottom: 5px;
+    margin-top: 28px;
+    /* padding-bottom : 5px; */
     font-size: 14px;
     color: rgb(212, 210, 210);
 }
 .content-wrap > li .content-preview-section .content-preview-tag {
     display: flex;
-    margin-top: 10px;
+    margin-top: 14px;
     font-size: 14px;
     color: rgb(212, 210, 210);
 }
@@ -223,6 +208,7 @@ header {
         no-repeat;
     padding: 0 0 0 15px;
     height: 35px;
+    /* width: 100%; */
     width: calc(100% - 65px);
     border-radius: 5px;
     font-size: 13px;
@@ -240,9 +226,7 @@ select {
     padding-right: 1em; /* 오른쪽 여백을 추가하여 텍스트와 겹치지 않게 함 */
     background-color: transparent; /* 배경색을 투명하게 설정 */
 }
-/* .bottom .sel_area .sel_member #relation2 {
-    margin-bottom: 10px;
-} */
+
 .sel_area .sel_member button {
     width: 50px;
     font-size: 14px;
@@ -263,7 +247,8 @@ select {
     display: flex;
     justify-content: space-between;
     background: #f0f0f0;
-    padding: 54px 142px 80px;
+    padding: 39px 142px 5px;
+    position: relative;
 }
 .footer2 {
     width: 100%;
@@ -274,11 +259,14 @@ select {
     font-size: 20px;
     font-family: 'intelone-mono-font-family-regular';
     display: flex;
+    left: -88px;
+    position: relative;
 }
 .team {
     font-family: 'intelone-mono-font-family-regular';
     font-size: 14px;
 }
+.img1,
 .img3,
 .img2 {
     width: 115px;
@@ -298,6 +286,7 @@ button {
     border-radius: 10px;
     border: 1px solid gray;
 }
+
 /*  */
 /*  */
 .page-numbering {
@@ -322,17 +311,7 @@ button {
     background-color: #50617d;
     color: aliceblue;
 }
-/* footer 부분 할때 이 반응형도 추가해주세요.(1080px부분) */
-@media screen and (max-width: 1080px) {
-    .footer2 {
-        flex-direction: column;
-        display: flex;
-    }
-    .logo_list,
-    .sel_area {
-        justify-content: flex-end;
-    }
-}
+
 @media screen and (max-width: 990px) {
     div {
         box-sizing: border-box;
@@ -343,12 +322,12 @@ button {
 
     .contents .hashtag_section {
         width: 100%;
-        height: 250px;
+        height: 350px;
         position: relative;
     }
     .color_bgcolor {
         width: 100%;
-        height: 250px;
+        height: 350px;
         background-color: #fefeed;
         opacity: 0.86;
         position: absolute;
@@ -371,8 +350,6 @@ button {
         margin-bottom: 8px;
         letter-spacing: 1px;
     }
-
-    /* font-size: 1em; */
 }
 
 @media screen and (max-width: 768px) {
@@ -398,17 +375,38 @@ button {
     body {
         overflow: scroll;
     }
-    header {
+    .contents {
+        padding: 0 !important;
+        justify-content: center;
+
+        /* max-width: 300px; */
+    }
+    .content-wrap {
+        width: 95%;
+    }
+    .content-img-section {
+        width: 40%;
+        height: 60%;
+    }
+}
+/* footer 부분 할때 이 반응형도 추가해주세요.(1080px부분) */
+@media screen and (max-width: 1080px) {
+    .footer2 {
         flex-direction: column;
-        height: 100px;
-        justify-content: space-around;
-        text-align: center;
-    }
-    .logo {
+        display: flex;
         width: 100%;
     }
-    .nav {
-        width: 100%;
-        justify-content: space-evenly;
+    .logo_list,
+    .sel_area {
+        justify-content: flex-end;
+    }
+}
+@media screen and (max-width: 680px) {
+    .footer2 {
+        display: none !important;
+    }
+    .footer {
+        padding-top: 10px;
+        padding-bottom: 40px;
     }
 }

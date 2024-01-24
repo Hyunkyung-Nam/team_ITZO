@@ -1,9 +1,19 @@
 import { places } from './content_object.js';
 
 //아무것도 실행되지 않았을때 맨 처음 로드페이지 화면
+// if (
+//     $('.palace').click(function () {
+//         $('.palace').ready(function () {
+//             $('#palace_temple').click();
+//         });
+//     })
+// )
+
 $(document).ready(function () {
     $('#historical_landmark').click();
 });
+
+// 한 html에서 여러 로드페이지 할당할 수 있게 할 수 있으니 해보자..공원, 절일때 이렇게 해라 이런식
 //함수를 전역객체에 직접 할당
 window.goRelation2 = function () {
     let selectElement = document.getElementById('relation2');

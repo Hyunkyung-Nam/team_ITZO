@@ -14,7 +14,14 @@
     font-weight: 400;
     font-style: normal;
 }
-
+/* 테마선택하세요 폰트 */
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2')
+        format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 * {
     margin: 0;
     padding: 0;
@@ -37,14 +44,12 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #fefeed;
-    height: 60px;
+    height: 80px;
     text-align: center;
     padding: 10px;
-    min-width: 400px;
+    min-width: 300px;
     z-index: 1000;
     transition: all 0.3s;
-    /* 그림자 추가 */
-    box-shadow: 6px 6px 4.3px 3px rgba(200, 199, 199, 0.2);
 }
 .logo {
     display: flex;
@@ -69,19 +74,38 @@ header {
     color: black;
 }
 
-/* .themes_section {
-    
-    position: relative;
-    flex-direction: row;
-    justify-content: space-between;
-} */
 .themes_section .tit {
     width: 100%;
     margin: 0;
     left: 0;
     top: 100px;
     position: static;
-    padding: 162px 0 0;
+    padding: 114px 0 0;
+    background-color: #f8f8e4;
+    /* background-color: #fefeed; */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    /* min-width: 300px; */
+}
+.tit > span {
+    display: flex;
+    justify-content: center;
+    padding: 0 0 20px 0;
+
+    font-family: 'NanumSquareNeo-Variable';
+}
+.main_tit {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px 0 0 20px;
+    color: #001e46;
+}
+.sub_tit {
+    font-size: 15px;
+    margin-top: -14px;
+    font-weight: 100;
+    color: #4c6688;
 }
 
 .themes_section .themes_choose {
@@ -96,6 +120,7 @@ header {
     position: relative;
     overflow: hidden;
     margin-bottom: 20px;
+    height: 610px;
 }
 .text_list {
     position: absolute;
@@ -292,22 +317,24 @@ button {
         width: 100%;
         justify-content: space-evenly;
     }
+    .photo {
+        width: 100%;
+        height: 100%;
+
+        margin: 0;
+        padding: 0;
+        opacity: 0.8;
+    }
     .themes_section {
         position: relative;
-    }
-    /* .themes_choose_part1,
-    .themes_choose_part2 {
-        position: relative;
-    } */
-    .themes_section .themes_choose .themes_choose_part1 {
-        margin-bottom: -25px;
+        margin-bottom: 20px;
     }
 
     .themes_section .themes_choose {
         margin: 0;
         padding: 0;
         display: flex;
-        justify-content: center;
+        /* justify-content: center; */
         /* position: absolute; */
 
         flex-wrap: wrap;
@@ -317,8 +344,8 @@ button {
         /* overflow: hidden; */
     }
     .photo img {
-        width: 400px;
-        height: 500px;
+        width: 100%;
+        height: 100%;
 
         margin: 0;
         padding: 0;
@@ -330,7 +357,11 @@ button {
         left: 50%;
         transform: translate(-50%, -50%);
         color: whitesmoke;
-        font-size: 24px;
+        font-size: 19px;
+        font-weight: bold;
+    }
+    .text_list {
+        font-size: 19px;
         font-weight: bold;
     }
     .text1 {
@@ -350,7 +381,7 @@ button {
         transition: transform 0.2s;
     }
     .zoom_text {
-        font-size: 28px;
+        font-size: 25px;
         transition: all 0.2s;
     }
 
@@ -367,5 +398,62 @@ button {
     .logo_list,
     .sel_area {
         justify-content: flex-end;
+    }
+}
+@media screen and (max-width: 300px) {
+    .photo {
+        width: 100%;
+        height: 100%;
+
+        margin: 0;
+        padding: 0;
+        opacity: 0.8;
+        min-width: 300px;
+        position: relative;
+    }
+    .themes_section {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .themes_section .themes_choose {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .photo img {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        opacity: 0.8;
+        min-width: 300px;
+    }
+    .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: whitesmoke;
+        font-size: 18px;
+        font-weight: bold;
+    }
+}
+@media screen and (max-width: 450px) {
+    .main_tit {
+        font-size: 20px;
+        font-weight: bold;
+        padding: 20px 0 0 20px;
+        color: #001e46;
+    }
+    .sub_tit {
+        font-size: 10px;
+        margin-top: -14px;
+        font-weight: 100;
+        color: #4c6688;
     }
 }
