@@ -3,9 +3,9 @@ import { drawMap } from './draw_map.js';
 
 let part = 0;
 let keyword = '';
+let map;
 
 $(document).ready(function () {
-    console.log('hello');
     let random = localStorage.getItem('random');
     if (localStorage.getItem('random') === '지역별 추천') {
         $('.content_top').text(random);
@@ -23,9 +23,12 @@ $('button').click(function () {
 });
 
 function showMap() {
-    drawMap();
-    // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다
-    // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
+    map = drawMap();
+
+    window.onresize = function (event) {
+        var innerWidth = window.innerWidth;
+        innerWidth <= '768' ? mapSizeSmall() : mapSizeBig();
+    };
 }
 export function settingEvent(area, map, polygon, customOverlay) {
     kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
@@ -78,4 +81,15 @@ function showKeywords() {
     localStorage.setItem('name', contentName);
     localStorage.setItem('page', 'random_recommand');
     window.location.href = '../html/show_content.html';
+}
+
+function mapSizeSmall() {
+    map.relayout();
+    map.setCenter(new kakao.maps.LatLng(37.566826, 126.9786567));
+    map.setLevel(10, { animate: true });
+}
+function mapSizeBig() {
+    map.relayout();
+    map.setCenter(new kakao.maps.LatLng(37.566826, 126.9786567));
+    map.setLevel(9, { animate: true });
 }

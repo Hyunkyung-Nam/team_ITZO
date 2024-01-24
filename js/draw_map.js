@@ -67,6 +67,7 @@ export function drawMap() {
         displayArea(areas[i], map, customOverlay);
     }
     drawMarker(map);
+    return map;
 }
 // 다각형을 생상하고 이벤트를 등록하는 함수입니다
 function displayArea(area, map, customOverlay) {
