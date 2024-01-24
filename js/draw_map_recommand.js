@@ -67,7 +67,6 @@ export function drawMap() {
     }
 
     drawMarker(map);
-    console.log(map.getLevel());
     return map;
 }
 // 다각형을 생상하고 이벤트를 등록하는 함수입니다
@@ -101,11 +100,9 @@ function displayArea(area, map, customOverlay) {
     // // 커스텀 오버레이를 지도에서 제거합니다
 
     kakao.maps.event.addListener(polygon, 'mouseout', function (mouseEvent) {
-        console.log(polygon.getOptions);
         if (selectedPolygon !== polygon) {
             polygon.setOptions({ fillColor: '#fff' });
         }
-        console.log('mouseout');
     });
 
     kakao.maps.event.addListener(polygon, 'mousedown', function (mouseEvent) {
@@ -130,7 +127,6 @@ function displayArea(area, map, customOverlay) {
     kakao.maps.event.addListener(polygon, 'touchend', function (mouseEvent) {
         polygon.setOptions({ fillColor: '#09f' });
         polygon.setMap(map);
-        console.log('touchend');
     });
 
     kakao.maps.event.addListener(polygon, 'touchstart', function (mouseEvent) {
