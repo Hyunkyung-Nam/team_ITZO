@@ -88,4 +88,7 @@ img {
         border-right: 0px none unset;
         border-bottom: 1px white solid;
     }
+    .container > * > * {
+        font-size: 30px;
+    }
 }
