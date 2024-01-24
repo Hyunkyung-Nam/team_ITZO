@@ -74,11 +74,17 @@ main {
     justify-content: flex-start;
     padding: 20px 0;
 }
-.content img {
+.img-section > img {
     width: 90%;
     height: 60%;
     box-shadow: 5px 5px #001d49;
     max-height: 387px;
+}
+#map {
+    margin-top: 30px;
+    width: 90%;
+    height: 200px;
+    border: 1px solid #001d49;
 }
 .copyright {
     width: 90%;
@@ -116,7 +122,6 @@ main {
     flex-direction: column;
     justify-content: space-between;
     align-items: baseline;
-    font-size: 15px;
     width: 100%;
 }
 .detail-explanation {
@@ -164,6 +169,7 @@ main {
     font-weight: bold;
     padding-bottom: 10px;
     white-space: pre;
+    font-size: 17px;
 }
 .detail-information > div > div > div:first-child::before {
     content: '⊙';
@@ -172,6 +178,7 @@ main {
 .detail-information > div > div > div:last-child {
     padding-left: 20px;
     color: rgb(98, 97, 97);
+    font-size: 16px;
 }
 .hidden {
     display: none;

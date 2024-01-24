@@ -7,6 +7,8 @@
         <!-- 사이트 이름이 정해지면 title모두 바꾸기 -->
         <link rel="stylesheet" href="../css/show_content.css" />
         <link rel="stylesheet" href="../css/header_footer.css" />
+        <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=722724134c7bd33a3711a12ebd2afb06"></script>
+
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     </head>
     <body>
@@ -33,6 +35,7 @@
                         <div class="img-section">
                             <img src="" alt="" />
                             <div class="copyright"></div>
+                            <div id="map"></div>
                         </div>
                         <div class="detail-section">
                             <div class="detail-head">상세정보</div>
@@ -159,5 +162,6 @@
         <script src="../js/header_footer.js"></script>
         <script type="module" src="../js/content_object.js"></script>
         <script type="module" src="../js/show_content.js"></script>
+        <script type="module" src="../js/latlng.js"></script>
     </body>
 </html>
