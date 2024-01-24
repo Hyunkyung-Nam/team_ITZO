@@ -7,28 +7,46 @@ let map;
 
 $(document).ready(function () {
     let random = localStorage.getItem('random');
-    if (localStorage.getItem('random') === '지역별 추천') {
+    if (random === '지역별 추천') {
         $('.content_top').text(random);
         $('.keyword-wrap').addClass('hidden');
         showMap();
-    } else if (localStorage.getItem('random') === '키워드별 추천') {
+    } else if (random === '키워드별 추천') {
         $('.content_top').text(random);
         $('.map-wrap').addClass('hidden');
     }
+    secondButtonSetting();
+    $('#spinner').addClass('hidden');
 });
+
+window.onresize = function (event) {
+    var innerWidth = window.innerWidth;
+    secondButtonSetting();
+};
+
+function secondButtonSetting() {
+    var innerWidth = window.innerWidth;
+    if (innerWidth <= '768' && $('.content_top').text() === '키워드별 추천') {
+        $('.keyword-wrap').children('button:eq(1)').text(`박물관/미술관/기념관`);
+    } else if (innerWidth <= '768' && $('.content_top').text() === '지역별 추천') {
+        mapSizeSmall();
+    } else if (innerWidth > '768' && $('.content_top').text() === '키워드별 추천') {
+        $('.keyword-wrap').children('button:eq(1)').text('박물관\n미술관\n기념관');
+    } else if (innerWidth > '768' && $('.content_top').text() === '지역별 추천') {
+        mapSizeBig();
+    }
+}
+
 $('button').click(function () {
-    keyword = $(this).text();
-    console.log(keyword);
-    showKeywords();
+    keyword = $(this).text().replaceAll('\n', '/');
+    $('#spinner').removeClass('hidden');
+    setTimeout(() => {
+        showKeywords();
+    }, 1500);
 });
 
 function showMap() {
     map = drawMap();
-
-    window.onresize = function (event) {
-        var innerWidth = window.innerWidth;
-        innerWidth <= '768' ? mapSizeSmall() : mapSizeBig();
-    };
 }
 export function settingEvent(area, map, polygon, customOverlay) {
     kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
@@ -51,7 +69,10 @@ export function settingEvent(area, map, polygon, customOverlay) {
 
     // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다
     kakao.maps.event.addListener(polygon, 'click', function (mouseEvent) {
-        clickEvent(area);
+        $('#spinner').removeClass('hidden');
+        setTimeout(() => {
+            clickEvent(area);
+        }, 1500);
     });
 }
 function clickEvent(area) {
@@ -81,6 +102,8 @@ function showKeywords() {
     localStorage.setItem('name', contentName);
     localStorage.setItem('page', 'random_recommand');
     window.location.href = '../html/show_content.html';
+
+    console.log($('keyword-wrap').children('button:eq(1)'));
 }
 
 function mapSizeSmall() {
