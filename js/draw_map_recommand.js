@@ -2,6 +2,8 @@ import { places } from './content_object.js';
 import { latLngs } from './latlng.js';
 
 export let part = 0;
+let polygons = [];
+let selectedPolygon;
 
 export function drawMap() {
     // 지도에 폴리곤으로 표시할 영역데이터 배열입니다
@@ -81,6 +83,7 @@ function displayArea(area, map, customOverlay) {
         fillColor: '#fff',
         fillOpacity: 0.7,
     });
+    polygons.push(polygon);
     const contentCotainer = $('.content-container');
     contentCotainer.removeClass('hide');
     $('.page-numbering').empty();
@@ -89,19 +92,26 @@ function displayArea(area, map, customOverlay) {
     // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다
     // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
     kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
-        polygon.setOptions({ fillColor: '#09f' });
+        if (selectedPolygon !== polygon) {
+            polygon.setOptions({ fillColor: '#005666' });
+        }
     });
 
-    // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
-    // 커스텀 오버레이를 지도에서 제거합니다
+    // // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
+    // // 커스텀 오버레이를 지도에서 제거합니다
+
     kakao.maps.event.addListener(polygon, 'mouseout', function (mouseEvent) {
-        polygon.setOptions({ fillColor: '#fff' });
+        console.log(polygon.getOptions);
+        if (selectedPolygon !== polygon) {
+            polygon.setOptions({ fillColor: '#fff' });
+        }
+        console.log('mouseout');
     });
 
     kakao.maps.event.addListener(polygon, 'mousedown', function (mouseEvent) {
-        // polygon.setOptions({ fillColor: '#09f' });
-        isClicked = true;
-
+        for (let i = 0; i < polygons.length; i++) {
+            polygons[i].setOptions({ fillColor: '#fff' });
+        }
         const contentCotainer = $('.content-container');
         $('.page-numbering').addClass('hide');
         $('.content-container').addClass('hide');
@@ -113,9 +123,20 @@ function displayArea(area, map, customOverlay) {
             $('.page-numbering').removeClass('hide');
         }, 100);
     });
-    // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다
-    kakao.maps.event.addListener(polygon, 'touch', function (mouseEvent) {
-        // polygon.setOptions({ fillColor: '#09f' });
+    kakao.maps.event.addListener(polygon, 'mouseup', function (mouseEvent) {
+        polygon.setOptions({ fillColor: '#09f' });
+        selectedPolygon = polygon;
+    });
+    kakao.maps.event.addListener(polygon, 'touchend', function (mouseEvent) {
+        polygon.setOptions({ fillColor: '#09f' });
+        polygon.setMap(map);
+        console.log('touchend');
+    });
+
+    kakao.maps.event.addListener(polygon, 'touchstart', function (mouseEvent) {
+        for (let i = 0; i < polygons.length; i++) {
+            polygons[i].setOptions({ fillColor: '#fff' });
+        }
 
         const contentCotainer = $('.content-container');
         $('.page-numbering').addClass('hide');
