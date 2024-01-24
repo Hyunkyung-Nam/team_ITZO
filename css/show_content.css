@@ -13,6 +13,7 @@
     box-sizing: border-box;
     text-decoration: none;
     font-family: 'NanumBarunGothic';
+    line-height: 150%;
 }
 body {
     overflow: auto;
@@ -29,12 +30,12 @@ main {
     padding-top: 100px;
 }
 .container {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-self: center;
     align-items: center;
-    padding: 20px;
+    padding: 3vw;
 }
 .container > * {
     width: 100%;
@@ -61,6 +62,7 @@ main {
     background-color: blanchedalmond;
     display: flex;
     padding: 20px;
+    padding-bottom: 100px;
 }
 .content-section1 > * {
     width: 50%;
@@ -79,6 +81,7 @@ main {
     width: 90%;
     height: 60%;
     box-shadow: 5px 5px #001d49;
+    max-height: 387px;
 }
 .copyright {
     width: 90%;
@@ -100,10 +103,12 @@ main {
     font-size: 30px;
     font-weight: bold;
     border-bottom: 1px solid black;
+    max-height: 137px;
 }
 .detail-bottom {
     height: 80%;
     padding: 20px;
+    white-space: pre-line;
 }
 
 .detail-information {
@@ -115,10 +120,35 @@ main {
 }
 .detail-explanation {
     padding-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.detail-explanation-more-btn {
+    position: relative;
+    appearance: none;
+    left: 85%;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    color: gray;
+}
+.detail-explanation-more-btn::before {
+    content: '더보기 + ';
+}
+
+.detail-explanation-more-btn:checked::before {
+    content: '닫기 -';
+}
+.detail-explanation:has(+ .detail-explanation-more-btn:checked) {
+    -webkit-line-clamp: unset;
 }
 .detail-information > div {
     width: 100%;
     display: flex;
+    flex-direction: row;
     padding: 5px;
     height: fit-content;
 }
@@ -132,22 +162,7 @@ main {
 .detail-information > div > div > div {
     padding: 5px 0;
 }
-.content-section2 {
-    padding: 30px 10px;
-    display: flex;
-    flex-direction: column;
-}
-.content-section2 > * {
-    padding: 10px 0;
-    width: 100%;
-}
-.content-section2 > :first-child {
-    font-weight: bold;
-    font-size: 40px;
-}
-.content-section2 > img {
-    width: 100%;
-}
+
 @media (max-width: 768px) {
     body {
         overflow: scroll;
@@ -160,6 +175,16 @@ main {
         flex-direction: column;
     }
     .content-section1 > * {
+        width: 100%;
+    }
+}
+@media (max-width: 530px) {
+    .detail-information > div {
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+    }
+    .detail-information > div > div {
         width: 100%;
     }
 }
