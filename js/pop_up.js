@@ -5,17 +5,22 @@ let part = 0;
 let keyword = '';
 let map;
 
-$(document).ready(function () {
+window.onpageshow = function (event) {
+    $('#spinner').addClass('hidden');
     let random = localStorage.getItem('random');
     if (random === '지역별 추천') {
         $('.content_top').text(random);
         $('.keyword-wrap').addClass('hidden');
+        $('.map-wrap').removeClass('hidden');
         showMap();
     } else if (random === '키워드별 추천') {
         $('.content_top').text(random);
         $('.map-wrap').addClass('hidden');
+        $('.keyword-wrap').removeClass('hidden');
     }
     secondButtonSetting();
+};
+window.addEventListener('pagehide', (event) => {
     $('#spinner').addClass('hidden');
 });
 
@@ -40,6 +45,7 @@ $('button').click(function () {
     keyword = $(this).text().replaceAll('\n', '/');
     $('#spinner').removeClass('hidden');
     setTimeout(() => {
+        $('#spinner').addClass('hidden');
         showKeywords();
     }, 1500);
 });
@@ -74,6 +80,7 @@ export function settingEvent(area, map, polygon, customOverlay) {
         $('#spinner').removeClass('hidden');
         setTimeout(() => {
             clickEvent(area);
+            // $('#spinner').addClass('hidden');
         }, 1500);
     });
 }
