@@ -140,10 +140,13 @@ main {
 }
 .detail-explanation-more-btn::before {
     content: '더보기 + ';
+    width: fit-content;
+    white-space: nowrap;
 }
 
 .detail-explanation-more-btn:checked::before {
     content: '닫기 -';
+    width: fit-content;
 }
 .detail-explanation:has(+ .detail-explanation-more-btn:checked) {
     -webkit-line-clamp: unset;
