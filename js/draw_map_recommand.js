@@ -58,16 +58,14 @@ export function drawMap() {
 
     /* 3. 폴리곤 도형을 지도위에 띄우고 마우스 이벤트 붙이기 */
 
-    if (window.matchMedia('(max-width: 768px)').matches) {
-        map.setLevel(10);
-    } else {
-        map.setLevel(9);
-    }
     // 지도에 영역데이터를 폴리곤으로 표시합니다
     for (let i = 0, len = areas.length; i < len; i++) {
         displayArea(areas[i], map, customOverlay);
     }
+
     drawMarker(map);
+    console.log(map.getLevel());
+    return map;
 }
 // 다각형을 생상하고 이벤트를 등록하는 함수입니다
 function displayArea(area, map, customOverlay) {
@@ -108,8 +106,11 @@ function displayArea(area, map, customOverlay) {
 
     // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다
     kakao.maps.event.addListener(polygon, 'click', function (mouseEvent) {
-        const contentCotainer = $('.content-container');
+        polygon.setOptions({ fillColor: '#09f' });
+        customOverlay.setPosition(mouseEvent.latLng);
+        customOverlay.setMap(map);
 
+        const contentCotainer = $('.content-container');
         $('.page-numbering').addClass('hide');
         $('.content-container').addClass('hide');
         resetContainer();
@@ -296,6 +297,8 @@ export function resetContainer() {
 }
 function drawMarker(map) {
     let imageSrc = '../img/icon/location-dot-solid.svg';
+    let bounds = new kakao.maps.LatLngBounds();
+
     for (let key in latLngs) {
         // 마커 이미지의 이미지 크기 입니다
         let imageSize = new kakao.maps.Size(15, 20);
@@ -310,5 +313,7 @@ function drawMarker(map) {
             image: markerImage, // 마커 이미지
         });
         marker.setClickable(false);
+        bounds.extend(latLngs[key].latlng);
     }
+    map.setBounds(bounds);
 }

@@ -7,6 +7,8 @@
         <!-- 사이트 이름이 정해지면 title모두 바꾸기 -->
         <link rel="stylesheet" href="../css/show_content.css" />
         <link rel="stylesheet" href="../css/header_footer.css" />
+        <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=722724134c7bd33a3711a12ebd2afb06"></script>
+
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     </head>
     <body>
@@ -33,41 +35,41 @@
                         <div class="img-section">
                             <img src="" alt="" />
                             <div class="copyright"></div>
+                            <div id="map"></div>
                         </div>
                         <div class="detail-section">
                             <div class="detail-head">상세정보</div>
                             <div class="detail-bottom">
                                 <div class="detail-explanation"></div>
+                                <input type="checkbox" class="detail-explanation-more-btn" />
                                 <div class="detail-information">
                                     <div>
                                         <div>
-                                            <div>● 문의 및 안내</div>
+                                            <div>&nbsp 문의 및 안내</div>
                                             <div class="tel"></div>
                                         </div>
                                         <div>
-                                            <div>● 홈페이지</div>
-                                            <div>
-                                                <div class="homepage"></div>
-                                            </div>
+                                            <div>&nbsp 홈페이지</div>
+                                            <div class="homepage"></div>
                                         </div>
                                     </div>
                                     <div>
                                         <div>
-                                            <div>● 주소</div>
+                                            <div>&nbsp 주소</div>
                                             <div class="address"></div>
                                         </div>
                                         <div>
-                                            <div>● 이용시간</div>
+                                            <div>&nbsp 이용시간</div>
                                             <div class="op-time"></div>
                                         </div>
                                     </div>
                                     <div>
                                         <div>
-                                            <div>● 주차</div>
+                                            <div>&nbsp 주차</div>
                                             <div class="parking"></div>
                                         </div>
                                         <div>
-                                            <div>● 요금</div>
+                                            <div>&nbsp 요금</div>
                                             <div class="price"></div>
                                         </div>
                                     </div>
@@ -160,5 +162,6 @@
         <script src="../js/header_footer.js"></script>
         <script type="module" src="../js/content_object.js"></script>
         <script type="module" src="../js/show_content.js"></script>
+        <script type="module" src="../js/latlng.js"></script>
     </body>
 </html>

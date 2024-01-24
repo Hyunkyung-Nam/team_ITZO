@@ -13,6 +13,7 @@
     box-sizing: border-box;
     text-decoration: none;
     font-family: 'NanumBarunGothic';
+    line-height: 150%;
 }
 body {
     overflow: auto;
@@ -29,12 +30,12 @@ main {
     padding-top: 100px;
 }
 .container {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-self: center;
     align-items: center;
-    padding: 20px;
+    padding: 3vw;
 }
 .container > * {
     width: 100%;
@@ -54,13 +55,11 @@ main {
     font-size: 20px;
     color: rgb(197, 197, 197);
 }
-.header > *:nth-child(3) {
-    font-size: 30px;
-}
 .content-section1 {
     background-color: blanchedalmond;
     display: flex;
     padding: 20px;
+    padding-bottom: 100px;
 }
 .content-section1 > * {
     width: 50%;
@@ -75,10 +74,17 @@ main {
     justify-content: flex-start;
     padding: 20px 0;
 }
-.content img {
+.img-section > img {
     width: 90%;
     height: 60%;
     box-shadow: 5px 5px #001d49;
+    max-height: 387px;
+}
+#map {
+    margin-top: 30px;
+    width: 90%;
+    height: 200px;
+    border: 1px solid #001d49;
 }
 .copyright {
     width: 90%;
@@ -100,54 +106,84 @@ main {
     font-size: 30px;
     font-weight: bold;
     border-bottom: 1px solid black;
+    max-height: 137px;
 }
 .detail-bottom {
-    height: 80%;
+    /* height: 80%; */
     padding: 20px;
+    white-space: pre-line;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-self: center;
 }
-
 .detail-information {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: baseline;
-    font-size: 15px;
+    width: 100%;
 }
 .detail-explanation {
-    padding-bottom: 10px;
+    padding-bottom: 50px;
+    /* overflow: visible; */
+}
+.detail-explanation-more-btn {
+    position: relative;
+    appearance: none;
+    left: 85%;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    color: gray;
+}
+.detail-explanation-more-btn::before {
+    content: '더보기 + ';
+}
+
+.detail-explanation-more-btn:checked::before {
+    content: '닫기 -';
+}
+.detail-explanation:has(+ .detail-explanation-more-btn:checked) {
+    -webkit-line-clamp: unset;
 }
 .detail-information > div {
     width: 100%;
     display: flex;
-    padding: 5px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 30px;
     height: fit-content;
 }
 .detail-information > div > div {
-    width: 50%;
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    justify-content: ce;
+    align-content: center;
+    padding: 0;
 }
 .detail-information > div > div > div:first-child {
     font-weight: bold;
+    padding-bottom: 10px;
+    white-space: pre;
+    font-size: 17px;
+}
+.detail-information > div > div > div:first-child::before {
+    content: '⊙';
+    color: rgb(98, 97, 97);
+}
+.detail-information > div > div > div:last-child {
+    padding-left: 20px;
+    color: rgb(98, 97, 97);
+    font-size: 16px;
+}
+.hidden {
+    display: none;
 }
 
-.detail-information > div > div > div {
-    padding: 5px 0;
-}
-.content-section2 {
-    padding: 30px 10px;
-    display: flex;
-    flex-direction: column;
-}
-.content-section2 > * {
-    padding: 10px 0;
-    width: 100%;
-}
-.content-section2 > :first-child {
-    font-weight: bold;
-    font-size: 40px;
-}
-.content-section2 > img {
-    width: 100%;
-}
 @media (max-width: 768px) {
     body {
         overflow: scroll;
@@ -161,5 +197,48 @@ main {
     }
     .content-section1 > * {
         width: 100%;
+    }
+    .header > *:first-child {
+        font-weight: bold;
+        font-size: 30px;
+    }
+    .header > *:nth-child(2) {
+        font-size: 20px;
+    }
+    .img-section {
+        padding: 5px 0;
+    }
+    .detail-head {
+        font-size: 20px;
+    }
+    .detail-bottom {
+        padding: 0;
+        flex-direction: column;
+        justify-content: start;
+        align-self: center;
+    }
+    .detail-explanation {
+        padding-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+@media (max-width: 530px) {
+    .detail-information > div {
+        flex-direction: column;
+        justify-content: center;
+        justify-content: center;
+        align-items: left;
+        padding-bottom: 0px;
+    }
+    .detail-information > div > div {
+        width: 100%;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+    .detail-explanation-more-btn {
+        left: 80%;
     }
 }
