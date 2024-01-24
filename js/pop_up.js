@@ -20,7 +20,6 @@ $(document).ready(function () {
 });
 
 window.onresize = function (event) {
-    var innerWidth = window.innerWidth;
     secondButtonSetting();
 };
 

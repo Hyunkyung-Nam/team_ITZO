@@ -1,5 +1,17 @@
 import { places } from './content_object.js';
 
+let innerWidth = window.innerWidth;
+innerWidth <= '768'
+    ? $('.detail-explanation-more-btn').removeClass('hidden')
+    : $('.detail-explanation-more-btn').addClass('hidden');
+
+window.onresize = function (event) {
+    let innerWidth = window.innerWidth;
+    innerWidth <= '768'
+        ? $('.detail-explanation-more-btn').removeClass('hidden')
+        : $('.detail-explanation-more-btn').addClass('hidden');
+};
+
 $(document).ready(function () {
     if (localStorage.getItem('name')) {
         let name = localStorage.getItem('name');
