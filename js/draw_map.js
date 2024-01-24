@@ -2,6 +2,7 @@ import { latLngs } from './latlng.js';
 import { settingEvent } from './pop_up.js';
 
 export let part = 0;
+let polygons = [];
 
 export function drawMap() {
     // 지도에 폴리곤으로 표시할 영역데이터 배열입니다
@@ -82,7 +83,8 @@ function displayArea(area, map, customOverlay) {
         fillColor: '#fff',
         fillOpacity: 0.7,
     });
-    settingEvent(area, map, polygon, customOverlay);
+    polygons.push(polygon);
+    settingEvent(area, map, polygon, customOverlay, polygons);
 }
 function clickEvent(area) {
     if (area.name === 'part1') {
