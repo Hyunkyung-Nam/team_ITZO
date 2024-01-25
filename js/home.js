@@ -150,3 +150,6 @@ $('.main-slide').click(function () {
     localStorage.setItem('name', contentName);
     window.location.href = '../html/show_content.html';
 });
+$('.map-cover').click(function () {
+    window.location.href = '../html/map_recommand.html';
+});

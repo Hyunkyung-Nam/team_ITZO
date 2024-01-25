@@ -151,7 +151,9 @@ main {
 }
 .map-section {
     position: relative;
-    top: 150px;
+    /* margin: 30px; */
+    /* top: 150px; */
+    margin-top: 30px;
     width: 100%;
     height: 300px;
 }
@@ -160,14 +162,30 @@ main {
     height: 500px;
     background-color: #fefeed;
 }
+#map {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    border: 3px dashed #001d49;
+}
+.map-cover {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    cursor: pointer;
+}
 .map-text {
+    margin-top: 50px;
     text-align: center;
     font-size: 28px;
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px 4px #000000;
     position: relative;
-    top: 100px;
+    /* top: 100px; */
 }
 .theme-text {
     text-align: center;
@@ -405,8 +423,9 @@ main {
     }
     .map-text {
         position: relative;
-        top: 30px;
+        /* top: 30px; */
         font-size: 20px;
+        margin-top: 20px;
     }
     .map-wrap {
         width: 100%;

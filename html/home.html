@@ -6,6 +6,7 @@
         <title>궁석궁석</title>
         <link rel="stylesheet" href="/css/home.css" />
         <link rel="stylesheet" href="../css/header_footer.css" />
+        <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=722724134c7bd33a3711a12ebd2afb06"></script>
 
         <!-- <script type="module" src="/js/draw_map.js"></script> -->
         <script
@@ -110,7 +111,8 @@
             <!-- 지도 -->
             <div class="map-section">
                 <div class="map-wrap">
-                    <div class="map-contant"></div>
+                    <div id="map"></div>
+                    <div class="map-cover"></div>
                 </div>
             </div>
             <!-- 테마 카드 -->
@@ -267,6 +269,8 @@
         <script type="module" src="/js/content_object.js"></script>
         <script type="module" src="/js/theme_main.js"></script>
         <script type="module" src="/js/home.js"></script>
+        <script type="module" src="../js/draw_map.js"></script>
+        <script type="module" src="../js/latlng.js"></script>
         <script src="https://kit.fontawesome.com/86a207562f.js" crossorigin="anonymous"></script>
     </body>
 </html>
