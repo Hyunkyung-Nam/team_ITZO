@@ -5,11 +5,14 @@ let map;
 window.onpageshow = function (event) {
     if (event.persisted) {
         //사파이에서 뒤돌아갔을 떄
+        console.log('first');
     } else if (window.performance && window.performance.navigation.type == 2) {
         // 크롬에서 뒤돌아갔을 때
         map = drawMap(true);
+        console.log('second');
     } else {
         map = drawMap(false);
+        console.log('third');
     }
     if (window.matchMedia('(max-width: 768px)').matches) {
         map.setLevel(10);
