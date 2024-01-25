@@ -127,11 +127,11 @@ function modalSelect(clickedHashtag) {
             document.querySelector('.modal').style.display = 'none';
         });
     //해시태그 선택 버튼을 누르면 active가 사라지게끔
-    $('.hashtag-btn-open-modal').on('click', function () {
-        $('button.active').removeClass('active').addClass('');
-        hashtags = [];
-        tempHashtags = [];
-    });
+    // $('.hashtag-btn-open-modal').on('click', function () {
+    //     $('button.active').removeClass('active').addClass('');
+    //     hashtags = [];
+    //     tempHashtags = [];
+    // });
 }
 
 $('.btn_refresh').click(function () {
