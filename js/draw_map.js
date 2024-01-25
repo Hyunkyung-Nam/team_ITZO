@@ -2,6 +2,7 @@ import { latLngs } from './latlng.js';
 import { settingEvent } from './pop_up.js';
 
 export let part = 0;
+let polygons = [];
 
 export function drawMap() {
     // 지도에 폴리곤으로 표시할 영역데이터 배열입니다
@@ -41,6 +42,7 @@ export function drawMap() {
 
     let mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {
+            disableDoubleClickZoom: true,
             center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
             level: 9, // 지도의 확대 레벨
         };
@@ -81,7 +83,8 @@ function displayArea(area, map, customOverlay) {
         fillColor: '#fff',
         fillOpacity: 0.7,
     });
-    settingEvent(area, map, polygon, customOverlay);
+    polygons.push(polygon);
+    settingEvent(area, map, polygon, customOverlay, polygons);
 }
 function clickEvent(area) {
     if (area.name === 'part1') {
