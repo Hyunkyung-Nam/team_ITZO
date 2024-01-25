@@ -35,11 +35,12 @@ $('.reset-map').click(function () {
     $('.page-numbering').addClass('hide');
     $('.content-container').addClass('hide');
     resetContainer();
-    initSetting();
 
     setTimeout(() => {
         $('.content-container').removeClass('hide');
         $('.page-numbering').empty();
+        initSetting();
+        $('.page-numbering').removeClass('hide');
     }, 100);
 });
 

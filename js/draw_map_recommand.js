@@ -185,10 +185,15 @@ export function initSetting() {
     }
     const pageNumber = Math.ceil(contentCount / 6);
     for (let i = 1; i <= pageNumber; i++) {
-        $('.page-numbering').append(`<button type='button' class = 'page-numbering-btn'>[${i}]  </button>`);
+        $('.page-numbering').append(
+            `<button type='button' class = 'page-numbering-btn' onclick='location.href='#'>[${i}]  </button>`
+        );
         $('.page-numbering')
             .children()
             .css({ color: 'white', 'background-color': 'unset', border: '0', cursor: 'pointer' });
+    }
+    for (let i = 0; i < polygons.length; i++) {
+        polygons[i].setOptions({ fillColor: '#fff' });
     }
 
     createButtonEvent();
@@ -270,7 +275,6 @@ function setTag(tags) {
 function createButtonEvent() {
     pageNumberingButtonInit();
     $('.page-numbering-btn').on('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' }); //최상단으로 스크롤 옮기기
         $('.content-container').addClass('hide');
         $('.page-numbering').addClass('hide');
         resetContainer();
