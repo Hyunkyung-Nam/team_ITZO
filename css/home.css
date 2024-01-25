@@ -8,57 +8,6 @@
         url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'),
         url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
 }
-/* @media (max-width: 768px) {
-    body {
-        overflow: scroll;
-    }
-    header {
-        flex-direction: column;
-        height: 100px;
-        justify-content: space-around;
-        text-align: center;
-    }
-    .logo {
-        width: 100%;
-    }
-    .nav {
-        width: 100%;
-        justify-content: space-evenly;
-    }
-    main {
-        top: 100px;
-        flex-direction: column;
-        align-items: center;
-    }
-    .left-section {
-        width: 100%;
-        height: 240px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        z-index: 1;
-        padding-bottom: 0;
-    }
-    .mainleft-wrap {
-        width: 95%;
-        height: 100%;
-    }
-    .main-textbox {
-        z-index: 5;
-    }
-    #map {
-        height: 100%;
-    }
-    .right-section {
-        padding: 20px 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        z-index: 6;
-    }
-} */
 * {
     margin: 0;
     padding: 0;
@@ -69,6 +18,7 @@
 body {
     background-color: #001d49;
     overflow: auto;
+    min-width: 300px;
 }
 header {
     position: fixed;
@@ -114,22 +64,21 @@ main {
     flex-direction: column;
     height: 100%;
     top: 60px;
-    width: 100vw;
+    width: 100%;
 }
 .mainslide-container {
     display: flex;
     width: 100%;
+    height: 450px;
+    position: relative;
 }
 .left-section {
     box-sizing: content-box;
-    width: 45%;
-    height: 500px;
-    justify-content: center;
-    display: flex;
-    align-items: center;
+    width: 50%;
+    height: 100%;
     top: 60px;
-    position: relative;
-    z-index: 8;
+    /* position: absolute; */
+    /* left: auto; */
 }
 .mainleft-wrap {
     width: 95%;
@@ -138,13 +87,17 @@ main {
 }
 .main-textbox {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 60%;
+}
+
+.center {
+    display: flex;
 }
 .main-text {
     color: white;
-    text-align: center;
     top: 40%;
     left: 100px;
     display: none;
@@ -154,52 +107,57 @@ main {
 }
 .main-title {
     display: inline-block;
-    padding: 0 15px;
+    padding: 0px 15px;
     height: 30px;
-    line-height: 28px;
-    background: #000;
-    border-radius: 15px 15px 15px 15px;
-    font-weight: 300;
+    line-height: 2;
+    background: rgb(0, 0, 0);
+    border-radius: 15px 15px 15px 0;
     color: white;
-    bottom: 30px;
     position: relative;
-    bottom: 15px;
-    font-size: 20px;
+    bottom: 70px;
+    font-size: 16px;
+    left: 0px;
 }
 .text-box {
     position: relative;
+    bottom: 65px;
 }
 .text {
-    font-size: 18px;
+    font-size: 20px;
     text-shadow: 2px 2px 4px #000000;
+    line-height: 1.5;
+    -webkit-line-clamp: 2;
+    text-align: left;
 }
 .page-move {
     border-bottom: 1px solid white;
     padding-bottom: 2px;
     color: white;
     position: absolute;
-    left: 110px;
-    top: 120px;
+    justify-content: center;
+    top: 100px;
+    cursor: pointer;
 }
 .right-section {
     width: 50%;
-    height: 500px;
+    height: 100%;
     justify-content: center;
     display: flex;
     align-items: center;
-    position: relative;
-    overflow: scroll;
-    top: 60px;
-    z-index: 9;
-    border-radius: 5%;
-    box-shadow: 5px 5px black;
+
+    overflow: hidden;
 }
 .main-slide {
     width: 100%;
-    height: 100%;
-    background-size: cover;
-    position: absolute;
+    height: 80%;
+
     display: none;
+    box-shadow: 5px 5px 5px #282828;
+}
+.main-slide > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 2%;
 }
 
 .main-slide.active {
@@ -208,6 +166,8 @@ main {
 .map-section {
     position: relative;
     top: 150px;
+    width: 100%;
+    height: 300px;
 }
 .map-container {
     width: 100%;
@@ -219,21 +179,20 @@ main {
     font-size: 28px;
     font-weight: bold;
     color: white;
-}
-h2 {
-    color: white;
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: 20;
+    text-shadow: 2px 2px 4px #000000;
+    position: relative;
+    top: 100px;
 }
 .theme-text {
     text-align: center;
     font-size: 28px;
     font-weight: bold;
     color: white;
+    text-shadow: 2px 2px 4px #000000;
+    position: relative;
+    top: 191px;
 }
 .theme-container {
-    background: #001d49;
     width: 100%;
     position: relative;
     top: 200px;
@@ -258,6 +217,7 @@ h2 {
     height: 300px;
     border-radius: 50%;
     margin: 0 auto;
+    cursor: pointer;
 }
 .theme-slide img {
     width: 100%;
@@ -267,26 +227,30 @@ h2 {
     border-radius: 50%;
     box-shadow: 5px 5px 5px black;
 }
-.cardtext {
+.card-text {
     text-align: center;
     font-size: 14px;
     color: white;
     margin-top: 10px;
     line-height: 1.5;
 }
+.button-box {
+    z-index: 2000;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    top: 400px;
+    cursor: pointer;
+}
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    color: white;
+}
 #prev,
 #next {
     position: absolute;
     bottom: 0;
     transform: translateX(-50%);
-    /* 버튼 배경색을 변경합니다. 원하는 색으로 변경하실 수 있습니다. */
-    background-color: #f8f9fa;
-    /* 버튼을 원형으로 만듭니다. */
-    border-radius: 50%;
-    /* 버튼 내부의 여백을 설정합니다. */
-    padding: 10px;
-    /* 버튼의 경계선을 제거합니다. */
-    border: none;
 }
 #prev {
     left: 48%;
@@ -295,100 +259,102 @@ h2 {
 #next {
     left: 52%;
 }
-.arrow {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
+@media screen and (max-width: 1920px) {
+    .desktop-text {
+        display: block;
+    }
+    .mobile-text {
+        display: none;
+    }
 }
+@media screen and (max-width: 1080px) {
+    .desktop-text {
+        display: block;
+    }
+    .mobile-text {
+        display: none;
+    }
+    .footer2 {
+        flex-direction: column;
+        display: flex;
+    }
+    .logo_list,
+    .sel_area {
+        justify-content: flex-end;
+    }
+    .button-box {
+        z-index: 2000;
+        position: absolute;
+        display: flex;
+        width: 100%;
+        top: 430px;
+    }
+}
+@media (max-width: 948px) {
+    .theme-container {
+        width: 100%;
+        position: relative;
+        top: 200px;
+    }
+    .theme-wrap {
+        position: relative;
+        height: 400px;
+        width: 100%;
+        display: flex;
+        margin-top: 50px;
+        justify-content: center;
+    }
+    .theme-slide-group {
+        display: flex;
+        width: 95%;
+        overflow-x: auto;
+    }
 
-.right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-}
-
-.left {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-}
-/* footer */
-.bottom {
-    top: 400px;
-    width: 100%;
-    position: relative;
-    margin: auto;
-    box-sizing: border-box;
-    height: auto;
-    padding: 0;
-    height: 65px;
-    border-top: 42px solid #f0f0f0;
-    background: #f0f0f0;
-    overflow: hidden;
-    padding-bottom: 102px;
-    bottom: 0;
-}
-.bottom .sel_area {
-    position: static;
-    overflow: hidden;
-    padding: 0 15px 6px;
-}
-.bottom .sel_area .sel_member {
-    position: relative;
-    background: none;
-    border: 0;
-}
-.bottom .sel_area .sel_member select {
-    background: #fff url(https://korean.visitkorea.or.kr/resources/images/main/ico_select5.png) 100% 50%/30px 8px
-        no-repeat;
-    padding: 0 0 0 15px;
-    height: 35px;
-    width: calc(100% - 65px);
-    border-radius: 5px;
-    font-size: 13px;
-    line-height: 18px;
-    border: 1px solid #bbb;
-    color: #666;
-    vertical-align: top;
-}
-/* 화살표 사라지기 */
-select {
-    -webkit-appearance: none; /* Chrome, Safari, Edge */
-    -moz-appearance: none; /* Firefox */
-    appearance: none; /* 일반적인 스타일링을 위한 appearance 속성 */
-    background-image: none; /* 배경 이미지 제거 */
-    padding-right: 1em; /* 오른쪽 여백을 추가하여 텍스트와 겹치지 않게 함 */
-    background-color: transparent; /* 배경색을 투명하게 설정 */
-}
-.bottom .sel_area .sel_member #relation2 {
-    margin-bottom: 10px;
-}
-.sel_area .sel_member button {
-    width: 50px;
-    font-size: 14px;
-    display: inline-block;
-    height: 35px;
-    line-height: 35px;
-    color: #fff;
-    background: #777676;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 13px;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-a:link {
-    text-decoration: none;
+    .theme-slide {
+        background: #001d49;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+    .theme-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+        box-shadow: 5px 5px 5px black;
+    }
+    .card-text {
+        text-align: center;
+        font-size: 14px;
+        color: white;
+        margin-top: 10px;
+        line-height: 1.5;
+    }
+    .button-box {
+        z-index: 2000;
+        position: absolute;
+        display: flex;
+        width: 100%;
+        top: 400px;
+        cursor: pointer;
+    }
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 800, 'GRAD' 0, 'opsz' 24;
+        color: white;
+    }
 }
 @media (max-width: 768px) {
-    body {
-        overflow: scroll;
-    }
     header {
         flex-direction: column;
         height: 100px;
         justify-content: space-around;
         text-align: center;
+    }
+    body {
+        overflow: scroll;
     }
     .logo {
         width: 100%;
@@ -398,101 +364,276 @@ a:link {
         justify-content: space-evenly;
     }
     main {
-        top: 100px;
         flex-direction: column;
         align-items: center;
+    }
+    .mainslide-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    .text {
+        font-size: 12px;
     }
     .left-section {
         width: 100%;
-        height: 240px;
+        position: absolute;
+        height: 250px;
+        justify-content: center;
         display: flex;
+    }
+    .center {
+        top: -100px;
+        position: relative;
+    }
+    .right-section {
+        width: 100%;
+        position: absolute;
+        top: 200px;
+        height: 300px;
+        left: 1px;
+        box-shadow: none;
+        justify-content: center;
+        display: flex;
+        /* box-shadow: 4px 4px #4b4b4b; */
+    }
+    .main-slide {
+        top: 10px;
+        width: 80%;
+        height: 223px;
+        box-shadow: 5px 5px 5px #282828;
+    }
+    .page-move {
+        text-align: center;
+    }
+    .map-section {
+        width: 100%;
+        height: 300px;
         justify-content: center;
         align-items: center;
         position: relative;
+    }
+    .map-text {
+        position: relative;
+        top: 0px;
+        font-size: 20px;
+    }
+    .map-wrap {
+        width: 100%;
+        height: 100%;
+        position: relative;
         z-index: 1;
-        padding-bottom: 0;
     }
-    .mainleft-wrap {
-        width: 95%;
+    .map-contant {
+        width: 70%;
         height: 100%;
-    }
-    .main-textbox {
-        z-index: 5;
-    }
-    #map {
-        height: 100%;
-    }
-    .right-section {
-        padding: 20px 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
+        position: absolute;
+        background-color: #fefeed;
+        margin: auto;
+        left: 5%;
+        right: 2.5%;
         justify-content: center;
-        z-index: 6;
+        display: flex;
+        bottom: 120px;
     }
-    .mainslide-container {
-        flex-direction: column;
-    }
-    .left-section,
-    .right-section {
-        width: 100%;
-    }
-    .mainleft-wrap,
-    .main-textbox {
-        width: 90%;
-    }
-    .main-text,
-    .main-title {
-        font-size: 16px;
-    }
-    .text {
-        font-size: 14px;
-    }
-    .page-move {
-        left: 30px;
-        top: 70px;
-    }
-    .right-section {
-        height: 300px;
+    .theme-text {
+        top: 50px;
+        position: relative;
+        font-size: 20px;
     }
     .theme-container {
-        top: 50px;
+        width: 100%;
+        height: 300px;
+        position: relative;
+        top: 30px;
     }
     .theme-wrap {
-        height: 200px;
+        width: 100%;
+        justify-content: center;
+    }
+    .theme-slide-group {
+        position: relative;
+        width: 100%;
+        height: 100%;
     }
     .theme-slide {
-        width: 150px;
-        height: 150px;
-    }
-    .cardtext {
-        font-size: 10px;
-    }
-    h2 {
-        font-size: 20px;
-    }
-    .map-section {
+        width: 200px;
         height: 200px;
+        position: relative;
     }
-    .map-left p,
-    .theme-text,
-    .map-text {
-        font-size: 20px;
+    .card-text {
     }
-    .reset-map {
-        width: 30px;
-        height: 30px;
+    .desktop-text {
+        display: none;
     }
-    #map {
-        height: 60%;
+    .mobile-text {
+        display: block;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        -webkit-line-clamp: 2;
     }
-    .bottom .sel_area .sel_member select {
-        height: 20px;
-        font-size: 10px;
+    .button-box {
+        z-index: 2000;
+        position: absolute;
+        display: flex;
+        width: 100%;
+        top: 300px;
     }
-    .sel_area .sel_member button {
-        width: 30px;
-        height: 20px;
-        font-size: 10px;
+    .footer {
+        width: 100%;
     }
 }
+@media (min-width: 300px) and (max-width: 600px) {
+    theme-container {
+        width: 100%;
+        height: 100%;
+    }
+    .theme-wrap {
+        display: flex;
+        width: 100%;
+    }
+    #theme-slide-group1 {
+        display: flex;
+        width: 100%;
+    }
+    #theme-slide-group2 {
+        display: flex;
+        width: 100%;
+    }
+    .theme-slide {
+        width: 100%%;
+        margin-right: 10px;
+    }
+    .theme-slide img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 0;
+    }
+
+    .desktop-text {
+        display: none;
+    }
+    .mobile-text {
+        display: block;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        -webkit-line-clamp: 2;
+    }
+    .button-box {
+        z-index: 2000;
+        position: absolute;
+        display: none;
+        width: 100%;
+        top: 300px;
+    }
+
+    /* .theme-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .theme-wrap {
+        display: flex;
+        width: 100%;
+    }
+    .theme-slide-group {
+        display: flex;
+        width: 100%;
+    }
+    #theme-slide-group2 {
+    }
+    .theme-slide {
+        width: 100%%;
+        margin-right: 10px;
+    }
+
+    .theme-slide img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 0;
+    }
+    .mobile-text {
+        display: block;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        -webkit-line-clamp: 2;
+    }
+    .button-box {
+        z-index: 2000;
+        position: absolute;
+        display: none;
+        width: 100%;
+        top: 300px;
+    } */
+}
+/* 300~480 미디어쿼리 */
+/* @media (min-width: 300px) and (max-width: 480px) {
+    .mainslide-container {
+        width: 100%;
+        position: relative;
+        height: 450px;
+    }
+    .right-section {
+        width: 100%;
+    }
+    .main-slide {
+        width: 80%;
+    }
+    .theme-container {
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        display: flex;
+    }
+
+    .theme-wrap {
+        display: flex;
+        scroll-snap-type: x mandatory;
+        overflow-x: scroll;
+    }
+    .theme-slide-group {
+        position: relative;
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .theme-slide {
+        flex: 0 0 auto;
+        width: 33.3%;
+        scroll-snap-align: center;
+        margin-right: 10px;
+    }
+
+    .theme-slide img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 0;
+    }
+    .mobile-text {
+        display: block;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        -webkit-line-clamp: 2;
+    }
+    .button-box {
+        z-index: 2000;
+        position: absolute;
+        display: none;
+        width: 100%;
+        top: 300px;
+    }
+} */
+/* @media (max-width: 300px) {
+    .theme-slide {
+        width: 90px;
+        height: 90px;
+    }
+} */
+/* max 450 */
