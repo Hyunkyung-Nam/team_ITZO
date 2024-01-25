@@ -31,9 +31,6 @@ main {
     padding-top: 100px;
     min-height: 90vh;
 }
-.mainslide-container {
-    display: flex;
-}
 .left-section {
     padding: 40px 0;
     width: 48%;
