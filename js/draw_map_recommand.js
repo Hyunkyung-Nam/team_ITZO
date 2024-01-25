@@ -2,10 +2,10 @@ import { places } from './content_object.js';
 import { latLngs } from './latlng.js';
 
 export let part = 0;
-let polygons = [];
-let selectedPolygon;
+export let polygons = [];
+export let selectedPolygon;
 
-export function drawMap() {
+export function drawMap(reload) {
     // 지도에 폴리곤으로 표시할 영역데이터 배열입니다
     let areas = [];
 
@@ -64,8 +64,11 @@ export function drawMap() {
     // 지도에 영역데이터를 폴리곤으로 표시합니다
     for (let i = 0, len = areas.length; i < len; i++) {
         displayArea(areas[i], map, customOverlay);
+        if (reload && localStorage.getItem('part') == i + 1) {
+            console.log(localStorage.getItem('part'));
+            polygons[i].setOptions({ fillColor: '#09f' });
+        }
     }
-
     drawMarker(map);
     return map;
 }

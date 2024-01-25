@@ -1,12 +1,19 @@
-import { drawMap, initSetting, resetContainer } from './draw_map_recommand.js';
+import { drawMap, initSetting, resetContainer, part } from './draw_map_recommand.js';
 
-let map = drawMap();
+let map;
 
-if (window.matchMedia('(max-width: 768px)').matches) {
-    map.setLevel(10);
-} else {
-    map.setLevel(9);
-}
+window.onpageshow = function (event) {
+    if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+        map = drawMap(true);
+    } else {
+        map = drawMap(false);
+    }
+    if (window.matchMedia('(max-width: 768px)').matches) {
+        map.setLevel(10);
+    } else {
+        map.setLevel(9);
+    }
+};
 
 $(window).scroll(function () {
     if ($(this).scrollTop() > 200) {
@@ -37,6 +44,7 @@ $('.content-container').click(function () {
     const contentName = $(this).children('div:last').children('.content-preview-header').text();
     localStorage.setItem('name', contentName);
     localStorage.setItem('page', 'map_recommand');
+    localStorage.setItem('part', part);
     window.location.href = '../html/show_content.html';
 });
 

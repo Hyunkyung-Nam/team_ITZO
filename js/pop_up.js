@@ -57,7 +57,7 @@ function showMap() {
 export function settingEvent(area, map, polygon, customOverlay, polygons) {
     kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
         if (selectedPolygon !== polygon) {
-            polygon.setOptions({ fillColor: '#005666' });
+            polygon.setOptions({ fillColor: '#09f' });
         }
     });
 
