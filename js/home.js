@@ -18,7 +18,7 @@ $(document).ready(function () {
         imageSlides.eq(currentIndex).addClass('active');
         textSlides.eq(currentIndex).addClass('active'); // 다음 이미지와 텍스트 슬라이드 활성화
     }
-    setInterval(slideShow, 1000000); // 3000 = 3초마다 슬라이드가 변경
+    setInterval(slideShow, 3000); // 3000 = 3초마다 슬라이드가 변경
 });
 
 // 함께 떠나는 힐링 테마여행 버튼
