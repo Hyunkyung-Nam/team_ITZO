@@ -7,6 +7,7 @@ let map;
 let selectedPolygon;
 
 window.onpageshow = function (event) {
+    console.log('hi');
     $('#spinner').addClass('hidden');
     let random = localStorage.getItem('random');
     if (random === '지역별 추천') {
@@ -21,6 +22,10 @@ window.onpageshow = function (event) {
     }
     secondButtonSetting();
 };
+window.onbeforeunload = function () {
+    $('#spinner').addClass('hidden');
+};
+
 window.addEventListener('pagehide', (event) => {
     $('#spinner').addClass('hidden');
 });
@@ -77,8 +82,8 @@ export function settingEvent(area, map, polygon, customOverlay, polygons) {
         selectedPolygon = polygon;
         $('#spinner').removeClass('hidden');
         setTimeout(() => {
+            $('#spinner').addClass('hidden');
             clickEvent(area);
-            // $('#spinner').addClass('hidden');
         }, 1500);
     });
     kakao.maps.event.addListener(polygon, 'touchend', function (mouseEvent) {
