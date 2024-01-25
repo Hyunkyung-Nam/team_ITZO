@@ -1,19 +1,11 @@
 import { places } from './content_object.js';
 
 //아무것도 실행되지 않았을때 맨 처음 로드페이지 화면
-// if (
-//     $('.palace').click(function () {
-//         $('.palace').ready(function () {
-//             $('#palace_temple').click();
-//         });
-//     })
-// )
 
 $(document).ready(function () {
-    $('#historical_landmark').click();
+    setContentContainer(['역사적명소']);
 });
 
-// 한 html에서 여러 로드페이지 할당할 수 있게 할 수 있으니 해보자..공원, 절일때 이렇게 해라 이런식
 //함수를 전역객체에 직접 할당
 window.goRelation2 = function () {
     let selectElement = document.getElementById('relation2');
@@ -52,7 +44,17 @@ window.refreshTag = function () {
 let hashtags = []; // 해시태그를 저장하는 배열
 
 $('.hashtag').click(function () {
+    let innerWidth = window.innerWidth;
     const clickedHashtag = this.dataset.hashtag;
+    if (innerWidth <= '567') {
+        //567이하일때 이벤트
+        modalSelect(clickedHashtag);
+    } else {
+        //567초과일때 이벤트
+        directSelect(clickedHashtag);
+    }
+});
+function directSelect(clickedHashtag) {
     if (clickedHashtag === '전체') {
         hashtags = ['전체'];
     } else {
@@ -71,7 +73,63 @@ $('.hashtag').click(function () {
     $('.content-container').removeClass('hide'); //업데이트 다 된후, 해당 클래스에 hide들을 제거해서 모든 컨텐츠가 보이게끔
     setContentContainer(hashtags);
     console.log(hashtags); //배열안에 들어가서 중복되는거 나오게끔 만들어짐.
-});
+}
+
+let tempHashtags = []; // 임시 해시태그 배열
+
+function modalSelect(clickedHashtag) {
+    // console.log('Clicked hashtag: ', clickedHashtag);
+    if (clickedHashtag === '전체') {
+        tempHashtags = ['전체'];
+    } else {
+        const index = tempHashtags.indexOf('전체');
+        if (index > -1) {
+            // '전체' 해시태그가 tempHashtags 배열에 존재하는 경우에 ,
+            tempHashtags.splice(index, 1); //배열에서 '전체' 해시태그를 제거
+        }
+        if (tempHashtags.includes(clickedHashtag)) {
+            //클릭한 해시태그가 배열에 있는지 확인(includes는 T/F로 나오니까 포함되어 있으면 1이고, 아니면 -1)
+            const index = tempHashtags.indexOf(clickedHashtag);
+            tempHashtags.splice(index, 1); // 이미 tempHashtags 배열에 있는 경우 해당 해시태그를 제거하고, 그렇지 않은 경우 해당 해시태그를 배열에 추가
+        } else {
+            tempHashtags.push(clickedHashtag);
+        }
+    }
+
+    // console.log('Temp hashtags: ', tempHashtags);
+
+    // 확인 버튼 클릭 이벤트
+    $('.confirm')
+        .off('click')
+        .on('click', function () {
+            // '전체' 해시태그가 선택되지 않았을 때 다른 해시태그들을 hashtags 배열에 추가
+            if (tempHashtags.includes('전체')) {
+                hashtags = ['전체'];
+            } else {
+                hashtags = [...tempHashtags];
+            }
+
+            $('.content-container').removeClass('hide');
+            setContentContainer(hashtags);
+
+            // console.log('Hashtags: ', hashtags);
+            document.querySelector('.modal').style.display = 'none'; // 모달 닫기
+        });
+
+    //취소버튼 클릭 이벤트
+    $('.cancel')
+        .off('click')
+        .on('click', function () {
+            $('button.active').removeClass('active').addClass('');
+            document.querySelector('.modal').style.display = 'none';
+        });
+    //해시태그 선택 버튼을 누르면 active가 사라지게끔
+    $('.hashtag-btn-open-modal').on('click', function () {
+        $('button.active').removeClass('active').addClass('');
+        hashtags = [];
+        tempHashtags = [];
+    });
+}
 
 $('.btn_refresh').click(function () {
     refreshTag();
@@ -123,6 +181,7 @@ function setContentContainer(hashtags) {
     $('.content-container-btn:first').trigger('click');
 
     createButtonEvent();
+    console.log(contentCount);
 }
 
 function resetContent(pageNum, hashtags) {
@@ -210,3 +269,37 @@ $('.content-container').click(function () {
     localStorage.setItem('img', contentName);
     window.location.href = '../html/show_content.html';
 });
+
+//modal
+//
+const modal = document.querySelector('.modal');
+const btnOpenModal = document.querySelector('.hashtag-btn-open-modal');
+const btnCloseModal = document.querySelector('.hashtag-btn-close-modal');
+
+btnOpenModal.addEventListener('click', () => {
+    modal.style.display = 'flex';
+});
+btnCloseModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+//해시태그 했을때 해당되는 장소 없습니다...나타나게 하는거
+
+// $('.hashtag').click(function () {
+//     let innerWidth = window.innerWidth;
+//     const clickedHashtag = this.dataset.hashtag;
+//     const messageDiv = document.getElementById('search-result-message');
+
+//     if (clickedHashtag.length === 0) {
+//         messageDiv.innerHTML = '해당되는 장소가 없습니다.';
+//     } else {
+//         messageDiv.innerHTML = '';
+//         if (innerWidth <= '567') {
+//             //567이하일때 이벤트
+//             modalSelect(clickedHashtag);
+//         } else {
+//             //567초과일때 이벤트
+//             directSelect(clickedHashtag);
+//         }
+//     }
+// });

@@ -2,9 +2,7 @@ import { places } from './content_object.js';
 
 $('.click').click(function () {
     if ($(this).text() === '랜덤추천') {
-        console.log('randomRecommand');
         const rand = Math.floor(Math.random() * 52);
-        console.log(rand);
         const contentName = places[Object.keys(places)[rand]].name;
         localStorage.setItem('name', contentName);
         localStorage.setItem('page', 'random_recommand');

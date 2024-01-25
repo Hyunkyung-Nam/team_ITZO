@@ -4,18 +4,24 @@ import { drawMap } from './draw_map.js';
 let part = 0;
 let keyword = '';
 let map;
+let selectedPolygon;
 
-$(document).ready(function () {
+window.onpageshow = function (event) {
+    $('#spinner').addClass('hidden');
     let random = localStorage.getItem('random');
     if (random === '지역별 추천') {
         $('.content_top').text(random);
         $('.keyword-wrap').addClass('hidden');
+        $('.map-wrap').removeClass('hidden');
         showMap();
     } else if (random === '키워드별 추천') {
         $('.content_top').text(random);
         $('.map-wrap').addClass('hidden');
+        $('.keyword-wrap').removeClass('hidden');
     }
     secondButtonSetting();
+};
+window.addEventListener('pagehide', (event) => {
     $('#spinner').addClass('hidden');
 });
 
@@ -40,6 +46,7 @@ $('button').click(function () {
     keyword = $(this).text().replaceAll('\n', '/');
     $('#spinner').removeClass('hidden');
     setTimeout(() => {
+        $('#spinner').addClass('hidden');
         showKeywords();
     }, 1500);
 });
@@ -47,34 +54,47 @@ $('button').click(function () {
 function showMap() {
     map = drawMap();
 }
-export function settingEvent(area, map, polygon, customOverlay) {
+export function settingEvent(area, map, polygon, customOverlay, polygons) {
     kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
+        if (selectedPolygon !== polygon) {
+            polygon.setOptions({ fillColor: '#005666' });
+        }
+    });
+
+    kakao.maps.event.addListener(polygon, 'mouseout', function (mouseEvent) {
+        if (selectedPolygon !== polygon) {
+            polygon.setOptions({ fillColor: '#fff' });
+        }
+    });
+
+    kakao.maps.event.addListener(polygon, 'mousedown', function (mouseEvent) {
+        for (let i = 0; i < polygons.length; i++) {
+            polygons[i].setOptions({ fillColor: '#fff' });
+        }
+    });
+    kakao.maps.event.addListener(polygon, 'mouseup', function (mouseEvent) {
         polygon.setOptions({ fillColor: '#09f' });
-        customOverlay.setPosition(mouseEvent.latLng);
-        customOverlay.setMap(map);
+        selectedPolygon = polygon;
+        $('#spinner').removeClass('hidden');
+        setTimeout(() => {
+            clickEvent(area);
+            // $('#spinner').addClass('hidden');
+        }, 1500);
     });
-
-    // 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다
-    kakao.maps.event.addListener(polygon, 'mousemove', function (mouseEvent) {
-        customOverlay.setPosition(mouseEvent.latLng);
-    });
-
-    // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
-    // 커스텀 오버레이를 지도에서 제거합니다
-    kakao.maps.event.addListener(polygon, 'mouseout', function () {
-        polygon.setOptions({ fillColor: '#fff' });
-        customOverlay.setMap(null);
-    });
-
-    // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다
-    kakao.maps.event.addListener(polygon, 'click', function (mouseEvent) {
+    kakao.maps.event.addListener(polygon, 'touchend', function (mouseEvent) {
         polygon.setOptions({ fillColor: '#09f' });
-        customOverlay.setPosition(mouseEvent.latLng);
-        customOverlay.setMap(map);
+        polygon.setMap(map);
+
         $('#spinner').removeClass('hidden');
         setTimeout(() => {
             clickEvent(area);
         }, 1500);
+    });
+
+    kakao.maps.event.addListener(polygon, 'touchstart', function (mouseEvent) {
+        for (let i = 0; i < polygons.length; i++) {
+            polygons[i].setOptions({ fillColor: '#fff' });
+        }
     });
 }
 function clickEvent(area) {
