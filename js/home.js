@@ -1,5 +1,5 @@
 // 상세정보 페이지
-// import { places } from './content_object.js';
+import { places } from './content_object.js';
 
 // 메인슬라이드
 $(document).ready(function () {
@@ -18,37 +18,63 @@ $(document).ready(function () {
         imageSlides.eq(currentIndex).addClass('active');
         textSlides.eq(currentIndex).addClass('active'); // 다음 이미지와 텍스트 슬라이드 활성화
     }
-    setInterval(slideShow, 3000); // 3000 = 3초마다 슬라이드가 변경
+    setInterval(slideShow, 1000); // 3000 = 3초마다 슬라이드가 변경
 });
 
 // 함께 떠나는 힐링 테마여행 버튼
-let groupIndex = 0;
-let groups = document.getElementsByClassName('theme-slide-group');
+document.addEventListener('DOMContentLoaded', (event) => {
+    let currentSlideGroup = 0;
+    let slideGroups = document.getElementsByClassName('theme-slide-group');
 
-// 슬라이드 그룹 초기화
-for (let i = 0; i < groups.length; i++) {
-    groups[i].style.display = 'none'; // 모든 그룹을 보이지 않게 설정
-}
-groups[groupIndex].style.display = 'flex'; // 첫 그룹만 보이게 설정
-
-// 다음 버튼 클릭 이벤트
-document.getElementById('next').addEventListener('click', function () {
-    groups[groupIndex].style.display = 'none'; // 현재 그룹을 보이지 않게 설정
-    groupIndex++;
-    if (groupIndex >= groups.length) {
-        groupIndex = 0;
+    // 모든 그룹을 보이지 않게 설정
+    for (let i = 0; i < slideGroups.length; i++) {
+        slideGroups[i].style.display = 'none';
     }
-    groups[groupIndex].style.display = 'flex'; // 다음 그룹을 보이게 설정
+
+    // 첫 번째 그룹만 보이게 설정
+    slideGroups[currentSlideGroup].style.display = 'flex';
+
+    window.changeSlide = function (direction) {
+        // 현재 그룹을 보이지 않게 설정
+        slideGroups[currentSlideGroup].style.display = 'none';
+
+        if (direction === 'next') {
+            currentSlideGroup++;
+            if (currentSlideGroup >= slideGroups.length) {
+                currentSlideGroup = 0;
+            }
+        } else if (direction === 'prev') {
+            currentSlideGroup--;
+            if (currentSlideGroup < 0) {
+                currentSlideGroup = slideGroups.length - 1;
+            }
+        }
+
+        // 다음 그룹을 보이게 설정
+        slideGroups[currentSlideGroup].style.display = 'flex';
+    };
+});
+let startX; // 터치가 시작된 x좌표
+let endX; // 터치가 끝난 x좌표
+let slideWrapper = document.querySelector('.theme-wrap'); // 슬라이드가 담긴 wrapper 선택
+
+slideWrapper.addEventListener('touchstart', function (e) {
+    startX = e.touches[0].clientX; // 터치가 시작된 x좌표 저장
 });
 
-// 이전 버튼 클릭 이벤트
-document.getElementById('prev').addEventListener('click', function () {
-    groups[groupIndex].style.display = 'none'; // 현재 그룹을 보이지 않게 설정
-    groupIndex--;
-    if (groupIndex < 0) {
-        groupIndex = groups.length - 1;
+slideWrapper.addEventListener('touchmove', function (e) {
+    endX = e.changedTouches[0].clientX; // 터치가 이동한 x좌표 저장
+});
+
+slideWrapper.addEventListener('touchend', function () {
+    // 터치의 방향에 따라 이전 슬라이드 또는 다음 슬라이드 보여주기
+    if (startX - endX > 30) {
+        // 오른쪽으로 드래그 한 경우
+        showNextSlideGroup();
+    } else if (startX - endX < -30) {
+        // 왼쪽으로 드래그 한 경우
+        showPrevSlideGroup();
     }
-    groups[groupIndex].style.display = 'flex'; // 이전 그룹을 보이게 설정
 });
 
 $('.page-move').click(function () {
