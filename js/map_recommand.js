@@ -3,7 +3,10 @@ import { drawMap, initSetting, resetContainer, part } from './draw_map_recommand
 let map;
 
 window.onpageshow = function (event) {
-    if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+    if (event.persisted) {
+        //사파이에서 뒤돌아갔을 떄
+    } else if (window.performance && window.performance.navigation.type == 2) {
+        // 크롬에서 뒤돌아갔을 때
         map = drawMap(true);
     } else {
         map = drawMap(false);
