@@ -186,7 +186,7 @@ export function initSetting() {
     const pageNumber = Math.ceil(contentCount / 6);
     for (let i = 1; i <= pageNumber; i++) {
         $('.page-numbering').append(
-            `<button type='button' class = 'page-numbering-btn' onclick='location.href='#'>[${i}]  </button>`
+            `<button type='button' class = 'page-numbering-btn' onclick="location.href='#'">[${i}]  </button>`
         );
         $('.page-numbering')
             .children()
@@ -275,6 +275,7 @@ function setTag(tags) {
 function createButtonEvent() {
     pageNumberingButtonInit();
     $('.page-numbering-btn').on('click', function () {
+        // window.scrollTo({ top: 0, behavior: 'smooth' });
         $('.content-container').addClass('hide');
         $('.page-numbering').addClass('hide');
         resetContainer();
