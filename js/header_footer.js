@@ -32,7 +32,9 @@ $('.nav')
             localStorage.setItem('page', 'random_recommand');
         }
     });
-
+$('.logo').click(function () {
+    localStorage.setItem('page', 'home_recommand');
+});
 $(document).ready(function () {
     $('.nav').children().removeClass('seledted');
     if (localStorage.getItem('page') === 'map_recommand') {
