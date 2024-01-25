@@ -2,10 +2,10 @@ import { places } from './content_object.js';
 import { latLngs } from './latlng.js';
 
 export let part = 0;
-let polygons = [];
-let selectedPolygon;
+export let polygons = [];
+export let selectedPolygon;
 
-export function drawMap() {
+export function drawMap(reload) {
     // 지도에 폴리곤으로 표시할 영역데이터 배열입니다
     let areas = [];
 
@@ -63,14 +63,27 @@ export function drawMap() {
 
     // 지도에 영역데이터를 폴리곤으로 표시합니다
     for (let i = 0, len = areas.length; i < len; i++) {
-        displayArea(areas[i], map, customOverlay);
-    }
+        displayArea(areas[i], map, customOverlay, reload);
+        if (reload && localStorage.getItem('part') == i + 1) {
+            part = Number(localStorage.getItem('part'));
+            polygons[i].setOptions({ fillColor: '#09f' });
+            selectedPolygon = polygons[i];
 
+            const contentCotainer = $('.content-container');
+            $('.page-numbering').addClass('hide');
+            $('.content-container').addClass('hide');
+            resetContainer();
+            $('.content-container').removeClass('hide');
+            $('.page-numbering').empty();
+            $('.page-numbering').removeClass('hide');
+            setContentContainer();
+        }
+    }
     drawMarker(map);
     return map;
 }
 // 다각형을 생상하고 이벤트를 등록하는 함수입니다
-function displayArea(area, map, customOverlay) {
+function displayArea(area, map, customOverlay, reload) {
     // 다각형을 생성합니다
     let isClicked = false;
     let polygon = new kakao.maps.Polygon({
@@ -86,7 +99,9 @@ function displayArea(area, map, customOverlay) {
     const contentCotainer = $('.content-container');
     contentCotainer.removeClass('hide');
     $('.page-numbering').empty();
-    initSetting();
+    if (!reload) {
+        initSetting();
+    }
 
     // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다
     // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
@@ -157,7 +172,7 @@ function clickEvent(area) {
         part = 4;
     }
 
-    setContentContainer(area);
+    setContentContainer();
 }
 export function initSetting() {
     let contentCount = 0;
@@ -170,18 +185,22 @@ export function initSetting() {
     }
     const pageNumber = Math.ceil(contentCount / 6);
     for (let i = 1; i <= pageNumber; i++) {
-        $('.page-numbering').append(`<button type='button' class = 'page-numbering-btn'>[${i}]  </button>`);
+        $('.page-numbering').append(
+            `<button type='button' class = 'page-numbering-btn' onclick="location.href='#'">[${i}]  </button>`
+        );
         $('.page-numbering')
             .children()
             .css({ color: 'white', 'background-color': 'unset', border: '0', cursor: 'pointer' });
+    }
+    for (let i = 0; i < polygons.length; i++) {
+        polygons[i].setOptions({ fillColor: '#fff' });
     }
 
     createButtonEvent();
 }
 
-function setContentContainer(area) {
+function setContentContainer() {
     let contentCount = 0;
-
     for (let key in places) {
         if (places[key].part === part) {
             if (contentCount < 6) {
@@ -256,7 +275,7 @@ function setTag(tags) {
 function createButtonEvent() {
     pageNumberingButtonInit();
     $('.page-numbering-btn').on('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' }); //최상단으로 스크롤 옮기기
+        // window.scrollTo({ top: 0, behavior: 'smooth' });
         $('.content-container').addClass('hide');
         $('.page-numbering').addClass('hide');
         resetContainer();
