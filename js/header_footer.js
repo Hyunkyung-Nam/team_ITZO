@@ -36,6 +36,8 @@ $('.logo').click(function () {
     localStorage.setItem('page', 'home_recommand');
 });
 $(document).ready(function () {
+    console.log('hello');
+    console.log(localStorage.getItem('page'));
     $('.nav').children().removeClass('seledted');
     if (localStorage.getItem('page') === 'map_recommand') {
         $('.nav').children('div:eq(2)').children().addClass('seledted');

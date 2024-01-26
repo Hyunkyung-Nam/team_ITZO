@@ -7,7 +7,6 @@ let map;
 let selectedPolygon;
 
 window.onpageshow = function (event) {
-    console.log('hi');
     $('#spinner').addClass('hidden');
     let random = localStorage.getItem('random');
     if (random === '지역별 추천') {
