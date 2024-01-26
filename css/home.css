@@ -211,11 +211,13 @@ main {
     display: flex;
     margin-top: 50px;
     justify-content: space-evenly;
+    overflow-y: hidden;
 }
 .theme-slide-group {
     display: flex;
     width: 100%;
     overflow-x: hidden;
+    /* overflow-y: hidden; */
 }
 
 .theme-slide {
@@ -454,7 +456,7 @@ main {
     }
     .theme-wrap {
         width: 100%;
-        justify-content: left;
+        justify-content: space-evenly;
     }
     .theme-slide-group {
         position: relative;
@@ -465,8 +467,6 @@ main {
         width: 200px;
         height: 200px;
         position: relative;
-    }
-    .card-text {
     }
     .desktop-text {
         display: none;
@@ -502,13 +502,10 @@ main {
         cursor: pointer;
     }
     .theme-wrap {
-        display: flex;
         width: 100%;
-        /* display: inline-block; */
         height: 100%;
-        width: 100%;
+        justify-content: left;
         transition: transform 0.5s;
-        overflow-x: scroll;
     }
     .theme-slide {
         display: inline-block;
@@ -540,6 +537,9 @@ main {
     }
     .button-box {
         display: none;
+    }
+    .theme-slide-group {
+        width: fit-content;
     }
 }
 @media (max-width: 500px) {
