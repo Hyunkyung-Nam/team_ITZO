@@ -6,7 +6,12 @@ $(document).ready(function () {
     $('#direct_historical_landmark').addClass('active');
     $('#modal_historical_landmark').addClass('active');
     setContentContainer(['역사적명소']);
-    selectedHashtag = ['역사적명소'];
+
+    if (window.innerWidth > 576) {
+        hashtags = ['역사적명소'];
+    } else {
+        selectedHashtag = ['역사적명소'];
+    }
 });
 $(window).bind('pageshow', function () {
     localStorage.setItem('page', 'theme_recommand');
@@ -50,6 +55,8 @@ $('.hashtag').click(function () {
 function directSelect(clickedHashtag) {
     if (clickedHashtag === '전체') {
         hashtags = ['전체'];
+        $('.hashtag.active').removeClass('active');
+        $('#direct_All').addClass('active');
     } else {
         if (hashtags.includes('전체')) {
             const index = hashtags.indexOf('전체');
@@ -98,24 +105,25 @@ $('.confirm')
 
         if (tempHashtags.length === 0) {
             selectedHashtag = ['전체'];
-        }
-
-        for (let tag of tempHashtags) {
-            selectedHashtag.push(tag);
-        }
-
-        // '전체' 해시태그가 선택되지 않았을 때 다른 해시태그들을 hashtags 배열에 추가
-        if (tempHashtags.includes('전체')) {
             hashtags = ['전체'];
+            $('#modal_All').addClass('active');
         } else {
-            hashtags = [...tempHashtags];
+            for (let tag of tempHashtags) {
+                selectedHashtag.push(tag);
+            }
+
+            // '전체' 해시태그가 선택되지 않았을 때 다른 해시태그들을 hashtags 배열에 추가
+            if (tempHashtags.includes('전체')) {
+                hashtags = ['전체'];
+            } else {
+                hashtags = [...tempHashtags];
+            }
+
+            $('.content-container').removeClass('hide');
+
+            // console.log('Hashtags: ', hashtags);
         }
-
-        $('.content-container').removeClass('hide');
         setContentContainer(hashtags);
-
-        // console.log('Hashtags: ', hashtags);
-
         document.querySelector('.modal').style.display = 'none'; // 모달 닫기
         let text = '';
 

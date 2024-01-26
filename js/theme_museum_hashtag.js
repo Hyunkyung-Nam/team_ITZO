@@ -6,7 +6,12 @@ $(document).ready(function () {
     $('#direct_museum_place').addClass('active');
     $('#modal_museum_place').addClass('active');
     setContentContainer(['박물관/미술관/기념관']);
-    selectedHashtag = ['박물관/미술관/기념관'];
+
+    if (window.innerWidth > 576) {
+        hashtags = ['박물관/미술관/기념관'];
+    } else {
+        selectedHashtag = ['박물관/미술관/기념관'];
+    }
 });
 
 $(window).bind('pageshow', function () {
@@ -51,6 +56,8 @@ $('.hashtag').click(function () {
 function directSelect(clickedHashtag) {
     if (clickedHashtag === '전체') {
         hashtags = ['전체'];
+        $('.hashtag.active').removeClass('active');
+        $('#direct_All').addClass('active');
     } else {
         if (hashtags.includes('전체')) {
             const index = hashtags.indexOf('전체');
@@ -99,24 +106,25 @@ $('.confirm')
 
         if (tempHashtags.length === 0) {
             selectedHashtag = ['전체'];
-        }
-
-        for (let tag of tempHashtags) {
-            selectedHashtag.push(tag);
-        }
-
-        // '전체' 해시태그가 선택되지 않았을 때 다른 해시태그들을 hashtags 배열에 추가
-        if (tempHashtags.includes('전체')) {
             hashtags = ['전체'];
+            $('#modal_All').addClass('active');
         } else {
-            hashtags = [...tempHashtags];
+            for (let tag of tempHashtags) {
+                selectedHashtag.push(tag);
+            }
+
+            // '전체' 해시태그가 선택되지 않았을 때 다른 해시태그들을 hashtags 배열에 추가
+            if (tempHashtags.includes('전체')) {
+                hashtags = ['전체'];
+            } else {
+                hashtags = [...tempHashtags];
+            }
+
+            $('.content-container').removeClass('hide');
+
+            // console.log('Hashtags: ', hashtags);
         }
-
-        $('.content-container').removeClass('hide');
         setContentContainer(hashtags);
-
-        // console.log('Hashtags: ', hashtags);
-
         document.querySelector('.modal').style.display = 'none'; // 모달 닫기
         let text = '';
 
