@@ -36,17 +36,30 @@ window.onresize = function (event) {
 function secondButtonSetting() {
     var innerWidth = window.innerWidth;
     if (innerWidth <= '768' && $('.content_top').text() === '키워드별 랜덤추천') {
-        $('.keyword-wrap').children('button:eq(1)').text(`박물관/미술관/기념관`);
+        setImgHorizon();
     } else if (innerWidth <= '768' && $('.content_top').text() === '지역별 랜덤추천') {
         mapSizeSmall();
     } else if (innerWidth > '768' && $('.content_top').text() === '키워드별 랜덤추천') {
-        $('.keyword-wrap').children('button:eq(1)').text('박물관\n미술관\n기념관');
+        setImgVertical();
     } else if (innerWidth > '768' && $('.content_top').text() === '지역별 랜덤추천') {
         mapSizeBig();
     }
 }
-
-$('button').click(function () {
+function setImgVertical() {
+    $('.click:eq(1)').text('박물관\n미술관\n기념관');
+    $('.random-palace-img').attr('src', '../img/random/palace:temple-vertical.jpg');
+    $('.random-museum-img').attr('src', '../img/random/museum-vertical.jpg');
+    $('.random-historical-img').attr('src', '../img/random/historical_landmark-vertical.jpg');
+    $('.random-park-img').attr('src', '../img/random/park-vertical.jpg');
+}
+function setImgHorizon() {
+    $('.click:eq(1)').text(`박물관/미술관/기념관`);
+    $('.random-palace-img').attr('src', '../img/random/palace:temple-horizontal.jpg');
+    $('.random-museum-img').attr('src', '../img/random/museum-horizontal.jpg');
+    $('.random-historical-img').attr('src', '../img/random/historical_landmark-horizontal.jpg');
+    $('.random-park-img').attr('src', '../img/random/park-horizontal.jpg');
+}
+$('.click').click(function () {
     keyword = $(this).text().replaceAll('\n', '/');
     $('#spinner').removeClass('hidden');
     setTimeout(() => {

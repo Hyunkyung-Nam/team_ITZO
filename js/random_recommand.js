@@ -1,5 +1,31 @@
 import { places } from './content_object.js';
 
+let innerWidth = window.innerWidth;
+if (innerWidth <= '768') {
+    setImgHorizon();
+} else {
+    setImgVertical();
+}
+window.onresize = function (event) {
+    let innerWidth = window.innerWidth;
+    if (innerWidth <= '768') {
+        setImgHorizon();
+    } else {
+        setImgVertical();
+    }
+};
+
+function setImgVertical() {
+    $('.random-img').attr('src', '../img/random/random-vertical.jpg');
+    $('.random-map-img').attr('src', '../img/random/map-vertical.jpg');
+    $('.random-keyword-img').attr('src', '../img/random/keyword-vertical.jpg');
+}
+function setImgHorizon() {
+    $('.random-img').attr('src', '../img/random/random-horizontal.jpg');
+    $('.random-map-img').attr('src', '../img/random/map-horizontal.jpg');
+    $('.random-keyword-img').attr('src', '../img/random/keyword-horizontal.jpg');
+}
+
 $('.click').click(function () {
     if ($(this).text() === '랜덤추천') {
         const rand = Math.floor(Math.random() * 52);
