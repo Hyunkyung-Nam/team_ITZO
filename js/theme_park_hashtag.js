@@ -7,7 +7,12 @@ $(document).ready(function () {
     $('#direct_park').addClass('active');
     $('#modal_park').addClass('active');
     setContentContainer(['공원']);
-    selectedHashtag = ['공원'];
+
+    if (window.innerWidth > 576) {
+        hashtags = ['공원'];
+    } else {
+        selectedHashtag = ['공원'];
+    }
 });
 $(window).bind('pageshow', function () {
     localStorage.setItem('page', 'theme_recommand');
@@ -39,7 +44,6 @@ $('.hashtag').click(function () {
 $('.hashtag').click(function () {
     let innerWidth = window.innerWidth;
     let clickedHashtag = this.dataset.hashtag;
-    console.log(innerWidth);
     if (innerWidth <= '576') {
         //576이하일때 이벤트
         modalSelect(clickedHashtag);
@@ -51,6 +55,8 @@ $('.hashtag').click(function () {
 function directSelect(clickedHashtag) {
     if (clickedHashtag === '전체') {
         hashtags = ['전체'];
+        $('.hashtag.active').removeClass('active');
+        $('#direct_All').addClass('active');
     } else {
         if (hashtags.includes('전체')) {
             const index = hashtags.indexOf('전체');
@@ -65,8 +71,7 @@ function directSelect(clickedHashtag) {
         }
     }
     $('.content-container').removeClass('hide'); //업데이트 다 된후, 해당 클래스에 hide들을 제거해서 모든 컨텐츠가 보이게끔
-    setContentContainer(hashtags);
-    console.log(hashtags); //배열안에 들어가서 중복되는거 나오게끔 만들어짐.
+    setContentContainer(hashtags); //배열안에 들어가서 중복되는거 나오게끔 만들어짐.
 }
 
 let tempHashtags = []; // 임시 해시태그 배열
@@ -108,24 +113,25 @@ $('.confirm')
 
         if (tempHashtags.length === 0) {
             selectedHashtag = ['전체'];
-        }
-
-        for (let tag of tempHashtags) {
-            selectedHashtag.push(tag);
-        }
-
-        // '전체' 해시태그가 선택되지 않았을 때 다른 해시태그들을 hashtags 배열에 추가
-        if (tempHashtags.includes('전체')) {
             hashtags = ['전체'];
+            $('#modal_All').addClass('active');
         } else {
-            hashtags = [...tempHashtags];
+            for (let tag of tempHashtags) {
+                selectedHashtag.push(tag);
+            }
+
+            // '전체' 해시태그가 선택되지 않았을 때 다른 해시태그들을 hashtags 배열에 추가
+            if (tempHashtags.includes('전체')) {
+                hashtags = ['전체'];
+            } else {
+                hashtags = [...tempHashtags];
+            }
+
+            $('.content-container').removeClass('hide');
+
+            // console.log('Hashtags: ', hashtags);
         }
-
-        $('.content-container').removeClass('hide');
         setContentContainer(hashtags);
-
-        // console.log('Hashtags: ', hashtags);
-
         document.querySelector('.modal').style.display = 'none'; // 모달 닫기
         let text = '';
 
