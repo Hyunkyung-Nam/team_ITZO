@@ -23,7 +23,6 @@ $(document).ready(function () {
 
 $(window).bind('pageshow', function () {
     localStorage.setItem('page', 'home_recommand');
-    console.log('home', localStorage.getItem('page'));
 });
 // 함께 떠나는 힐링 테마여행 버튼
 //document.addEventListener('DOMContentLoaded', (event) => {
