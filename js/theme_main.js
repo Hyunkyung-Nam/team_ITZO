@@ -4,6 +4,7 @@ function goRelation2() {
 
     if (selectedOption) {
         window.open(selectedOption, '_blank');
+        console.log(selectedOption);
     }
 }
 function goRelation() {
@@ -22,9 +23,9 @@ $(window).bind('pageshow', function () {
 $('img').hover(function () {
     $(this).toggleClass('zoom_img');
 });
-$('.text').hover(function () {
-    $(this).toggleClass('zoom_text');
-});
-$('.text_list').hover(function () {
-    $(this).toggleClass('zoom_text');
-});
+// $('.text').hover(function () {
+//     $(this).toggleClass('zoom_text');
+// });
+// $('.text_list').hover(function () {
+//     $(this).toggleClass('zoom_text');
+// });
