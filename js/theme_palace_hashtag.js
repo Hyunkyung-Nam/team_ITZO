@@ -8,6 +8,10 @@ $(document).ready(function () {
     setContentContainer(['고궁/절']);
 });
 
+$(window).bind('pageshow', function () {
+    localStorage.setItem('page', 'theme_recommand');
+});
+
 //함수를 전역객체에 직접 할당
 window.goRelation2 = function () {
     let selectElement = document.getElementById('relation2');

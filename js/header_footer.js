@@ -32,10 +32,20 @@ $('.nav')
             localStorage.setItem('page', 'random_recommand');
         }
     });
-$('.logo').click(function () {
+$('.logo-click').click(function () {
     localStorage.setItem('page', 'home_recommand');
+    console.log('logoclicked');
+});
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 200) {
+        $('.btn_top_move').fadeIn();
+    } else {
+        $('.btn_top_move').fadeOut();
+    }
 });
 $(document).ready(function () {
+    console.log('header_ready');
+    console.log(localStorage.getItem('page'));
     $('.nav').children().removeClass('seledted');
     if (localStorage.getItem('page') === 'map_recommand') {
         $('.nav').children('div:eq(2)').children().addClass('seledted');

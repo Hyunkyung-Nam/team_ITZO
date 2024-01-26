@@ -3,6 +3,8 @@ import { drawMap, initSetting, resetContainer, part } from './draw_map_recommand
 let map;
 
 window.onpageshow = function (event) {
+    localStorage.setItem('page', 'map_recommand');
+    console.log(localStorage.getItem('page'));
     if (event.persisted) {
         //사파이에서 뒤돌아갔을 떄
         console.log('first');
@@ -20,14 +22,6 @@ window.onpageshow = function (event) {
         map.setLevel(9);
     }
 };
-
-$(window).scroll(function () {
-    if ($(this).scrollTop() > 200) {
-        $('.btn_top_move').fadeIn();
-    } else {
-        $('.btn_top_move').fadeOut();
-    }
-});
 
 window.onresize = function (event) {
     var innerWidth = window.innerWidth;

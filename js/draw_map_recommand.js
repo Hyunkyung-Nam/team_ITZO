@@ -77,6 +77,8 @@ export function drawMap(reload) {
             $('.page-numbering').empty();
             $('.page-numbering').removeClass('hide');
             setContentContainer();
+        } else if (reload && localStorage.getItem('part') == 0) {
+            initSetting();
         }
     }
     drawMarker(map);

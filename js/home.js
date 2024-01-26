@@ -21,6 +21,10 @@ $(document).ready(function () {
     setInterval(slideShow, 3000); // 3000 = 3초마다 슬라이드가 변경
 });
 
+$(window).bind('pageshow', function () {
+    localStorage.setItem('page', 'home_recommand');
+    console.log('home', localStorage.getItem('page'));
+});
 // 함께 떠나는 힐링 테마여행 버튼
 //document.addEventListener('DOMContentLoaded', (event) => {
 let currentSlideGroup = 0;
@@ -31,15 +35,14 @@ if (window.matchMedia('(max-width: 600px)').matches) {
     pcVer();
 }
 
-window.onresize = function (event) {
+$(window).resize(function () {
     var innerWidth = window.innerWidth;
     if (innerWidth <= '600') {
         mobileVer();
-        console.log(innerWidth);
     } else {
         pcVer();
     }
-};
+});
 function mobileVer() {
     $('#prev').addClass('hidden');
     $('#next').addClass('hidden');
@@ -149,4 +152,8 @@ $('.main-slide').click(function () {
     console.log(contentName);
     localStorage.setItem('name', contentName);
     window.location.href = '../html/show_content.html';
+});
+$('.map-cover').click(function () {
+    localStorage.setItem('page', 'map_recommand');
+    window.location.href = '../html/map_recommand.html';
 });
