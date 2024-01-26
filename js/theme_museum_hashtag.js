@@ -8,6 +8,9 @@ $(document).ready(function () {
     setContentContainer(['박물관/미술관/기념관']);
 });
 
+$(window).bind('pageshow', function () {
+    localStorage.setItem('page', 'theme_recommand');
+});
 //함수를 전역객체에 직접 할당
 window.goRelation2 = function () {
     let selectElement = document.getElementById('relation2');

@@ -20,9 +20,10 @@ $(document).ready(function () {
     }
     setInterval(slideShow, 3000); // 3000 = 3초마다 슬라이드가 변경
 });
-//사파리에서 뒤돌아왔을 때
+
 $(window).bind('pageshow', function () {
     localStorage.setItem('page', 'home_recommand');
+    console.log('home', localStorage.getItem('page'));
 });
 // 함께 떠나는 힐링 테마여행 버튼
 //document.addEventListener('DOMContentLoaded', (event) => {

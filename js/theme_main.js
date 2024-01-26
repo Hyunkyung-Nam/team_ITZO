@@ -14,6 +14,10 @@ function goRelation() {
         window.open(selectedOption, '_blank');
     }
 }
+$(window).bind('pageshow', function () {
+    localStorage.setItem('page', 'theme_recommand');
+    console.log(localStorage.getItem('page'));
+});
 
 $('img').hover(function () {
     $(this).toggleClass('zoom_img');

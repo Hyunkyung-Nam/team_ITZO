@@ -15,3 +15,7 @@ $('.click').click(function () {
         window.location.href = '../html/pop_up.html';
     }
 });
+$(window).bind('pageshow', function () {
+    localStorage.setItem('page', 'random_recommand');
+    console.log(localStorage.getItem('page'));
+});
