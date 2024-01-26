@@ -12,31 +12,6 @@ $(window).bind('pageshow', function () {
     localStorage.setItem('page', 'theme_recommand');
 });
 
-//함수를 전역객체에 직접 할당
-window.goRelation2 = function () {
-    let selectElement = document.getElementById('relation2');
-    let selectedOption = selectElement.value;
-
-    if (selectedOption) {
-        window.open(selectedOption, '_blank');
-    }
-    console.log(selectedOption);
-};
-window.goRelation = function () {
-    let selectElement = document.getElementById('relation');
-    let selectedOption = selectElement.value;
-
-    if (selectedOption) {
-        window.open(selectedOption, '_blank');
-    }
-};
-
-// $('#All').click(function () {
-//     $(this).toggleClass('all_btn_active');
-//     $('.active').removeClass('active');
-//     console.log('allclick');
-// });
-
 window.refreshTag = function () {
     // 새로고침 누르면 #전체 로 set
 
