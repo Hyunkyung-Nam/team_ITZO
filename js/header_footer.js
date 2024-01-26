@@ -24,7 +24,7 @@ $('.nav')
     .click(function () {
         if ($(this).text() === '홈') {
             localStorage.setItem('page', 'home_recommand');
-        } else if ($(this).text() === '테마') {
+        } else if ($(this).text() === '테마별 추천') {
             localStorage.setItem('page', 'theme_recommand');
         } else if ($(this).text() === '지역별 추천') {
             localStorage.setItem('page', 'map_recommand');
@@ -34,7 +34,6 @@ $('.nav')
     });
 $('.logo-click').click(function () {
     localStorage.setItem('page', 'home_recommand');
-    console.log('logoclicked');
 });
 $(window).scroll(function () {
     if ($(this).scrollTop() > 200) {
@@ -44,8 +43,6 @@ $(window).scroll(function () {
     }
 });
 $(document).ready(function () {
-    console.log('header_ready');
-    console.log(localStorage.getItem('page'));
     $('.nav').children().removeClass('seledted');
     if (localStorage.getItem('page') === 'map_recommand') {
         $('.nav').children('div:eq(2)').children().addClass('seledted');

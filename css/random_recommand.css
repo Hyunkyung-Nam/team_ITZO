@@ -55,7 +55,7 @@ main {
     align-items: center;
     color: white;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 30px;
     height: 100%;
 }
 .container > *:hover > img {

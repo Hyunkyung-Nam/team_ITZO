@@ -9,12 +9,12 @@ let selectedPolygon;
 window.onpageshow = function (event) {
     $('#spinner').addClass('hidden');
     let random = localStorage.getItem('random');
-    if (random === '지역별 추천') {
+    if (random === '지역별 랜덤추천') {
         $('.content_top').text(random);
         $('.keyword-wrap').addClass('hidden');
         $('.map-wrap').removeClass('hidden');
         showMap();
-    } else if (random === '키워드별 추천') {
+    } else if (random === '키워드별 랜덤추천') {
         $('.content_top').text(random);
         $('.map-wrap').addClass('hidden');
         $('.keyword-wrap').removeClass('hidden');
@@ -35,13 +35,13 @@ window.onresize = function (event) {
 
 function secondButtonSetting() {
     var innerWidth = window.innerWidth;
-    if (innerWidth <= '768' && $('.content_top').text() === '키워드별 추천') {
+    if (innerWidth <= '768' && $('.content_top').text() === '키워드별 랜덤추천') {
         $('.keyword-wrap').children('button:eq(1)').text(`박물관/미술관/기념관`);
-    } else if (innerWidth <= '768' && $('.content_top').text() === '지역별 추천') {
+    } else if (innerWidth <= '768' && $('.content_top').text() === '지역별 랜덤추천') {
         mapSizeSmall();
-    } else if (innerWidth > '768' && $('.content_top').text() === '키워드별 추천') {
+    } else if (innerWidth > '768' && $('.content_top').text() === '키워드별 랜덤추천') {
         $('.keyword-wrap').children('button:eq(1)').text('박물관\n미술관\n기념관');
-    } else if (innerWidth > '768' && $('.content_top').text() === '지역별 추천') {
+    } else if (innerWidth > '768' && $('.content_top').text() === '지역별 랜덤추천') {
         mapSizeBig();
     }
 }
