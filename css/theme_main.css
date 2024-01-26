@@ -135,7 +135,9 @@ select option[value=''][disabled] {
 .text3 {
     top: 56%;
 }
-
+.text {
+    white-space: nowrap;
+}
 .photo img {
     width: calc(100vw / 4);
     height: 100%;
@@ -253,7 +255,7 @@ button {
 
         margin: 0;
         padding: 0;
-        opacity: 0.8;
+        /* opacity: 0.8; */
         min-width: 300px;
         position: relative;
     }
@@ -276,7 +278,7 @@ button {
         height: 100%;
         margin: 0;
         padding: 0;
-        opacity: 0.8;
+        /* opacity: 0.8; */
         min-width: 300px;
     }
     .text {
