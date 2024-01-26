@@ -1,7 +1,7 @@
 import { places } from './content_object.js';
 
 //아무것도 실행되지 않았을때 맨 처음 로드페이지 화면
-// 페이지가 로드되면 '#전체'에 해당하는 모든 장소를 표시(567px미만 일때)
+// 페이지가 로드되면 '#전체'에 해당하는 모든 장소를 표시(576px미만 일때)
 $(document).ready(function () {
     $('#direct_historical_landmark').addClass('active');
     $('#modal_historical_landmark').addClass('active');
@@ -39,11 +39,11 @@ $('.hashtag').click(function () {
     let innerWidth = window.innerWidth;
     let clickedHashtag = this.dataset.hashtag;
 
-    if (innerWidth <= '567') {
-        //567이하일때 이벤트
+    if (innerWidth <= '576') {
+        //576이하일때 이벤트
         modalSelect(clickedHashtag);
     } else {
-        //567초과일때 이벤트
+        //576초과일때 이벤트
         directSelect(clickedHashtag);
     }
 });
@@ -323,11 +323,11 @@ btnCloseModal.addEventListener('click', () => {
 //         messageDiv.innerHTML = '해당되는 장소가 없습니다.';
 //     } else {
 //         messageDiv.innerHTML = '';
-//         if (innerWidth <= '567') {
-//             //567이하일때 이벤트
+//         if (innerWidth <= '576') {
+//             //576이하일때 이벤트
 //             modalSelect(clickedHashtag);
 //         } else {
-//             //567초과일때 이벤트
+//             //576초과일때 이벤트
 //             directSelect(clickedHashtag);
 //         }
 //     }

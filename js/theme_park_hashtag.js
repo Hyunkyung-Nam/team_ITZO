@@ -1,12 +1,13 @@
 import { places } from './content_object.js';
 
 //아무것도 실행되지 않았을때 맨 처음 로드페이지 화면
-// 페이지가 로드되면 '#전체'에 해당하는 모든 장소를 표시(567px미만 일때)
+// 페이지가 로드되면 '#전체'에 해당하는 모든 장소를 표시(576px미만 일때)
 
 $(document).ready(function () {
     $('#direct_park').addClass('active');
     $('#modal_park').addClass('active');
     setContentContainer(['공원']);
+    selectedHashtag = ['공원'];
 });
 $(window).bind('pageshow', function () {
     localStorage.setItem('page', 'theme_recommand');
@@ -27,7 +28,7 @@ window.refreshTag = function () {
 };
 
 let hashtags = []; // 해시태그를 저장하는 배열
-let selectedHashtag = ['전체'];
+let selectedHashtag = ['공원'];
 
 //전체를 눌렀을때 다른 태그들의 색을 사라지게 하고, 또다시 개별 해시태그 누르면 전체해시태그 색이 사라지게끔
 $('.hashtag').click(function () {
@@ -38,12 +39,12 @@ $('.hashtag').click(function () {
 $('.hashtag').click(function () {
     let innerWidth = window.innerWidth;
     let clickedHashtag = this.dataset.hashtag;
-
-    if (innerWidth <= '567') {
-        //567이하일때 이벤트
+    console.log(innerWidth);
+    if (innerWidth <= '576') {
+        //576이하일때 이벤트
         modalSelect(clickedHashtag);
     } else {
-        //567초과일때 이벤트
+        //576초과일때 이벤트
         directSelect(clickedHashtag);
     }
 });
@@ -71,24 +72,33 @@ function directSelect(clickedHashtag) {
 let tempHashtags = []; // 임시 해시태그 배열
 
 function modalSelect(clickedHashtag) {
+    console.log('hi');
     if (clickedHashtag === '전체' && !tempHashtags.includes(clickedHashtag)) {
         $('.hashtag.active').removeClass('active');
         $('#modal_All').addClass('active');
         tempHashtags = ['전체'];
+        console.log('1');
     } else if (clickedHashtag === '전체' && tempHashtags.includes(clickedHashtag)) {
         $('#modal_All').removeClass('active');
         tempHashtags.splice(tempHashtags.indexOf(clickedHashtag), 1);
+        console.log('2');
     } else {
         if ($('#modal_All').hasClass('active')) {
             $('#modal_All').removeClass('active');
             tempHashtags.splice('전체', 1);
+            console.log('3');
         }
         if (tempHashtags.includes(clickedHashtag)) {
             tempHashtags.splice(tempHashtags.indexOf(clickedHashtag), 1);
+            console.log('4');
         } else {
+            console.log(tempHashtags);
             tempHashtags.push(clickedHashtag);
+            console.log(tempHashtags);
+            console.log('5');
         }
     }
+    console.log(6);
 }
 $('.confirm')
     .off('click')
@@ -307,6 +317,7 @@ btnOpenModal.addEventListener('click', () => {
     }
 
     console.log('modal open', selectedHashtag);
+    console.log('modal open', tempHashtags);
 });
 btnCloseModal.addEventListener('click', () => {
     modal.style.display = 'none';

@@ -1,11 +1,12 @@
 import { places } from './content_object.js';
 
 //아무것도 실행되지 않았을때 맨 처음 로드페이지 화면
-// 페이지가 로드되면 '#전체'에 해당하는 모든 장소를 표시(567px미만 일때)
+// 페이지가 로드되면 '#전체'에 해당하는 모든 장소를 표시(576px미만 일때)
 $(document).ready(function () {
     $('#direct_palace_temple').addClass('active');
     $('#modal_palace_temple').addClass('active');
     setContentContainer(['고궁/절']);
+    selectedHashtag = ['고궁/절'];
 });
 
 $(window).bind('pageshow', function () {
@@ -27,7 +28,7 @@ window.refreshTag = function () {
 };
 
 let hashtags = []; // 해시태그를 저장하는 배열
-let selectedHashtag = ['전체'];
+let selectedHashtag = ['고궁/절'];
 
 //전체를 눌렀을때 다른 태그들의 색을 사라지게 하고, 또다시 개별 해시태그 누르면 전체해시태그 색이 사라지게끔
 $('.hashtag').click(function () {
@@ -39,11 +40,11 @@ $('.hashtag').click(function () {
     let innerWidth = window.innerWidth;
     let clickedHashtag = this.dataset.hashtag;
 
-    if (innerWidth <= '567') {
-        //567이하일때 이벤트
+    if (innerWidth <= '576') {
+        //576이하일때 이벤트
         modalSelect(clickedHashtag);
     } else {
-        //567초과일때 이벤트
+        //576초과일때 이벤트
         directSelect(clickedHashtag);
     }
 });
@@ -323,11 +324,11 @@ btnCloseModal.addEventListener('click', () => {
 //         messageDiv.innerHTML = '해당되는 장소가 없습니다.';
 //     } else {
 //         messageDiv.innerHTML = '';
-//         if (innerWidth <= '567') {
-//             //567이하일때 이벤트
+//         if (innerWidth <= '576') {
+//             //576이하일때 이벤트
 //             modalSelect(clickedHashtag);
 //         } else {
-//             //567초과일때 이벤트
+//             //576초과일때 이벤트
 //             directSelect(clickedHashtag);
 //         }
 //     }
