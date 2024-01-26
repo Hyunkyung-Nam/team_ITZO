@@ -35,15 +35,14 @@ if (window.matchMedia('(max-width: 600px)').matches) {
     pcVer();
 }
 
-window.onresize = function (event) {
+$(window).resize(function () {
     var innerWidth = window.innerWidth;
     if (innerWidth <= '600') {
         mobileVer();
-        console.log(innerWidth);
     } else {
         pcVer();
     }
-};
+});
 function mobileVer() {
     $('#prev').addClass('hidden');
     $('#next').addClass('hidden');
