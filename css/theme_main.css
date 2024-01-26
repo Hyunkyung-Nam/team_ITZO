@@ -36,6 +36,9 @@ body {
     display: flex;
     flex-direction: column;
 }
+select option[value=''][disabled] {
+    display: none;
+}
 
 .themes_section .tit {
     width: 100%;
@@ -145,10 +148,10 @@ body {
     transform: scale(1.05);
     transition: transform 0.2s;
 }
-.zoom_text {
+/* .zoom_text {
     font-size: 28px;
     transition: all 0.2s;
-}
+} */
 
 button {
     border-radius: 10px;
