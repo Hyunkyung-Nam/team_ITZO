@@ -1,12 +1,18 @@
 import { places } from './content_object.js';
 
 //아무것도 실행되지 않았을때 맨 처음 로드페이지 화면
-// 페이지가 로드되면 '#전체'에 해당하는 모든 장소를 표시(567px미만 일때)
+// 페이지가 로드되면 '#전체'에 해당하는 모든 장소를 표시(576px미만 일때)
 
 $(document).ready(function () {
     $('#direct_park').addClass('active');
     $('#modal_park').addClass('active');
     setContentContainer(['공원']);
+
+    if (window.innerWidth > 576) {
+        hashtags = ['공원'];
+    } else {
+        selectedHashtag = ['공원'];
+    }
 });
 $(window).bind('pageshow', function () {
     localStorage.setItem('page', 'theme_recommand');
@@ -27,7 +33,7 @@ window.refreshTag = function () {
 };
 
 let hashtags = []; // 해시태그를 저장하는 배열
-let selectedHashtag = ['전체'];
+let selectedHashtag = ['공원'];
 
 //전체를 눌렀을때 다른 태그들의 색을 사라지게 하고, 또다시 개별 해시태그 누르면 전체해시태그 색이 사라지게끔
 $('.hashtag').click(function () {
@@ -38,18 +44,19 @@ $('.hashtag').click(function () {
 $('.hashtag').click(function () {
     let innerWidth = window.innerWidth;
     let clickedHashtag = this.dataset.hashtag;
-
-    if (innerWidth <= '567') {
-        //567이하일때 이벤트
+    if (innerWidth <= '576') {
+        //576이하일때 이벤트
         modalSelect(clickedHashtag);
     } else {
-        //567초과일때 이벤트
+        //576초과일때 이벤트
         directSelect(clickedHashtag);
     }
 });
 function directSelect(clickedHashtag) {
     if (clickedHashtag === '전체') {
         hashtags = ['전체'];
+        $('.hashtag.active').removeClass('active');
+        $('#direct_All').addClass('active');
     } else {
         if (hashtags.includes('전체')) {
             const index = hashtags.indexOf('전체');
@@ -64,31 +71,39 @@ function directSelect(clickedHashtag) {
         }
     }
     $('.content-container').removeClass('hide'); //업데이트 다 된후, 해당 클래스에 hide들을 제거해서 모든 컨텐츠가 보이게끔
-    setContentContainer(hashtags);
-    console.log(hashtags); //배열안에 들어가서 중복되는거 나오게끔 만들어짐.
+    setContentContainer(hashtags); //배열안에 들어가서 중복되는거 나오게끔 만들어짐.
 }
 
 let tempHashtags = []; // 임시 해시태그 배열
 
 function modalSelect(clickedHashtag) {
+    console.log('hi');
     if (clickedHashtag === '전체' && !tempHashtags.includes(clickedHashtag)) {
         $('.hashtag.active').removeClass('active');
         $('#modal_All').addClass('active');
         tempHashtags = ['전체'];
+        console.log('1');
     } else if (clickedHashtag === '전체' && tempHashtags.includes(clickedHashtag)) {
         $('#modal_All').removeClass('active');
         tempHashtags.splice(tempHashtags.indexOf(clickedHashtag), 1);
+        console.log('2');
     } else {
         if ($('#modal_All').hasClass('active')) {
             $('#modal_All').removeClass('active');
             tempHashtags.splice('전체', 1);
+            console.log('3');
         }
         if (tempHashtags.includes(clickedHashtag)) {
             tempHashtags.splice(tempHashtags.indexOf(clickedHashtag), 1);
+            console.log('4');
         } else {
+            console.log(tempHashtags);
             tempHashtags.push(clickedHashtag);
+            console.log(tempHashtags);
+            console.log('5');
         }
     }
+    console.log(6);
 }
 $('.confirm')
     .off('click')
@@ -98,24 +113,25 @@ $('.confirm')
 
         if (tempHashtags.length === 0) {
             selectedHashtag = ['전체'];
-        }
-
-        for (let tag of tempHashtags) {
-            selectedHashtag.push(tag);
-        }
-
-        // '전체' 해시태그가 선택되지 않았을 때 다른 해시태그들을 hashtags 배열에 추가
-        if (tempHashtags.includes('전체')) {
             hashtags = ['전체'];
+            $('#modal_All').addClass('active');
         } else {
-            hashtags = [...tempHashtags];
+            for (let tag of tempHashtags) {
+                selectedHashtag.push(tag);
+            }
+
+            // '전체' 해시태그가 선택되지 않았을 때 다른 해시태그들을 hashtags 배열에 추가
+            if (tempHashtags.includes('전체')) {
+                hashtags = ['전체'];
+            } else {
+                hashtags = [...tempHashtags];
+            }
+
+            $('.content-container').removeClass('hide');
+
+            // console.log('Hashtags: ', hashtags);
         }
-
-        $('.content-container').removeClass('hide');
         setContentContainer(hashtags);
-
-        // console.log('Hashtags: ', hashtags);
-
         document.querySelector('.modal').style.display = 'none'; // 모달 닫기
         let text = '';
 
@@ -307,6 +323,7 @@ btnOpenModal.addEventListener('click', () => {
     }
 
     console.log('modal open', selectedHashtag);
+    console.log('modal open', tempHashtags);
 });
 btnCloseModal.addEventListener('click', () => {
     modal.style.display = 'none';
