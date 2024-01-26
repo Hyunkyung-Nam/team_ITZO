@@ -122,6 +122,7 @@ select option[value=''][disabled] {
     color: whitesmoke;
     font-size: 24px;
     font-weight: bold;
+    white-space: nowrap;
 }
 .text1 {
     top: 44%;
@@ -253,7 +254,7 @@ button {
 
         margin: 0;
         padding: 0;
-        opacity: 0.8;
+        /* opacity: 0.8; */
         min-width: 300px;
         position: relative;
     }
@@ -276,7 +277,7 @@ button {
         height: 100%;
         margin: 0;
         padding: 0;
-        opacity: 0.8;
+        /* opacity: 0.8; */
         min-width: 300px;
     }
     .text {
