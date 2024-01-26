@@ -12,14 +12,6 @@ if (innerWidth <= '768') {
     $('#map').removeClass('hidden');
 }
 
-$(window).scroll(function () {
-    if ($(this).scrollTop() > 200) {
-        $('.btn_top_move').fadeIn();
-    } else {
-        $('.btn_top_move').fadeOut();
-    }
-});
-
 window.onresize = function (event) {
     let innerWidth = window.innerWidth;
     if (innerWidth <= '768') {

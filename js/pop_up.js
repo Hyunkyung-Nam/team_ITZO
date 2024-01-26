@@ -9,18 +9,22 @@ let selectedPolygon;
 window.onpageshow = function (event) {
     $('#spinner').addClass('hidden');
     let random = localStorage.getItem('random');
-    if (random === '지역별 추천') {
+    if (random === '지역별 랜덤추천') {
         $('.content_top').text(random);
         $('.keyword-wrap').addClass('hidden');
         $('.map-wrap').removeClass('hidden');
         showMap();
-    } else if (random === '키워드별 추천') {
+    } else if (random === '키워드별 랜덤추천') {
         $('.content_top').text(random);
         $('.map-wrap').addClass('hidden');
         $('.keyword-wrap').removeClass('hidden');
     }
     secondButtonSetting();
 };
+window.onbeforeunload = function () {
+    $('#spinner').addClass('hidden');
+};
+
 window.addEventListener('pagehide', (event) => {
     $('#spinner').addClass('hidden');
 });
@@ -31,18 +35,31 @@ window.onresize = function (event) {
 
 function secondButtonSetting() {
     var innerWidth = window.innerWidth;
-    if (innerWidth <= '768' && $('.content_top').text() === '키워드별 추천') {
-        $('.keyword-wrap').children('button:eq(1)').text(`박물관/미술관/기념관`);
-    } else if (innerWidth <= '768' && $('.content_top').text() === '지역별 추천') {
+    if (innerWidth <= '768' && $('.content_top').text() === '키워드별 랜덤추천') {
+        setImgHorizon();
+    } else if (innerWidth <= '768' && $('.content_top').text() === '지역별 랜덤추천') {
         mapSizeSmall();
-    } else if (innerWidth > '768' && $('.content_top').text() === '키워드별 추천') {
-        $('.keyword-wrap').children('button:eq(1)').text('박물관\n미술관\n기념관');
-    } else if (innerWidth > '768' && $('.content_top').text() === '지역별 추천') {
+    } else if (innerWidth > '768' && $('.content_top').text() === '키워드별 랜덤추천') {
+        setImgVertical();
+    } else if (innerWidth > '768' && $('.content_top').text() === '지역별 랜덤추천') {
         mapSizeBig();
     }
 }
-
-$('button').click(function () {
+function setImgVertical() {
+    $('.click:eq(1)').text('박물관\n미술관\n기념관');
+    $('.random-palace-img').attr('src', '../img/random/palace:temple-vertical.jpg');
+    $('.random-museum-img').attr('src', '../img/random/museum-vertical.jpg');
+    $('.random-historical-img').attr('src', '../img/random/historical_landmark-vertical.jpg');
+    $('.random-park-img').attr('src', '../img/random/park-vertical.jpg');
+}
+function setImgHorizon() {
+    $('.click:eq(1)').text(`박물관/미술관/기념관`);
+    $('.random-palace-img').attr('src', '../img/random/palace:temple-horizontal.jpg');
+    $('.random-museum-img').attr('src', '../img/random/museum-horizontal.jpg');
+    $('.random-historical-img').attr('src', '../img/random/historical_landmark-horizontal.jpg');
+    $('.random-park-img').attr('src', '../img/random/park-horizontal.jpg');
+}
+$('.click').click(function () {
     keyword = $(this).text().replaceAll('\n', '/');
     $('#spinner').removeClass('hidden');
     setTimeout(() => {
@@ -57,7 +74,7 @@ function showMap() {
 export function settingEvent(area, map, polygon, customOverlay, polygons) {
     kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
         if (selectedPolygon !== polygon) {
-            polygon.setOptions({ fillColor: '#005666' });
+            polygon.setOptions({ fillColor: '#09f' });
         }
     });
 
@@ -77,8 +94,8 @@ export function settingEvent(area, map, polygon, customOverlay, polygons) {
         selectedPolygon = polygon;
         $('#spinner').removeClass('hidden');
         setTimeout(() => {
+            $('#spinner').addClass('hidden');
             clickEvent(area);
-            // $('#spinner').addClass('hidden');
         }, 1500);
     });
     kakao.maps.event.addListener(polygon, 'touchend', function (mouseEvent) {

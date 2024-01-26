@@ -1,51 +1,44 @@
 import { places } from './content_object.js';
 
 //아무것도 실행되지 않았을때 맨 처음 로드페이지 화면
-
+// 페이지가 로드되면 '#전체'에 해당하는 모든 장소를 표시(567px미만 일때)
 $(document).ready(function () {
+    $('#direct_palace_temple').addClass('active');
+    $('#modal_palace_temple').addClass('active');
     setContentContainer(['고궁/절']);
 });
 
-//함수를 전역객체에 직접 할당
-window.goRelation2 = function () {
-    let selectElement = document.getElementById('relation2');
-    let selectedOption = selectElement.value;
-
-    if (selectedOption) {
-        window.open(selectedOption, '_blank');
-    }
-    console.log(selectedOption);
-};
-window.goRelation = function () {
-    let selectElement = document.getElementById('relation');
-    let selectedOption = selectElement.value;
-
-    if (selectedOption) {
-        window.open(selectedOption, '_blank');
-    }
-};
-//전체를 눌렀을때 다른 태그들의 색을 사라지게 하고, 또다시 개별 해시태그 누르면 전체해시태그 색이 사라지게끔
-$('.hashtag').click(function () {
-    $(this).toggleClass('active');
-    $('#All').removeClass('all_btn_active');
-});
-$('#All').click(function () {
-    $(this).toggleClass('all_btn_active');
-    $('.active').removeClass('active');
+$(window).bind('pageshow', function () {
+    localStorage.setItem('page', 'theme_recommand');
 });
 
 window.refreshTag = function () {
     // 새로고침 누르면 #전체 로 set
-    $('#All').addClass('all_btn_active');
-    $('button.active').removeClass('active').addClass('');
-    $('#All').trigger('click');
+
+    $('.hashtag.active').removeClass('active');
+    $('#modal_All').addClass('active');
+    $('#direct_All').addClass('active');
+
+    // $('#All').trigger('click');
+    selectedHashtag = ['전체'];
+    hashtags = ['전체'];
+    tempHashtags = ['전체'];
+    setContentContainer(hashtags);
 };
 
 let hashtags = []; // 해시태그를 저장하는 배열
+let selectedHashtag = ['전체'];
+
+//전체를 눌렀을때 다른 태그들의 색을 사라지게 하고, 또다시 개별 해시태그 누르면 전체해시태그 색이 사라지게끔
+$('.hashtag').click(function () {
+    $(this).toggleClass('active');
+    $('#direct_All').removeClass('active');
+});
 
 $('.hashtag').click(function () {
     let innerWidth = window.innerWidth;
-    const clickedHashtag = this.dataset.hashtag;
+    let clickedHashtag = this.dataset.hashtag;
+
     if (innerWidth <= '567') {
         //567이하일때 이벤트
         modalSelect(clickedHashtag);
@@ -78,58 +71,85 @@ function directSelect(clickedHashtag) {
 let tempHashtags = []; // 임시 해시태그 배열
 
 function modalSelect(clickedHashtag) {
-    // console.log('Clicked hashtag: ', clickedHashtag);
-    if (clickedHashtag === '전체') {
+    if (clickedHashtag === '전체' && !tempHashtags.includes(clickedHashtag)) {
+        $('.hashtag.active').removeClass('active');
+        $('#modal_All').addClass('active');
         tempHashtags = ['전체'];
+    } else if (clickedHashtag === '전체' && tempHashtags.includes(clickedHashtag)) {
+        $('#modal_All').removeClass('active');
+        tempHashtags.splice(tempHashtags.indexOf(clickedHashtag), 1);
     } else {
-        const index = tempHashtags.indexOf('전체');
-        if (index > -1) {
-            // '전체' 해시태그가 tempHashtags 배열에 존재하는 경우에 ,
-            tempHashtags.splice(index, 1); //배열에서 '전체' 해시태그를 제거
+        if ($('#modal_All').hasClass('active')) {
+            $('#modal_All').removeClass('active');
+            tempHashtags.splice('전체', 1);
         }
         if (tempHashtags.includes(clickedHashtag)) {
-            //클릭한 해시태그가 배열에 있는지 확인(includes는 T/F로 나오니까 포함되어 있으면 1이고, 아니면 -1)
-            const index = tempHashtags.indexOf(clickedHashtag);
-            tempHashtags.splice(index, 1); // 이미 tempHashtags 배열에 있는 경우 해당 해시태그를 제거하고, 그렇지 않은 경우 해당 해시태그를 배열에 추가
+            tempHashtags.splice(tempHashtags.indexOf(clickedHashtag), 1);
         } else {
             tempHashtags.push(clickedHashtag);
         }
     }
-
-    // console.log('Temp hashtags: ', tempHashtags);
-
-    // 확인 버튼 클릭 이벤트
-    $('.confirm')
-        .off('click')
-        .on('click', function () {
-            // '전체' 해시태그가 선택되지 않았을 때 다른 해시태그들을 hashtags 배열에 추가
-            if (tempHashtags.includes('전체')) {
-                hashtags = ['전체'];
-            } else {
-                hashtags = [...tempHashtags];
-            }
-
-            $('.content-container').removeClass('hide');
-            setContentContainer(hashtags);
-
-            // console.log('Hashtags: ', hashtags);
-            document.querySelector('.modal').style.display = 'none'; // 모달 닫기
-        });
-
-    //취소버튼 클릭 이벤트
-    $('.cancel')
-        .off('click')
-        .on('click', function () {
-            $('button.active').removeClass('active').addClass('');
-            document.querySelector('.modal').style.display = 'none';
-        });
-    //해시태그 선택 버튼을 누르면 active가 사라지게끔
-    $('.hashtag-btn-open-modal').on('click', function () {
-        $('button.active').removeClass('active').addClass('');
-        hashtags = [];
-        tempHashtags = [];
-    });
 }
+$('.confirm')
+    .off('click')
+    .on('click', function () {
+        console.log('확인');
+        selectedHashtag = [];
+
+        if (tempHashtags.length === 0) {
+            selectedHashtag = ['전체'];
+        }
+
+        for (let tag of tempHashtags) {
+            selectedHashtag.push(tag);
+        }
+
+        // '전체' 해시태그가 선택되지 않았을 때 다른 해시태그들을 hashtags 배열에 추가
+        if (tempHashtags.includes('전체')) {
+            hashtags = ['전체'];
+        } else {
+            hashtags = [...tempHashtags];
+        }
+
+        $('.content-container').removeClass('hide');
+        setContentContainer(hashtags);
+
+        // console.log('Hashtags: ', hashtags);
+
+        document.querySelector('.modal').style.display = 'none'; // 모달 닫기
+        let text = '';
+
+        for (let tag of selectedHashtag) {
+            text += `#${tag}   `;
+        }
+        $('.hashtag_list').text(text);
+        tempHashtags = [];
+
+        // console.log($('.hashtag_list', selectedHashtag));
+    });
+
+//취소버튼 클릭 이벤트
+$('.cancel')
+    .off('click')
+    .on('click', function () {
+        console.log('tempHashtags', tempHashtags);
+        console.log('selectedHashtag', selectedHashtag);
+        tempHashtags = [];
+        for (let i = 0; i < $('.hashtag-btn').children().length; i++) {
+            let attr = $('.hashtag-btn').children(`button:eq(${i})`).attr('data-hashtag');
+            if (selectedHashtag.includes(attr)) {
+                $('.hashtag-btn').children(`button:eq(${i})`).addClass('active');
+            } else {
+                $('.hashtag-btn').children(`button:eq(${i})`).removeClass('active');
+            }
+        }
+
+        // for(let tag of selectedHashtag){
+        //     if(selectedHashtag)
+        // }
+        // $('button.active').removeClass('active').addClass('');
+        document.querySelector('.modal').style.display = 'none';
+    });
 
 $('.btn_refresh').click(function () {
     refreshTag();
@@ -157,7 +177,9 @@ function setContentContainer(hashtags) {
     }
     const pageNumber = Math.ceil(contentCount / 6); //올림
     for (let i = 1; i <= pageNumber; i++) {
-        $('.page-numbering').append(`<button type='button' class='content-container-btn'>[${i}]  </button>`);
+        $('.page-numbering').append(
+            `<button type='button' class = 'content-container-btn' onclick="location.href='#'">[${i}]  </button>`
+        );
         $('.page-numbering').children().css({
             color: 'black',
             'background-color': '#f8f9fa',
@@ -181,7 +203,7 @@ function setContentContainer(hashtags) {
     $('.content-container-btn:first').trigger('click');
 
     createButtonEvent();
-    console.log(contentCount);
+    // console.log(contentCount);
 }
 
 function resetContent(pageNum, hashtags) {
@@ -227,6 +249,7 @@ function setTag(tags) {
 }
 function createButtonEvent() {
     $('.content-container-btn').on('click', function () {
+        console.log('good');
         window.scrollTo({ top: 0, behavior: 'smooth' }); //최상단으로 스크롤 옮기기
         $('.content-container').removeClass('hide');
         let number = $(this).text().replace('[', '');
@@ -278,6 +301,12 @@ const btnCloseModal = document.querySelector('.hashtag-btn-close-modal');
 
 btnOpenModal.addEventListener('click', () => {
     modal.style.display = 'flex';
+    //tempHashtags = selectedHashtag;
+    for (let tag of selectedHashtag) {
+        tempHashtags.push(tag);
+    }
+
+    console.log('modal open', selectedHashtag);
 });
 btnCloseModal.addEventListener('click', () => {
     modal.style.display = 'none';

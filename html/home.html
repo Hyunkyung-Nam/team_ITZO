@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>궁석궁석</title>
         <link rel="stylesheet" href="/css/home.css" />
+        <link rel="stylesheet" href="../css/header_footer.css" />
+        <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=722724134c7bd33a3711a12ebd2afb06"></script>
 
         <!-- <script type="module" src="/js/draw_map.js"></script> -->
         <script
@@ -24,13 +26,13 @@
     <body>
         <header>
             <div class="logo">
-                <div><a href="../html/home.html">궁석궁석</a></div>
+                <div><a href="../html/home.html" class="logo-click">궁석궁석</a></div>
             </div>
             <div class="nav">
-                <div><a href="/html/home.html">홈</a></div>
-                <div><a href="/html/theme_main.html">테마</a></div>
+                <div><a href="../html/home.html">홈</a></div>
+                <div><a href="../html/theme_main.html">테마별 추천</a></div>
                 <div><a href="../html/map_recommand.html">지역별 추천</a></div>
-                <div><a href="/html/random_recommand.html">랜덤추천</a></div>
+                <div><a href="../html/random_recommand.html">랜덤추천</a></div>
             </div>
         </header>
         <main>
@@ -45,10 +47,10 @@
                                 <br />
                                 <div class="text-box">
                                     <p class="text">
-                                        대한민국의 대표적인 궁궐 아름다움과 역사적 가치를 담고 있는 경복궁을 만나보세요.
+                                        아름다운 역사적 가치를 담고 있는 대한민국의 대표적인 궁궐 경복궁을 만나보세요.
                                     </p>
                                     <div class="center">
-                                        <div class="page-move">자세히 보기</div>
+                                        <div class="page-move">자세히 보기 +</div>
                                     </div>
                                 </div>
                             </div>
@@ -57,10 +59,10 @@
                                 <br />
                                 <div class="text-box">
                                     <p class="text">
-                                        도시 속 휴식처, 서울숲에서 자연과 함께하는 특별한 시간을 즐겨보세요.<br />
+                                        도시 속 휴식처,서울숲에서 자연과 함께하는 특별한 시간을 즐겨보세요.
                                     </p>
                                     <div class="center">
-                                        <div class="page-move">자세히 보기</div>
+                                        <div class="page-move">자세히 보기 +</div>
                                     </div>
 
                                     <div class="borde-bottom"></div>
@@ -71,10 +73,10 @@
                                 <br />
                                 <div class="text-box">
                                     <p class="text">
-                                        한바탕 시끄러움 속에서 찾아낸 평온함, 봉은사에서 진정한 여유를 만끽하세요.
+                                        한바탕 시끄러움 속에서 찾아낸 평온한 봉은사에서 진정한 여유를 만끽하세요.
                                     </p>
                                     <div class="center">
-                                        <div class="page-move">자세히 보기</div>
+                                        <div class="page-move">자세히 보기 +</div>
                                     </div>
                                 </div>
                             </div>
@@ -83,11 +85,11 @@
                                 <br />
                                 <div class="text-box">
                                     <p class="text">
-                                        한국의 역사와 문화를 한 자리에서 만나볼 수 있는 국립중앙박물관, 흥미진진한
+                                        한국의 역사와 문화를 한 자리에서 만나볼 수 있는 국립중앙박물관으로 흥미진진한
                                         여행을 떠나보세요.
                                     </p>
                                     <div class="center">
-                                        <p class="page-move">자세히 보기</p>
+                                        <p class="page-move">자세히 보기 +</p>
                                     </div>
 
                                     <div class="borde-bottom"></div>
@@ -97,10 +99,10 @@
                     </div>
                 </div>
                 <div class="right-section">
-                    <div class="main-slide active"><img src="../img/palace/gyeongbokgung.jpg" alt="" /></div>
-                    <div class="main-slide"><img src="../img/park/seoulforest.jpg" alt="" /></div>
-                    <div class="main-slide"><img src="../img/temple/bongeun_temple.jpg" alt="" /></div>
-                    <div class="main-slide"><img src="../img/museum/national_museum.jpg" alt="" /></div>
+                    <div class="main-slide active"><img src="../img/palace/gyeongbokgung.jpg" alt="경복궁" /></div>
+                    <div class="main-slide"><img src="../img/park/seoulforest.jpg" alt="서울숲공원" /></div>
+                    <div class="main-slide"><img src="../img/temple/bongeun_temple.jpg" alt="봉은사" /></div>
+                    <div class="main-slide"><img src="../img/museum/national_museum.jpg" alt="국립중앙박물관" /></div>
                 </div>
             </div>
             <div>
@@ -109,7 +111,8 @@
             <!-- 지도 -->
             <div class="map-section">
                 <div class="map-wrap">
-                    <div class="map-contant"></div>
+                    <div id="map"></div>
+                    <div class="map-cover"></div>
                 </div>
             </div>
             <!-- 테마 카드 -->
@@ -119,76 +122,68 @@
                     <div class="theme-slide-group" id="theme-slide-group1">
                         <div class="theme-slide" id="theme-slide1">
                             <a class="thenme-name">
-                                <img src="/img/park/yongma_falls_park.jpg" alt="용마폭포공원" />
+                                <img src="/img/park/yongma_falls_park.jpg" alt="용마폭포공원" id="slide1" />
                             </a>
                             <div class="card-text">
                                 <p class="desktop-text">
                                     도심 속 자연의 웅장함을 느낄 수 있는 힐링의 시간을 가져보세요
                                 </p>
-                                <p class="mobile-text">
-                                    도심 속 자연의 <br />
-                                    웅장함을 느껴보세요!
-                                </p>
+                                <p class="mobile-text">도심 속 자연의 웅장함을 느껴보세요!</p>
                             </div>
                         </div>
                         <div class="theme-slide" id="theme-slide2">
                             <a class="thenme-name">
-                                <img src="/img/palace/kyungheegung.jpg" alt="경희궁" />
+                                <img src="/img/palace/kyungheegung.jpg" alt="경희궁" id="slide2" />
                             </a>
                             <div class="card-text">
                                 <p class="desktop-text">
                                     한국의 아름다운 역사와 문화가 숨 쉬는,수채화 같은 조용한 풍경 속으로 초대합니다!
                                 </p>
-                                <p class="mobile-text">
-                                    한 편의 수채화 같은 조용한 <br />
-                                    풍경 속을 걸어보세요!
-                                </p>
+                                <p class="mobile-text">한 편의 수채화 같은 조용한 풍경 속을 걸어보세요!</p>
                             </div>
                         </div>
                         <div class="theme-slide" id="theme-slide3">
                             <a class="thenme-name">
-                                <img src="/img/historical_area/jeongneung.jpg" alt="정릉" />
+                                <img src="/img/historical_area/jeongneung.jpg" alt="정릉" id="slide3" />
                             </a>
                             <div class="card-text">
                                 <p class="desktop-text">
                                     고요한 숲과 아름다운 전통 건축물이 어우러진 정릉에서 조선의 흔적을 따라가 보세요
                                 </p>
-                                <p class="mobile-text">
-                                    전통이 있는 정릉에서 <br />
-                                    조선의 흔적을 따라가 보세요
-                                </p>
+                                <p class="mobile-text">전통이 있는 정릉에서 조선의 흔적을 따라가 보세요</p>
                             </div>
                         </div>
                     </div>
                     <div class="theme-slide-group" id="theme-slide-group2">
                         <div class="theme-slide" id="theme-slide4">
                             <a class="thenme-name">
-                                <img src="/img/temple/dalma_temple.jpg" alt="달마사" />
+                                <img src="/img/temple/dalma_temple.jpg" alt="달마사" id="slide4" />
                             </a>
                             <div class="card-text">
                                 <p class="desktop-text">
                                     "천년의 세월을 이어온 달마사 고요함이 담긴 시간여행을 즐겨보세요"
                                 </p>
-                                <p class="mobile-text">
-                                    천년의 고요함이 담긴 <br />
-                                    시간여행은 어떨까요?
-                                </p>
+                                <p class="mobile-text">천년의 고요함이 담긴 시간여행은 어떨까요?</p>
                             </div>
                         </div>
                         <div class="theme-slide" id="theme-slide5">
                             <a class="thenme-name">
-                                <img src="/img/museum/seodaemun_prison.jpg" alt="서대문형무소역사관" />
+                                <img src="/img/museum/seodaemun_prison.jpg" alt="서대문형무소역사관" id="slide5" />
                             </a>
                             <div class="card-text">
                                 <p class="desktop-text">
                                     "역사 속의 영웅들이 남긴 눈물과 희망의 흔적을 만날 수 있는 형무소역사관"
                                 </p>
-                                <p class="mobile-text">역사 속 영웅들의 <br />눈물과 희망을 느껴 보세요</p>
+                                <p class="mobile-text">역사 속 영웅들의 눈물과 희망을 느껴 보세요</p>
                             </div>
                         </div>
                         <div class="theme-slide" id="theme-slide6">
                             <a class="thenme-name">
-                                <img src="/img/historical_area/bukchon_hanok_village.jpg" alt="북촌한옥마을" />
+                                <img
+                                    src="/img/historical_area/bukchon_hanok_village.jpg"
+                                    alt="북촌한옥마을"
+                                    id="slide6"
+                                />
                             </a>
                             <div class="card-text">
                                 <p class="desktop-text">
@@ -202,26 +197,83 @@
                             </div>
                         </div>
                     </div>
-                    <div class="button-box">
-                        <div class="page-button">
-                            <span id="prev" class="material-symbols-outlined" onclick="changeSlide('prev')">
-                                arrow_left
-                            </span>
-                        </div>
-                        <div class="page-button">
-                            <span id="next" class="material-symbols-outlined" onclick="changeSlide('next')">
-                                arrow_right
-                            </span>
-                        </div>
-                    </div>
                 </div>
+                <div class="page-button page-button1" id="prev"></div>
+                <div class="page-button page-button2" id="next"></div>
             </div>
         </main>
-        <!-- footer -->
+        <footer>
+            <div class="footer_section1">
+                <span class="footLogo"> <span class="team">Team</span>ITZO </span>
+            </div>
+            <div class="footer_section2">
+                <div class="sel_member">
+                    <select name="관광정보 선택" id="relation2" required>
+                        <option value="" class="default" disabled selected>관광정보</option>
+                        <option value="https://knto.or.kr/index" title="새창">관광불편신고센터</option>
+                        <option
+                            value="https://korean1.visitkorea.or.kr/kor/tt/pr_gallery/new_photo_gallery/main/main_ssot.jsp"
+                            title="새창"
+                        >
+                            관광사진갤러리
+                        </option>
+                        <option value="https://www.templestay.com/" title="새창">템플스테이</option>
+                        <option value="https://api.visitkorea.or.kr/#/" title="새창">TourAPI4.0</option>
+                    </select>
 
+                    <button class="link_view" title="선택관광정보로 새창 열림" onclick="goRelation2()">이동</button>
+                </div>
+                <div class="sel_member">
+                    <select name="유관기관 선택" id="relation" required>
+                        <option value="" class="default" disabled selected>유관기관</option>
+                        <option value="http://www.mmca.go.kr" title="새창">국립현대미술관</option>
+                        <option value="http://www.seoulwelcome.com" title="새창">서울관광재단</option>
+                        <option value="https://www.museum.go.kr/site/main/home" title="새창">국립중앙박물관</option>
+                        <option value="https://www.mcst.go.kr/kor/main.jsp" title="새창">문화체육관광부</option>
+                        <option value="https://www.culture.go.kr/wday/index.do" title="새창">문화가 있는 날</option>
+                        <option value="http://mfis.mpva.go.kr/" title="새창">현충시설정보서비스</option>
+                        <option value="https://parks.seoul.go.kr/template/sub/naksan.do" title="새창">
+                            서울의 공원
+                        </option>
+                    </select>
+                    <button class="link_view" title="유관기관으로 새창 열림" onclick="goRelation()">이동</button>
+                </div>
+            </div>
+            <div class="footer_section3">
+                <div>
+                    <a href="https://api.visitkorea.or.kr/#/" target="_blank" title="새창">
+                        <img
+                            class="img1"
+                            src="https://korean.visitkorea.or.kr/resources/images/common/logo_foot_api.png?v=20230601001"
+                            alt="TourAPI 4.0"
+                        />
+                    </a>
+                </div>
+                <div>
+                    <a href="https://knto.or.kr/index" target="_blank" title="새창">
+                        <img
+                            class="img2"
+                            src="https://cdn.visitkorea.or.kr/resources/images/common/logo_foot_gg.png"
+                            alt="한국관광공사"
+                        />
+                    </a>
+                </div>
+                <div>
+                    <a href="https://korean.visitkorea.or.kr/main/main.do" target="_blank" title="새창">
+                        <img class="img3" src="../img/icon/logo-guseogguseog.jpeg" alt="대한민국구석구석" />
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <div class="go-to-top">
+            <a href="#" class="btn_top_move"></a>
+        </div>
+        <script src="../js/header_footer.js"></script>
         <script type="module" src="/js/content_object.js"></script>
         <script type="module" src="/js/theme_main.js"></script>
         <script type="module" src="/js/home.js"></script>
+        <script type="module" src="../js/draw_map_home.js"></script>
+        <script type="module" src="../js/latlng.js"></script>
         <script src="https://kit.fontawesome.com/86a207562f.js" crossorigin="anonymous"></script>
     </body>
 </html>
