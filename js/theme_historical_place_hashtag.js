@@ -317,26 +317,17 @@ btnOpenModal.addEventListener('click', () => {
     console.log('modal open', selectedHashtag);
 });
 btnCloseModal.addEventListener('click', () => {
-    modal.style.display = 'none';
+    console.log('tempHashtags', tempHashtags);
+    console.log('selectedHashtag', selectedHashtag);
+    tempHashtags = [];
+    for (let i = 0; i < $('.hashtag-btn').children().length; i++) {
+        let attr = $('.hashtag-btn').children(`button:eq(${i})`).attr('data-hashtag');
+        if (selectedHashtag.includes(attr)) {
+            $('.hashtag-btn').children(`button:eq(${i})`).addClass('active');
+        } else {
+            $('.hashtag-btn').children(`button:eq(${i})`).removeClass('active');
+        }
+    }
+
+    document.querySelector('.modal').style.display = 'none';
 });
-
-//해시태그 했을때 해당되는 장소 없습니다...나타나게 하는거
-
-// $('.hashtag').click(function () {
-//     let innerWidth = window.innerWidth;
-//     const clickedHashtag = this.dataset.hashtag;
-//     const messageDiv = document.getElementById('search-result-message');
-
-//     if (clickedHashtag.length === 0) {
-//         messageDiv.innerHTML = '해당되는 장소가 없습니다.';
-//     } else {
-//         messageDiv.innerHTML = '';
-//         if (innerWidth <= '576') {
-//             //576이하일때 이벤트
-//             modalSelect(clickedHashtag);
-//         } else {
-//             //576초과일때 이벤트
-//             directSelect(clickedHashtag);
-//         }
-//     }
-// });
