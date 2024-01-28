@@ -53,19 +53,18 @@ function directSelect(clickedHashtag) {
     } else {
         if (hashtags.includes('전체')) {
             const index = hashtags.indexOf('전체');
-            hashtags.splice(index, 1); // 눌려있는 '전체' 해시태그를 누르면 취소한다는 의미니까 해제
+            hashtags.splice(index, 1); // 눌려있는 '전체' 해시태그를 누르면 취소한다는 의미이므로 필요함
         }
         if (hashtags.includes(clickedHashtag)) {
             //선택한 해시태그가 그걸 담고있는 배열에 있는지 확인
             const index = hashtags.indexOf(clickedHashtag);
-            hashtags.splice(index, 1); // 이미 선택된 해시태그를 배열에서 제거, 선택된 해시태그를 누른다는건 취소한다는 의미이므로.
+            hashtags.splice(index, 1); // 이미 선택된 해시태그를 배열에서 제거 (선택된 해시태그를 누른다는건 취소한다는 의미)
         } else {
             hashtags.push(clickedHashtag); // 배열에 없는 새로 선택한 해시태그를 배열에 추가
         }
     }
     $('.content-container').removeClass('hide'); //업데이트 다 된후, 해당 클래스에 hide들을 제거해서 모든 컨텐츠가 보이게끔
     setContentContainer(hashtags);
-    console.log(hashtags); //배열안에 들어가서 중복되는거 나오게끔 만들어짐.
 }
 
 let tempHashtags = []; // 임시 해시태그 배열
