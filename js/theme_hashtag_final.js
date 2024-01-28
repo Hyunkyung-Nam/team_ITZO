@@ -131,8 +131,8 @@ $('.confirm')
 $('.cancel')
     .off('click')
     .on('click', function () {
-        console.log('tempHashtags', tempHashtags);
-        console.log('selectedHashtag', selectedHashtag);
+        // console.log('tempHashtags', tempHashtags);
+        // console.log('selectedHashtag', selectedHashtag);
         tempHashtags = [];
         for (let i = 0; i < $('.hashtag-btn').children().length; i++) {
             let attr = $('.hashtag-btn').children(`button:eq(${i})`).attr('data-hashtag');
@@ -142,11 +142,6 @@ $('.cancel')
                 $('.hashtag-btn').children(`button:eq(${i})`).removeClass('active');
             }
         }
-
-        // for(let tag of selectedHashtag){
-        //     if(selectedHashtag)
-        // }
-        // $('button.active').removeClass('active').addClass('');
         document.querySelector('.modal').style.display = 'none';
     });
 
